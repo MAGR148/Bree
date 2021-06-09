@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @invitation.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @invitation.email %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @invitation.city %>
+</p>
+
+<p>
+  <strong>Nutrition professional:</strong>
+  <%= @invitation.nutrition_professional %>
+</p>
+
+<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+<%= link_to 'Back', invitations_path %>
