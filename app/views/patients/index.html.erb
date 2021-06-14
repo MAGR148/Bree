@@ -1,33 +1,80 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Patients</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Avatar</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= patient.name %></td>
-        <td><%= patient.email %></td>
-        <td><%= patient.avatar %></td>
-        <td><%= patient.user_id %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Patient', new_patient_path %>
+<main class="flex-1 flex overflow-hidden">
+            <div class="flex-1 flex xl:overflow-hidden">
+            
+                <!-- Primary column -->
+            <section aria-labelledby="primary-heading" class="overflow-auto min-w-0 flex-1 h-full flex flex-col  lg:order-last">
+                <h1 id="primary-heading" class="sr-only">Account</h1>
+                <!-- Header -->
+                <div class="grid grid-cols-2 pt-0 pb-4 sticky top-0 bg-gray-100 h-16">
+                    <div>
+                        <h1 id="primary-heading" class="mx-8 mt-4 text-gray-600 text-xl font-bold">Pacientes</h1>
+                    </div>
+                    <div class="mt-3 mx-8 flex justify-end">
+                       <!--  <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            
+                            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
+                              </svg>
+                            Agregar paciente
+                          </button>-->
+                          <%= link_to new_patient_path, class: 'inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'  do %>
+                            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
+                              </svg>
+                            Agregar paciente
+                          <% end %>
+                          
+                    </div>
+                </div>
+                <!-- Patients grid -->
+                <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-12 mx-8">
+                  <% @patients.each do |patient| %>
+                    <li class="col-span-1 bg-white h-auto rounded-lg shadow divide-y divide-gray-200">
+                        <div class="w-full flex items-center justify-between p-6 space-x-6">
+                            <div class="flex-1 truncate">
+                            <div class="flex items-center space-x-3">
+                                <h3 class="text-gray-900 text-sm font-medium truncate"><%= patient.name %></h3>
+                                <span class="flex-shrink-0 inline-block px-2 py-0.5 text-yellow-800 text-xs font-medium bg-yellow-100 rounded-full">Plan +30 días</span>
+                            </div>
+                            <p class="mt-1 text-gray-500 text-sm truncate"><%= patient.email %></p>
+                            <p class="mt-1 text-gray-500 text-xs truncate">35 años</p>
+                            </div>
+                            <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                        </div>
+                        <div>
+                            <div class="-mt-px flex divide-x divide-gray-200">
+                            <div class="w-0 flex-1 flex">
+                                <a href="mailto:janecooper@example.com" class="-mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+                                <!-- Heroicon name: solid/mail -->
+                                <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
+                                  </svg>
+                                <span class="ml-3">Asignar plan</span>
+                                </a>
+                            </div>
+                            <div class="-ml-px w-0 flex-1 flex">
+                                <a href="tel:+1-202-555-0170" class=" w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
+                                <!-- Heroicon name: solid/phone -->
+                                <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                  </svg>
+                                <span class="ml-3">Ver expediente</span>
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                        </li>
+                    <% end %>
+                    
+            </section>
+    
+            <!-- Secondary column (hidden on smaller screens)
+            <aside class="hidden lg:block lg:flex-shrink-0 lg:order-first">
+                <div class="h-full relative flex flex-col w-96 border-r border-gray-200 bg-white">
+                 Your content 
+                </div>
+            </aside>-->
+            </div>
+        </main>
