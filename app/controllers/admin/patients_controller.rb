@@ -18,7 +18,7 @@ module Admin
     def create
       @patient = current_user.patients.new(patient_params)
       if @patient.save
-        redirect_to @patient, notice: "Patient was successfully created."
+        redirect_to admin_patients_path, notice: "Patient was successfully created."
       else
         render :new, status: :unprocessable_entity
       end
@@ -26,7 +26,7 @@ module Admin
     
     def update
       if @patient.update(patient_params)
-        redirect_to @patient, notice: "Patient was successfully updated."
+        redirect_to admin_patients_path, notice: "Patient was successfully updated."
       else
         render :edit, status: :unprocessable_entity
       end
