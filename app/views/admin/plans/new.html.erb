@@ -1,4 +1,12 @@
-<section aria-labelledby="primary-heading" class=" min-w-0 flex-1 h-full flex flex-col  lg:order-last overflow-y-auto">
+<section 
+    data-controller='harris'
+    data-harris-gender-value='<%= @patient.gender %>'
+    data-harris-weight-value='<%= @patient.weight %>'
+    data-harris-height-value='<%= @patient.height %>'
+    data-harris-age-value='<%= @patient.age %>'
+    aria-labelledby="primary-heading" 
+    class=" min-w-0 flex-1 h-full flex flex-col  lg:order-last overflow-y-auto"
+>
     <h1 id="primary-heading" class="sr-only">Account</h1>
     
     <div class="flex flex-col h-screen">
@@ -185,16 +193,22 @@
                             <dt class="text-sm font-medium text-gray-500">
                                 GER
                             </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-                                <%= calculate_harris(@patient) %>
+                            <dd 
+                                data-harris-target="ger"
+                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1"
+                            >
+                                --
                             </dd>
                             </div>
                             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
                                 ETA
                             </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-                                <%= calculate_harris_percentage(@patient) %>
+                            <dd 
+                                data-harris-target="eta"
+                                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1"
+                            >
+                                --
                             </dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
@@ -219,7 +233,10 @@
                     </div>
                 </div>
                 
-                <div class=" col-span-2">
+                <div 
+                    class=" col-span-2"
+                    data-controller="calories-selector"
+                >
                     <h1 class="text-2xl font-medium text-gray-600">Selecciona calorías del plan</h1>
 
                     <div class="mt-8  ">
@@ -229,172 +246,229 @@
                         Server size
                         </legend>
                         <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories'  
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                1,200 kcal
+                                1,200
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div 
+                                id="calories-label"
+                                class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none"
+                                aria-hidden="true"
+                            >
+                            </div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories'  
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                1,300 kcal
+                                1,300
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                1,400 kcal
+                                1,400
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div 
+                                id="calories-label"
+                                class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"
+                            ></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                1,500 kcal
+                                1,500
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                1,600 kcal
+                                1,600
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                1,700 kcal
+                                1,700
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                1,800 kcal
+                                1,800
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                1,900 kcal
+                                1,900
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                2,000 kcal
+                                2,000
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                2,100 kcal
+                                2,100
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                2,200 kcal
+                                2,200
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
 
-                        <label class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                        <label 
+                            data-calories-selector-target="option"
+                            data-action='click->calories-selector#setCalories' 
+                            class="relative block rounded-lg border border-indigo-50 bg-indigo-50  px-6 py-4 cursor-pointer hover:border-indigo-400 sm:flex sm:justify-center focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 "
+                        >
                             <input type="radio" name="server_size" value="Hobby" class="sr-only " aria-labelledby="server-size-0-label" aria-describedby="server-size-0-description-0 server-size-0-description-1">
                             <div class="flex items-center ">
                             <div class="text-xl ">
                                 <p id="server-size-0-label" class="font-semibold text-indigo-400">
-                                2,300 kcal
+                                2,300
                                 </p>
                             </div>
                             </div>
                             
                             <!-- Checked: "border-indigo-500", Not Checked: "border-transparent" -->
-                            <div class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            <div id="calories-label" class="border-transparent absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
                         </label>
                     
                         
@@ -406,12 +480,17 @@
                         <h1 class="text-2xl font-medium text-gray-600">O ingresa calorías del plan</h1>
                     </div>
 
-                    <div class="mt-4">
+                    <div 
+                        data-controller="calories-register"
+                        data-action="input->calories-register#writeCalories"
+                        class="mt-4"
+                    >
                         <div>
                             
                             <div class="mt-1 relative rounded-md shadow-sm">
                             
-                            <input type="text" name="kcal" id="kcal" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-14 pl-4 pr-12 sm:text-lg border-gray-300 rounded-md" placeholder="Ej. 1647" aria-describedby="price-currency">
+                            <input 
+                                data-calories-register-target="input" type="text" name="kcal" id="kcal" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-14 pl-4 pr-12 sm:text-lg border-gray-300 rounded-md" placeholder="Ej. 1647" aria-describedby="price-currency">
                             <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
                                 <span class="text-gray-400 sm:text-lg" id="price-currency">
                                 Kcal
@@ -423,8 +502,13 @@
                     </div>
 
                     <hr class="mt-8">
-                    <div class="mt-4 px-4 flex justify-end mb-24">
-                        <p class="text-lg text-indigo-500 font-extrabold ">00  
+                    <div
+                        data-controller='calories-indicator'
+                        data-action="selectedCalories@window->calories-indicator#indicate"
+                        class="mt-4 px-4 flex justify-end mb-24"
+                    >
+                        <p class="text-lg text-indigo-500 font-extrabold ">
+                            <span data-calories-indicator-target="label" ></span>  
                             <span class="text-sm text-indigo-400 font-semibold " > kcal / kg peso</span> 
                         </p>
                     </div>
