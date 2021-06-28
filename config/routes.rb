@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   
   namespace :admin do
     root to: 'dashboard#show'
-    resources :patients
+    resources :patients do
+      resources :plans
+    end
   end
 end

@@ -44,13 +44,14 @@
                       <div>
                         <div class="-mt-px flex divide-x divide-gray-200">
                           <div class="w-0 flex-1 flex">
-                            <a href="mailto:janecooper@example.com" class="-mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+                            <%= link_to new_admin_patient_plan_path(patient), class: '-mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500' do %>
                               <!-- Heroicon name: solid/mail -->
                               <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
                               </svg>
                               <span class="ml-3">Asignar plan</span>
-                            </a>
+                            <% end %>
+                            
                           </div>
                           <div class="-ml-px w-0 flex-1 flex">
                             <a href="tel:+1-202-555-0170" class=" w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">

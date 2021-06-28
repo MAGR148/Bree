@@ -41,8 +41,10 @@ module Admin
       def set_patient
         @patient = Patient.find(params[:id])
       end
+
       def patient_params
-        params.require(:patient).permit(:name, :email, :avatar, :user_id)
+        params.require(:patient).permit(:name, :email, :avatar, :user_id, :gender, :height, :physical_activity_factor, :weight, :age)
+          
       end
   end
 end
