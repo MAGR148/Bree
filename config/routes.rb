@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :patients do
       resources :plans
+      resources :macros
     end
   end
 end
