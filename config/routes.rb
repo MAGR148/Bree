@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :patients do
       resources :plans
+      
+      resources :calories
       resources :macros
+      resources :portions
     end
   end
 end

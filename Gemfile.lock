@@ -242,6 +242,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
+  turbo-rails
   turbolinks (~> 5)
   web-console (>= 4.1.0)
   webdrivers
