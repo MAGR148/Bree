@@ -30,14 +30,14 @@ export default class extends Controller {
   }
 
   paintExtraInformation() {
-    this.extraGramsTarget.innerHTML = this.calculateGrams();
+    this.extraGramsTarget.innerHTML = this.calculateGrams().toFixed(2);
     this.extraWeightTarget.innerHTML = this.weight
-    this.extraResultTarget.innerHTML = this.calculateGrams() / this.weight
+    this.extraResultTarget.innerHTML = (this.calculateGrams() / this.weight).toFixed(2)
   }
 
-  paintPercentage = _ => this.percentageTarget.value = this.percentage;
-  paintGrams = _ => this.gramsTarget.value = this.calculateGrams();
-  paintKcal = _ => this.kcalTarget.innerHTML = this.calculateCalories();
+  paintPercentage = _ => this.percentageTarget.value = this.percentage.toFixed(2);
+  paintGrams = _ => this.gramsTarget.value = this.calculateGrams().toFixed(2);
+  paintKcal = _ => this.kcalTarget.innerHTML = this.calculateCalories().toFixed(2);
 
   calculateGrams = _ => parseFloat(this.calculateCalories() / this.divider)
   calculateCalories = _ => parseFloat((this.calories / 100) * this.percentage)

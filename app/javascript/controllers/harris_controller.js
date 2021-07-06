@@ -21,7 +21,7 @@ export default class extends Controller {
   }
 
   result = _ => this.isMale ? this.man_calculation : this.woman_calculation
-  resultPercentage = _ => this.result() / 100 * 10
+  resultPercentage = _ => (this.result() / 100 * 10).toFixed(2)
   total_calories = _ => 1  
 
 
@@ -30,10 +30,10 @@ export default class extends Controller {
   }
 
   get man_calculation(){
-    return 66.473 + (13.752 * parseFloat(this.weightValue)) + (5.003 * parseFloat(this.heightValue)) - (6.775 * parseInt(this.ageValue))
+    return (66.473 + (13.752 * parseFloat(this.weightValue)) + (5.003 * parseFloat(this.heightValue)) - (6.775 * parseInt(this.ageValue))).toFixed(2)
   }
 
   get woman_calculation(){
-    return 655.096 + (9.563 * parseFloat(this.weightValue)) + (1.850 * parseFloat(this.heightValue)) - (4.676 * parseInt(this.ageValue))    
+    return (655.096 + (9.563 * parseFloat(this.weightValue)) + (1.850 * parseFloat(this.heightValue)) - (4.676 * parseInt(this.ageValue))).toFixed(2)
   }
 }
