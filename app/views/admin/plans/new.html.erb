@@ -93,9 +93,17 @@
                         </div>
                     </li>
                 
-                    <li class="relative md:flex-1 md:flex">
+                    <li 
+                        data-controller="plan-steps" 
+                        data-plan-steps-url-value="<%= edit_admin_patient_portion_path(id: @patient.id)%>"
+                        data-plan-steps-id-value="portions"
+                        class="relative md:flex-1 md:flex"
+                    >
                         <!-- Upcoming Step -->
-                        <a href="#" class="group flex items-center">
+                        <a 
+                            data-action="click->plan-steps#changeTab"
+                            class="group flex items-center"
+                        >
                         <span class="px-6 py-4 flex items-center text-sm font-medium">
                             <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-gray-300 rounded-full group-hover:border-gray-400">
                             <span class="text-gray-500 group-hover:text-gray-900">03</span>

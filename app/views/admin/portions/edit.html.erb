@@ -1,0 +1,666 @@
+<turbo-frame id="portions">
+  <div class="grid grid-cols-3 gap-6 mt-8 px-8 mb-24">
+
+        <div class="col-span-2"> <!-- Inicia sección porciones-->
+            
+            <div class="mt-2 ">
+                <h1 class="text-2xl font-medium text-gray-700">Ingresa porciones por grupo</h1>
+            </div>
+
+            <div class="flex flex-col mt-6 ">
+                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Grupo
+                            </th>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Porción
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            HCO
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Pro
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Líp
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Kcal
+                            </th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Odd row -->
+                        <tr class="bg-white">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Verduras
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+            
+                        <!-- Even row -->
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Frutas
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+            
+                        <!-- Odd row -->
+                        <tr class="bg-white">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Cereales S/G
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Even row -->
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Cereales C/G
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Odd row -->
+                        <tr class="bg-white">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Leguminosas
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Even row -->
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            AOA MBAG
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Odd row -->
+                        <tr class="bg-white">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            AOA BAG
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Even row -->
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            AOA MAG
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Odd row -->
+                        <tr class="bg-white">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            AOA AAG
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Even row -->
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Leche Des.
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Odd row -->
+                        <tr class="bg-white">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Leche Semi.
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Even row -->
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Leche Entera
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Odd row -->
+                        <tr class="bg-white">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Leche c/a
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Even row -->
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Grasas s/p
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Odd row -->
+                        <tr class="bg-white">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Grasas c/p
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Even row -->
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Azúcares s/g
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        <!-- Odd row -->
+                        <tr class="bg-white">
+                            <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
+                            Azúcares c/g
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-md text-gray-900">
+                                <input type="number" name="quantity" id="quantity" class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" placeholder="0">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            12 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            6
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            0 
+                            <span>gr</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            75 
+                            <span>kcal</span>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div> <!-- Termina sección porciones-->
+
+
+        <div class="col-span-1 pl-4 xl:pl-12 2xl:pl-16 "> <!-- Inicia sección lateral totales-->
+
+            <div class="flex justify-between mt-6 sticky top-5">
+                <h1 class="text-lg font-semibold text-gray-600 truncate">Dietocálculo</h1>
+                <div>
+                    <span class="mt-1 ml-4 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium  text-gray-600">
+                        1550
+                    <span>&nbsp kcal</span>    
+                    </span>
+                </div>
+            </div>
+            
+            <div class="mt-1 sticky top-16"> <!-- inicia card 1 dietocálculo -->
+
+                <div class="flex flex-col mt-4">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                            <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="w-1/3 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                HCO
+                                </th>
+                                <th scope="col" class="w-1/3 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Pro
+                                </th>
+                                <th scope="col" class="w-1/3 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Lip
+                                </th>
+                                
+                            </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                            
+                
+                            <!-- Even row -->
+                            <tr class="bg-gray-50">
+                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
+                                194 
+                                <span>gr</span>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
+                                98
+                                <span>gr</span>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
+                                43 
+                                <span>gr</span>
+                                </td>
+                            </tr>
+            
+                            <!-- Odd row -->
+                            <tr class="bg-gray-50">
+                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
+                                50 
+                                <span>%</span>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
+                                25
+                                <span>%</span>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
+                                25 
+                                <span>%</span>
+                                </td>
+                            </tr>
+    
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div> <!-- Termina card 1 dietocálculo -->
+
+            <div class="flex justify-between mt-6 sticky top-60">
+                <h1 class="text-lg font-semibold text-gray-600 truncate">Distribución actual</h1>
+                <div>
+                    <span class="mt-1 ml-4 truncate inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                        1600
+                    <span>&nbsp kcal</span>    
+                    </span>
+                </div>
+            </div>
+
+            <div class="mt-0 sticky top-72"> <!-- inicia card 2 dietocálculo -->
+
+                <div class="flex flex-col mt-4 ">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8 ">
+                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                            <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="w-1/3 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                HCO
+                                </th>
+                                <th scope="col" class="w-1/3 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Pro
+                                </th>
+                                <th scope="col" class="w-1/3 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Lip
+                                </th>
+                                
+                            </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                            
+                
+                            <!-- Even row -->
+                            <tr class="bg-white">
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        194
+                                        <span>&nbsp gr</span>
+                                    </span>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap ">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        98
+                                        <span>&nbsp gr</span>
+                                    </span>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap ">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                                        48
+                                        <span>&nbsp gr</span>
+                                    </span>
+                                </td>
+                            </tr>
+            
+                            <!-- Odd row -->
+                            <tr class="bg-white">
+                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-500">
+                                48.5 
+                                <span>%</span>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-500">
+                                24.5
+                                <span>%</span>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-500">
+                                27 
+                                <span>%</span>
+                                </td>
+                            </tr>
+    
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="mt-3 text-sm">
+                    <a href="#" class="font-medium  text-indigo-600 hover:text-indigo-500 flex justify-end"> 
+                        Actualizar 
+                        <span class="pl-2 mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-2 h-4 w-4 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </span>
+                    </a>
+                    <span class="text-xs text-gray-400 font-regular mt-1 flex justify-end ">Actualiza dietocálculo con distribución actual</span> 
+                    
+                </div>
+            </div> <!-- Termina card 2 dietocálculo -->
+
+            
+            
+              
+
+        </div> <!-- Termina sección lateral totales-->
+
+  </div>
+</turbo-frame>
