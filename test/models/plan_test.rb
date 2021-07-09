@@ -3,6 +3,7 @@
 # Table name: plans
 #
 #  id         :bigint           not null, primary key
+#  calories   :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  patient_id :bigint           not null
