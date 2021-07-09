@@ -368,6 +368,7 @@
           <div
               data-controller='calories-indicator'
               data-calories-indicator-weight-value="<%= @patient.weight %>"
+              data-calories-indicator-url-value="<%= admin_patient_plan_path(patient_id: @patient.id, id: @patient.plan.id) %>"
               data-action="selectedCalories@window->calories-indicator#indicate"
               class="mt-4 px-4 flex justify-end mb-24"
           >
