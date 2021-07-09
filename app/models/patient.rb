@@ -25,6 +25,7 @@
 #
 class Patient < ApplicationRecord
   belongs_to :user
+  has_one :plan
 
   def is_male?
     self.gender == 'male'    
