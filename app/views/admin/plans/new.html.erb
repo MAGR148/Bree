@@ -69,7 +69,7 @@
                 
                     <li 
                         data-controller="plan-steps" 
-                        data-plan-steps-url-value="<%= edit_admin_patient_macro_path(id: @patient.id)%>"
+                        data-plan-steps-url-value="<%= edit_admin_patient_macro_path(patient_id: @patient.id, id: @patient.plan.macronutrient.id)%>"
                         data-plan-steps-id-value="macros"
                         class="relative md:flex-1 md:flex"
                     >

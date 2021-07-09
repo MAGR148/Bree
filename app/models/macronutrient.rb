@@ -20,4 +20,8 @@
 #
 class Macronutrient < ApplicationRecord
   belongs_to :plan
+
+  serialize :carbohydrates, JsonbSerializer
+  serialize :lipids, JsonbSerializer
+  serialize :protein, JsonbSerializer
 end

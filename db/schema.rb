@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2021_07_09_032345) do
 
   create_table "macronutrients", force: :cascade do |t|
     t.bigint "plan_id", null: false
-    t.jsonb "carbohydrates", default: "{ percentage: 50 }", null: false
-    t.jsonb "protein", default: "{ percentage: 25 }", null: false
-    t.jsonb "lipids", default: "{ percentage: 25 }", null: false
+    t.jsonb "carbohydrates", default: {"percentage"=>50}, null: false
+    t.jsonb "protein", default: {"percentage"=>25}, null: false
+    t.jsonb "lipids", default: {"percentage"=>25}, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["plan_id"], name: "index_macronutrients_on_plan_id"
