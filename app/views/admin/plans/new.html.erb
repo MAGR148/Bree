@@ -95,7 +95,7 @@
                 
                     <li 
                         data-controller="plan-steps" 
-                        data-plan-steps-url-value="<%= edit_admin_patient_portion_path(id: @patient.id)%>"
+                        data-plan-steps-url-value="<%= edit_admin_patient_group_portion_path(patient_id: @patient.id, id: @patient.plan.group_portion.id)%>"
                         data-plan-steps-id-value="portions"
                         class="relative md:flex-1 md:flex"
                     >

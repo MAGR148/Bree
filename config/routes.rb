@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       
       resources :calories
       resources :macros
-      resources :portions
+      resources :group_portions
     end
   end
 end
