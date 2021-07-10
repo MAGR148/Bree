@@ -1,0 +1,19 @@
+es:
+  ale: Ale      
+  aoa_aag: AOA AAG
+  aoa_bag: AOA BAG 
+  aoa_mag: AOA MAG   
+  aoa_mbag: AOA MBAG 
+  cereals_c_g: Cereales C/G
+  cereals_s_g: Cereales S/G
+  fats_c_p: Grasas C/P
+  fats_s_p: Grasas S/P
+  fruit: Frutas
+  legumes: Leguminosas   
+  milk_c_a: Leche C/A
+  semi_milk: Leche Semi 
+  skim_milk: Leche Des
+  sugars_c_g: Azucares C/G
+  sugars_s_g: Azucares S/G
+  vegetables: Verduras
+  whole_milk: Leche Ent
