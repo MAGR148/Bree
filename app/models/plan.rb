@@ -19,10 +19,12 @@
 class Plan < ApplicationRecord
   belongs_to :patient
   has_one :macronutrient
+  has_one :group_portion
 
   after_create :create_associations
 
   def create_associations
     self.create_macronutrient
+    self.create_group_portion
   end
 end
