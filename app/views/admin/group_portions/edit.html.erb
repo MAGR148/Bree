@@ -134,15 +134,15 @@
                             <!-- Odd row -->
                             <tr class="bg-gray-50">
                                 <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
-                                50 
+                                <%= @group_portion.plan.macronutrient.carbohydrates[:percentage] %>
                                 <span>%</span>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
-                                25
+                                <%= @group_portion.plan.macronutrient.protein[:percentage] %>
                                 <span>%</span>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
-                                25 
+                                    <%= @group_portion.plan.macronutrient.lipids[:percentage] %>
                                 <span>%</span>
                                 </td>
                             </tr>
