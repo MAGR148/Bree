@@ -37,7 +37,14 @@
                         <tbody>
                         <!-- Odd row -->
                         <% @group_portion.attributes.except('id', 'plan_id', 'created_at', 'updated_at').each do |attribute, value| %>
-                            <tr class="bg-white">
+                            <tr 
+                                class="bg-white"
+                                data-controller="group-portion"
+                                data-group-portion-carbohydrates-value="<%= value[:carbohydrates] %>"
+                                data-group-portion-protein-value="<%= value[:protein] %>"
+                                data-group-portion-lipids-value="<%= value[:lipids] %>"
+                                data-group-portion-energy-value="<%= value[:energy] %>"
+                            >
                                 <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
                                 <%= t(attribute) %>
                                 </td>
@@ -46,26 +53,33 @@
                                         type="number" 
                                         name="quantity" 
                                         id="quantity" 
+                                        data-group-portion-target='quantity'
                                         class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-4 h-8 sm:text-md border border-gray-300 rounded-md" 
                                         placeholder="0"
+                                        min="0"
                                         value="<%= value[:quantity] %>"
                                     >
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
-                                    <%= value[:carbohydrates]%>
-                                <span>gr</span>
+                                <td 
+                                    data-group-portion-target='carbohydrates'
+                                    class="px-6 py-4 whitespace-nowrap text-md text-gray-500"
+                                >
+                                    
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
-                                    <%= value[:protein]%>
-                                <span>gr</span>
+                                <td 
+                                    class="px-6 py-4 whitespace-nowrap text-md text-gray-500"
+                                    data-group-portion-target='protein'
+                                >
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
-                                    <%= value[:lipids]%>
-                                <span>gr</span>
+                                <td 
+                                    class="px-6 py-4 whitespace-nowrap text-md text-gray-500"
+                                    data-group-portion-target='lipids'
+                                >
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
-                                    <%= value[:energy]%>
-                                <span>kcal</span>
+                                <td 
+                                    class="px-6 py-4 whitespace-nowrap text-md text-gray-500"
+                                    data-group-portion-target='energy'
+                                >
                                 </td>
                             </tr>
                         <% end %>
