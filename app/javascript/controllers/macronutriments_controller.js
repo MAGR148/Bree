@@ -20,6 +20,13 @@ export default class extends Controller {
 
   connect() {
     this.paintValues();
+    this.percentageTarget.addEventListener("change", (e) => this.change_percentage(parseFloat(e.target.value)))
+  }
+
+  change_percentage(percentage) {
+    // this.percentageTargetValue = percentage;
+    this.percentageValue = percentage;
+    this.paintValues();
   }
 
   paintValues() {
