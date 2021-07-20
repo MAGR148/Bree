@@ -5,7 +5,8 @@ export default class extends Controller {
     carbohydrates: Number,
     protein: Number,
     lipids: Number,
-    energy: Number
+    energy: Number,
+    key: String
   }
 
   static targets = [
@@ -29,11 +30,21 @@ export default class extends Controller {
   }
 
   multiply_groups(multiple) {
-    this.setGroupValues({
+    const groupValues = {
+      key: this.keyValue,
       carbohydrates: parseInt(this.carbohydratesValue) * multiple,
       protein: parseInt(this.proteinValue) * multiple,
       lipids: parseInt(this.lipidsValue) * multiple,
       energy: parseInt(this.energyValue) * multiple,
-    })
+    }
+
+    this.setGroupValues(groupValues)
+    this.launchGroupValuesEvent(groupValues)
+  }
+
+  launchGroupValuesEvent(groupValues){
+    window.dispatchEvent(new CustomEvent('groupPortions', {
+      detail: groupValues
+    }));
   }
 }

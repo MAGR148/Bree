@@ -7,8 +7,17 @@ export default class extends Controller {
   static targets = ['label'];
   
   async indicate(e){
-    this.labelTarget.innerHTML = this.calculateCalories(e.detail)
+    this.setLabel(e.detail)
     await this.updatePlan(e.detail);
+  }
+
+  indicateCalories(e){
+    alert('epale')
+    this.setLabel(e.detail)
+  }
+
+  setLabel(value){
+    this.labelTarget.innerHTML = this.calculateCalories(value)
   }
 
   async updatePlan(calories){

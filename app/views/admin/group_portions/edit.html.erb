@@ -1,6 +1,9 @@
 <turbo-frame id="portions">
-  <div class="grid grid-cols-3 gap-6 mt-8 px-8 mb-24">
-
+  <div 
+    class="grid grid-cols-3 gap-6 mt-8 px-8 mb-24"
+    data-controller="group-portion-indicator"
+    data-action="groupPortions@window->group-portion-indicator#receiveGroupPortions"
+    >
         <div class="col-span-2"> <!-- Inicia sección porciones-->
             
             <div class="mt-2 ">
@@ -44,6 +47,7 @@
                                 data-group-portion-protein-value="<%= value[:protein] %>"
                                 data-group-portion-lipids-value="<%= value[:lipids] %>"
                                 data-group-portion-energy-value="<%= value[:energy] %>"
+                                data-group-portion-key-value="<%= attribute %>"
                             >
                                 <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
                                 <%= t(attribute) %>

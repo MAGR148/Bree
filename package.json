@@ -10,7 +10,7 @@
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.0",
     "stimulus": "^2.0.0",
-    "tailwindcss": "^2.1.4",
+    "tailwindcss": "^2.2.4",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },

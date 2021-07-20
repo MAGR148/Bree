@@ -99,6 +99,7 @@
       <div 
           class=" col-span-2"
           data-controller="calories-selector"
+          data-calories-selector-calories-value="<%= @patient.plan.calories %>"
       >
           <h1 class="text-2xl font-medium text-gray-600">Selecciona calorías del plan</h1>
 
@@ -370,6 +371,7 @@
               data-calories-indicator-weight-value="<%= @patient.weight %>"
               data-calories-indicator-url-value="<%= admin_patient_plan_path(patient_id: @patient.id, id: @patient.plan.id) %>"
               data-action="selectedCalories@window->calories-indicator#indicate"
+              data-action="currentCalories@window->calories-indicator#indicateCalories"
               class="mt-4 px-4 flex justify-end mb-24"
           >
               <p class="text-lg text-indigo-500 font-extrabold ">
