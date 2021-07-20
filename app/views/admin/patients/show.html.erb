@@ -1,24 +1,49 @@
-<p id="notice"><%= notice %></p>
+<turbo-frame id="patient">
+<dl>
+  <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+  <dt class="text-sm font-medium text-gray-500">
+      Edad.
+  </dt>
+  <dd class="mt-1 text-sm flex text-gray-900 sm:mt-0 sm:col-span-2 justify-end">
+      <span class="flex-grow flex justify-center"><%= @patient.age %></span>
+  </dd>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @patient.name %>
-</p>
+  <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+  <dt class="text-sm font-medium text-gray-500">
+      Peso (kg)
+  </dt>
+  <dd class="mt-1 text-sm flex text-gray-900 sm:mt-0 sm:col-span-2 justify-end">
+      <span class="flex-grow flex justify-center"><%= @patient.weight %></span>
+  </dd>
+  </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @patient.email %>
-</p>
+  <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+  <dt class="text-sm font-medium text-gray-500">
+      Estatura (cm)
+  </dt>
+  <dd class="mt-1 text-sm flex text-gray-900 sm:mt-0 sm:col-span-2 justify-end">
+      <span class="flex-grow flex justify-center"><%= @patient.height %></span>
+  </dd>
+  </div>
 
-<p>
-  <strong>Avatar:</strong>
-  <%= @patient.avatar %>
-</p>
+  <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+  <dt class="text-sm font-medium text-gray-500">
+      Género
+  </dt>
+  <dd class="mt-1 text-sm flex text-gray-900 sm:mt-0 sm:col-span-2 justify-end">
+      <span class="flex-grow flex justify-center"><%= @patient.gender %></span>      
+  </dd>
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @patient.user_id %>
-</p>
+  <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+  <dt class="text-sm font-medium text-gray-500 ">
+      Factor Act. Fís.
+  </dt>
+  <dd class="mt-1 text-sm flex text-gray-900 sm:mt-0 sm:col-span-2 justify-end">
+      <span class="flex-grow flex justify-center"><%= @patient.physical_activity_factor %></span>
+  </dd>
+  </div>
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+</dl>
+</turbo-frame>
