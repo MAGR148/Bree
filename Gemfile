@@ -19,6 +19,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'annotate'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'

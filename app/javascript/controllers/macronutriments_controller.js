@@ -6,7 +6,9 @@ export default class extends Controller {
     calories: Number,
     percentage: Number,
     divider: Number,
-    weight: Number
+    weight: Number,
+    url: String,
+    type: String
   }
 
   static targets = [
@@ -27,6 +29,26 @@ export default class extends Controller {
     // this.percentageTargetValue = percentage;
     this.percentageValue = percentage;
     this.paintValues();
+    this.updateMacros(percentage)
+  }
+
+  async updateMacros(value){
+    let macronutrientValue = {}
+    macronutrientValue[`${this.typeValue}`] = {
+      percentage: value,
+      grams: this.calculateGrams().toFixed(2)
+    };
+
+    await fetch(this.urlValue, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': this.authenticityToken(),
+      },
+      body: JSON.stringify({
+        macronutrient: macronutrientValue 
+      })
+    });
   }
 
   paintValues() {
@@ -48,6 +70,8 @@ export default class extends Controller {
 
   calculateGrams = _ => parseFloat(this.calculateCalories() / this.divider)
   calculateCalories = _ => parseFloat((this.calories / 100) * this.percentage)
+  
+  authenticityToken = () => document.querySelector("meta[name='csrf-token']").getAttribute('content');
 
   get percentage(){
     return this.percentageValue
@@ -64,4 +88,5 @@ export default class extends Controller {
   get weight(){
     return this.weightValue
   }
+  
 }

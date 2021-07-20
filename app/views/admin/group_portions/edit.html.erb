@@ -136,15 +136,15 @@
                             <!-- Even row -->
                             <tr class="bg-gray-50">
                                 <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
-                                194 
+                                    <%= @group_portion.plan.macronutrient.carbohydrates[:grams] %>
                                 <span>gr</span>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
-                                98
+                                    <%= @group_portion.plan.macronutrient.protein[:grams] %>
                                 <span>gr</span>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap text-md text-gray-400">
-                                43 
+                                    <%= @group_portion.plan.macronutrient.lipids[:grams] %>
                                 <span>gr</span>
                                 </td>
                             </tr>

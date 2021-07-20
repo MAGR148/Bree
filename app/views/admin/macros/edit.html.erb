@@ -15,6 +15,8 @@
                     data-controller="macronutriments"
                     data-macronutriments-calories-value="<%= @patient.plan.calories %>"
                     data-macronutriments-percentage-value="<%= @macronutriment.carbohydrates[:percentage] %>"
+                    data-macronutriments-type-value="carbohydrates"
+                    data-macronutriments-url-value="<%= admin_patient_macro_path(patient_id: @patient.id, id: @macronutriment.id) %>"
                     data-macronutriments-divider-value="4"
                     data-macronutriments-weight-value="<%= @patient.weight %>"                   
                   >
@@ -104,6 +106,8 @@
                     data-controller="macronutriments"
                     data-macronutriments-calories-value="<%= @patient.plan.calories %>"
                     data-macronutriments-percentage-value="<%= @macronutriment.protein[:percentage] %>"
+                    data-macronutriments-type-value="protein"
+                    data-macronutriments-url-value="<%= admin_patient_macro_path(patient_id: @patient.id, id: @macronutriment.id) %>"
                     data-macronutriments-divider-value="4"
                     data-macronutriments-weight-value="<%= @patient.weight %>"              
                   >
@@ -193,6 +197,8 @@
                     data-controller="macronutriments"
                     data-macronutriments-calories-value="<%= @patient.plan.calories %>"
                     data-macronutriments-percentage-value="<%= @macronutriment.lipids[:percentage] %>"
+                    data-macronutriments-type-value="lipids"
+                    data-macronutriments-url-value="<%= admin_patient_macro_path(patient_id: @patient.id, id: @macronutriment.id) %>"
                     data-macronutriments-divider-value="9"
                     data-macronutriments-weight-value="<%= @patient.weight %>"                
                   >
