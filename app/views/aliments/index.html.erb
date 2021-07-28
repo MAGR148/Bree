@@ -1,0 +1,42 @@
+<table>
+  <thead>
+    <th>Grupo</th>
+    <th>Alimento</th>
+    <th>Cantidad sugerida</th>
+    <th>Unidad</th>
+    <th>Peso bruto redondeado (g)</th>
+    <th>Peso neto (g)</th>
+    <th>Energia (Kcal)</th>
+    <th>Proteina (g)</th>
+    <th>Lipidos (g)</th>
+    <th>Hidratos de carbono (g)</th>
+    <th>Colesterol (mg)</th>
+    <th>Vitamina A (µg RE)</th>
+    <th>Calcio (mg)</th>
+    <th>Hierro (mg)</th>
+    <th>Sodio (mg)</th>
+    <th>Selenio (µg)</th>
+  </thead>
+  <tbody>
+    <%- @aliments.each do |aliment| %>
+      <tr>
+        <td> <%= aliment.group_name %> </td>
+        <td> <%= aliment.name %> </td>
+        <td> <%= aliment.suggested_amount %> </td>
+        <td> <%= aliment.unit %> </td>
+        <td> <%= aliment.gross_weight %> </td>
+        <td> <%= aliment.net_weight %> </td>
+        <td> <%= aliment.energy %> </td>
+        <td> <%= aliment.protein %> </td>
+        <td> <%= aliment.lipids %> </td>
+        <td> <%= aliment.carbohydrates %> </td>
+        <td> <%= aliment.cholesterol %> </td>
+        <td> <%= aliment.vitamin_a %> </td>
+        <td> <%= aliment.calcium %> </td>
+        <td> <%= aliment.iron %> </td>
+        <td> <%= aliment.sodium %> </td>
+        <td> <%= aliment.selenium %> </td>
+      </tr>    
+    <% end %>
+  </tbody>
+</table>
