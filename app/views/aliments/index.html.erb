@@ -16,6 +16,10 @@
     <th>Hierro (mg)</th>
     <th>Sodio (mg)</th>
     <th>Selenio (µg)</th>
+    <th>Azúcares por equivalente (g)</th>
+    <th>Indica glucémico (g)</th>
+    <th>Carga glucémica</th>
+    <th>Etanol (g)</th>
   </thead>
   <tbody>
     <%- @aliments.each do |aliment| %>
@@ -36,6 +40,10 @@
         <td> <%= aliment.iron %> </td>
         <td> <%= aliment.sodium %> </td>
         <td> <%= aliment.selenium %> </td>
+        <td> <%= aliment.sugars_per_equivalent %></td>
+        <td> <%= aliment.glycemic_index %></td>
+        <td> <%= aliment.glycemic_load %></td>
+        <td> <%= aliment.ethanol %></td>
       </tr>    
     <% end %>
   </tbody>
