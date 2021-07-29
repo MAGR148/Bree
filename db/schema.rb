@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 2021_07_28_044515) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "group_portions", force: :cascade do |t|
     t.bigint "plan_id", null: false
     t.jsonb "vegetables", default: {"energy"=>25, "lipids"=>0, "protein"=>2, "quantity"=>0, "carbohydrates"=>4}, null: false
