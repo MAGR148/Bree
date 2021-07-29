@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_28_044515) do
+ActiveRecord::Schema.define(version: 2021_07_29_031418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 2021_07_28_044515) do
     t.decimal "selenium", default: "0.0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "sugars_per_equivalent", default: ""
+    t.string "glycemic_index", default: ""
+    t.string "glycemic_load", default: ""
   end
 
   create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
