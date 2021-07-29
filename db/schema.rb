@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_29_031418) do
+ActiveRecord::Schema.define(version: 2021_07_29_032630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_07_29_031418) do
     t.string "sugars_per_equivalent", default: ""
     t.string "glycemic_index", default: ""
     t.string "glycemic_load", default: ""
+    t.decimal "ethanol", default: "0.0"
   end
 
   create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|

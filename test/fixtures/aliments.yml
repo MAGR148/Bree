@@ -7,6 +7,7 @@
 #  carbohydrates         :decimal(, )      default(0.0)
 #  cholesterol           :decimal(, )      default(0.0)
 #  energy                :integer          default(0)
+#  ethanol               :decimal(, )      default(0.0)
 #  glycemic_index        :string           default("")
 #  glycemic_load         :string           default("")
 #  gross_weight          :integer          default(0)
