@@ -20,7 +20,7 @@
 #  selenium              :decimal(, )      default(0.0)
 #  sodium                :decimal(, )      default(0.0)
 #  sugars_per_equivalent :string           default("")
-#  suggested_amount      :integer          default(0)
+#  suggested_amount      :string           default("")
 #  unit                  :string           default("")
 #  vitamin_a             :decimal(, )      default(0.0)
 #  created_at            :datetime         not null
