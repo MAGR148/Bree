@@ -1,0 +1,28 @@
+es:
+  activerecord:
+    models:
+      aliment: Alimento
+    attributes:
+      aliment:
+        group_name: Grupo
+        name: Alimento
+        suggested_amount: Cantidad sugerida
+        unit: Unidad
+        gross_weight: Peso bruto redondeado (g)
+        net_weight: Peso neto (g)
+        energy: Energia (Kcal)
+        protein: Proteina (g)
+        lipids: Lipidos (g)
+        carbohydrates: Hidratos de carbono (g)
+        cholesterol: Colesterol (mg) 
+        vitamin_a: Vitamina A (µg RE) 
+        calcium: Calcio (mg)
+        iron: Hierro (mg)
+        sodium: Sodio (mg) 
+        selenium: Selenio (µg) 
+        sugars_per_equivalent: Azúcares por equivalente (g) 
+        glycemic_index: Indica glucémico (g)
+        glycemic_load: Carga glucémica 
+        ethanol: Etanol (g)
+        fiber: Fibra   
+        folic_acid: Acido Folico
