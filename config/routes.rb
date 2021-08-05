@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :invitations
   resources :aliments
+  resources :aliment_groups
   devise_for :users
   root to: 'home#index'
   

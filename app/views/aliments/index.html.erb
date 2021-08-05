@@ -1,50 +1,26 @@
-<table>
-  <thead>
-    <th>Grupo</th>
-    <th>Alimento</th>
-    <th>Cantidad sugerida</th>
-    <th>Unidad</th>
-    <th>Peso bruto redondeado (g)</th>
-    <th>Peso neto (g)</th>
-    <th>Energia (Kcal)</th>
-    <th>Proteina (g)</th>
-    <th>Lipidos (g)</th>
-    <th>Hidratos de carbono (g)</th>
-    <th>Colesterol (mg)</th>
-    <th>Vitamina A (µg RE)</th>
-    <th>Calcio (mg)</th>
-    <th>Hierro (mg)</th>
-    <th>Sodio (mg)</th>
-    <th>Selenio (µg)</th>
-    <th>Azúcares por equivalente (g)</th>
-    <th>Indica glucémico (g)</th>
-    <th>Carga glucémica</th>
-    <th>Etanol (g)</th>
-  </thead>
-  <tbody>
-    <%- @aliments.each do |aliment| %>
-      <tr>
-        <td> <%= aliment.group_name %> </td>
-        <td> <%= aliment.name %> </td>
-        <td> <%= aliment.suggested_amount %> </td>
-        <td> <%= aliment.unit %> </td>
-        <td> <%= aliment.gross_weight %> </td>
-        <td> <%= aliment.net_weight %> </td>
-        <td> <%= aliment.energy %> </td>
-        <td> <%= aliment.protein %> </td>
-        <td> <%= aliment.lipids %> </td>
-        <td> <%= aliment.carbohydrates %> </td>
-        <td> <%= aliment.cholesterol %> </td>
-        <td> <%= aliment.vitamin_a %> </td>
-        <td> <%= aliment.calcium %> </td>
-        <td> <%= aliment.iron %> </td>
-        <td> <%= aliment.sodium %> </td>
-        <td> <%= aliment.selenium %> </td>
-        <td> <%= aliment.sugars_per_equivalent %></td>
-        <td> <%= aliment.glycemic_index %></td>
-        <td> <%= aliment.glycemic_load %></td>
-        <td> <%= aliment.ethanol %></td>
-      </tr>    
-    <% end %>
-  </tbody>
-</table>
+<br><br>
+<h1>Alimentos</h1>
+<br><br>
+
+<div class="aliments" data-controller="aliments">
+  <select 
+    name="select" 
+    data-aliments-url-value="<%= aliment_groups_url %>"
+    data-action="change->aliments#setGroup"
+  >
+    <option>ALE</option>
+    <option>AOA AAG</option>
+    <option>AOA BAG</option>
+    <option>AOA MAG</option>
+    <option>AOA MBAG</option>
+    <option>AZUCAR C/G</option>
+    <option>AZUCAR S/G</option>
+    <option>BEBIDAS A</option>
+    <option>CEREAL C/G</option>
+    <option>CEREAL S/G</option>
+  </select>
+  <br><br>
+
+  <div class="results" data-aliments-target="results">
+  </div>
+</div>
