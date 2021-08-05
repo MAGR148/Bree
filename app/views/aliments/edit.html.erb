@@ -1,0 +1,99 @@
+Editar
+
+<%= form_for(@aliment) do |form| %>
+  <div class="field">
+    <%= form.label :group_name %>
+    <%= form.text_field :group_name %>
+  </div>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :suggested_amount %>
+    <%= form.text_field :suggested_amount %>
+  </div>
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.text_field :unit %>
+  </div>
+  <div class="field">
+    <%= form.label :gross_weight %>
+    <%= form.text_field :gross_weight %>
+  </div>
+  <div class="field">
+    <%= form.label :net_weight %>
+    <%= form.text_field :net_weight %>
+  </div>
+  <div class="field">
+    <%= form.label :energy %>
+    <%= form.text_field :energy %>
+  </div>
+  <div class="field">
+    <%= form.label :protein %>
+    <%= form.text_field :protein %>
+  </div>
+  <div class="field">
+    <%= form.label :lipids %>
+    <%= form.text_field :lipids %>
+  </div>
+  <div class="field">
+    <%= form.label :carbohydrates %>
+    <%= form.text_field :carbohydrates %>
+  </div>
+    <div class="field">
+    <%= form.label :cholesterol %>
+    <%= form.text_field :cholesterol %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :vitamin_a %>
+    <%= form.text_field :vitamin_a %>
+  </div>
+  <div class="field">
+    <%= form.label :calcium %>
+    <%= form.text_field :calcium %>
+  </div>
+  <div class="field">
+    <%= form.label :iron %>
+    <%= form.text_field :iron %>
+  </div>
+  <div class="field">
+    <%= form.label :sodium %>
+    <%= form.text_field :sodium %>
+  </div>
+  <div class="field">
+    <%= form.label :selenium %>
+    <%= form.text_field :selenium %>
+  </div>
+  <div class="field">
+    <%= form.label :sugars_per_equivalent %>
+    <%= form.text_field :sugars_per_equivalent %>
+  </div>
+  <div class="field">
+    <%= form.label :glycemic_index %>
+    <%= form.text_field :glycemic_index %>
+  </div>
+    <div class="field">
+    <%= form.label :glycemic_load %>
+    <%= form.text_field :glycemic_load %>
+  </div>
+  <div class="field">
+    <%= form.label :ethanol %>
+    <%= form.text_field :ethanol %>
+  </div>
+  <div class="field">
+    <%= form.label :fiber %>
+    <%= form.text_field :fiber %>
+  </div>
+  <div class="field">
+    <%= form.label :folic_acid %>
+    <%= form.text_field :folic_acid %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -20,6 +20,9 @@
     <th>Indica glucémico (g)</th>
     <th>Carga glucémica</th>
     <th>Etanol (g)</th>
+    <th>Opciones</th>
+    <th>Fibra</th>
+    <th>Acido Folico</th>
   </thead>
   <tbody>
     <%- @aliments.each do |aliment| %>
@@ -44,6 +47,9 @@
         <td> <%= aliment.glycemic_index %></td>
         <td> <%= aliment.glycemic_load %></td>
         <td> <%= aliment.ethanol %></td>
+        <td> <%= aliment.fiber %></td>
+        <td> <%= aliment.folic_acid %></td>
+        <td> <%= link_to('Editar', edit_aliment_path(id: aliment.id)) %> </td>
       </tr>    
     <% end %>
   </tbody>
