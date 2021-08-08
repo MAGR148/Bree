@@ -23,6 +23,9 @@
     <th>Opciones</th>
     <th>Fibra</th>
     <th>Acido Folico</th>
+    <th>AG Saturados (g)</th>
+    <th>AG Monoinsaturados (g)</th>
+    <th>AG Poliinsatuirados (g)</th>
   </thead>
   <tbody>
     <%- @aliments.each do |aliment| %>
@@ -49,6 +52,9 @@
         <td> <%= aliment.ethanol %></td>
         <td> <%= aliment.fiber %></td>
         <td> <%= aliment.folic_acid %></td>
+        <td> <%= aliment.satured_fatty_acids %></td>
+        <td> <%= aliment.monounsaturated_fatty_acids %></td>
+        <td> <%= aliment.polyunsaturated_fatty_acids %></td>
         <td> <%= link_to('Editar', edit_aliment_path(id: aliment.id)) %> </td>
       </tr>    
     <% end %>
