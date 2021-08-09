@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   
   namespace :admin do
     root to: 'dashboard#show'
+    
+    resources :recipes
+
     resources :patients do
       resources :plans
 
