@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     
     resources :recipes
+    resources :duplicate_recipes, only: :edit
 
     resources :patients do
       resources :plans
