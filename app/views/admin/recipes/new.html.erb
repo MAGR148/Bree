@@ -1,0 +1,518 @@
+
+<%= form_for(@recipe, url: admin_recipes_path) do |form| %>
+  <div class="flex justify-between"> 
+    <button type="button" class="bg-gray-100 hover:bg-white rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-2 my-2" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <%= form.submit('Guardar ', class: 'justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500')%>
+  </div> 
+
+  <div class="hidden sm:block" aria-hidden="true">
+    <div class="py-5">
+      <div class="border-t border-gray-200"></div>
+    </div>
+  </div>
+
+  <div class="mt-10 sm:mt-0">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-4 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Receta</h3>
+          <p class="mt-1 text-sm text-gray-600">
+              Información general de la receta.
+          </p>
+        </div>
+      </div>
+    
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="px-4 py-5 bg-white sm:p-6">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-6">
+              <%= form.label(:name, class: 'block text-sm  font-medium text-gray-700')%>
+              <%= form.text_field(:name, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
+            </div>
+            <div class="col-span-3 sm:col-span-3">
+              <%= form.label(:image, class: 'block text-sm  font-medium text-gray-700')%>
+              <%= form.text_field(:image, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
+            </div>
+            <div class="col-span-3 sm:col-span-3">
+              <%= form.label(:custom_id, class: 'block text-sm  font-medium text-gray-700')%>
+              <%= form.text_field(:custom_id, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
+            </div>
+            <div class="col-span-2">
+              <%= form.label(:recipe_type, class: 'block text-sm font-medium text-gray-700')%>
+              <%= form.select :recipe_type, options_for_select([['Gourmet'], ['Regular'],['Rápida']], @recipe.recipe_type), {:include_blank => "Elegir"}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'} %> 
+            </div>
+
+            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+              <%= form.label(:preparation_time, class: 'block text-sm  font-medium text-gray-700')%>
+              <%= form.text_field(:preparation_time, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md', type: :number)%>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+              <%= form.label(:cooking_time, class: 'block text-sm  font-medium text-gray-700')%>
+              <%= form.text_field(:cooking_time, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md', type: :number)%>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <div class=" overflow-hidden sm:rounded-md">
+            <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+              <fieldset>
+                <legend class="text-base font-medium text-gray-900">Tiempo de comida</legend>
+                  <div class="mt-4 grid grid-cols-3 gap-4">
+                    <%- ['Desayuno', 'Comida', 'Cena', 'Colación', 'Pre-workout', 'Post-workout'].each do | time |%>
+                      <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                          <%= check_box_tag("recipe[food_time][]", time, @recipe.food_time.include?(time), id: "recipe_food_time_#{time}", class: 'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded')%>
+                        </div>
+                        <div class="ml-3 text-sm">
+                          <label for="#{time}" class="font-medium text-gray-700"><%= time %></label>
+                        </div>
+                      </div>  
+                    <% end %>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <div class="hidden sm:block" aria-hidden="true">
+      <div class="py-5">
+      <div class="border-t border-gray-200"></div>
+      </div>
+  </div>
+
+  <div class="mt-10 sm:mt-0">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div class="md:col-span-1">
+              <div class="px-4 sm:px-0">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Ingredientes</h3>
+              <p class="mt-1 text-sm text-gray-600">
+                  Ingredientes, acompañamientos y complementos de la receta.
+              </p>
+              </div>
+          </div>
+          
+          <div class="mt-5 md:mt-0 md:col-span-2"> 
+              
+              <div class="flex justify-end">
+                  <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-indigo-600  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                  Agregar Ingrediente
+                  </button>
+              </div>
+              
+              <div class="flex flex-col mt-3">
+                  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                      <table class="min-w-full divide-y divide-gray-200">
+                          <thead class="bg-gray-50">
+                          <tr>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Ingrediente
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Grupo
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Unidad
+                              </th>
+                              <th scope="col" class="relative px-6 py-3">
+                              <span class="sr-only">Eliminar</span>
+                              </th>
+                          </tr>
+                          </thead>
+                          <tbody class="bg-white divide-y divide-gray-200">
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              <div>
+                                  <label for="ingrediente" class="sr-only">Ingrediente</label>
+                                  <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa ingrediente">
+                              </div>
+
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              AOA MBAG
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              Pieza
+                              </td>
+                              <td class="pl-4 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              <div>
+                                  <label for="ingrediente" class="sr-only">Ingrediente</label>
+                                  <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa ingrediente">
+                              </div>
+
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              GRASA S/P
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              Pieza
+                              </td>
+                              <td class="pl-4 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              <div>
+                                  <label for="ingrediente" class="sr-only">Ingrediente</label>
+                                  <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa ingrediente">
+                              </div>
+
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              AOA MBAG
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              Pieza
+                              </td>
+                              <td class="pl-4 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          
+              
+                          <!-- Más ingredientes... -->
+                          </tbody>
+                      </table>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+
+
+
+              <div class="flex justify-end mt-6">
+                  <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-indigo-600  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                  Agregar Condimento
+                  </button>
+              </div>
+              
+              <div class="flex flex-col mt-3">
+                  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                      <table class="min-w-full divide-y divide-gray-200">
+                          <thead class="bg-gray-50">
+                          <tr>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Condimento / Alimento libre
+                              </th>
+                              
+                              <th scope="col" class="relative px-6 py-3">
+                              <span class="sr-only">Eliminar</span>
+                              </th>
+                          </tr>
+                          </thead>
+                          <tbody class="bg-white divide-y divide-gray-200">
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                  <div>
+                                      <label for="complemento" class="sr-only">Complemento</label>
+                                      <input type="text" name="complemento" id="complemento" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa cantidad y descripción">
+                                  </div>
+
+                              </td>
+                              
+                              <td class="pl-4 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                  <div>
+                                      <label for="complemento" class="sr-only">Complemento</label>
+                                      <input type="text" name="complemento" id="complemento" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa cantidad y descripción">
+                                  </div>
+
+                              </td>
+                              
+                              <td class="pl-4 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+                          <!-- Más complementos... -->
+                          </tbody>
+                      </table>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+
+
+              <div class="flex justify-end mt-6">
+                  <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-indigo-600  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                  Agregar Acompañamiento
+                  </button>
+              </div>
+              
+              <div class="flex flex-col mt-3">
+                  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                      <table class="min-w-full divide-y divide-gray-200">
+                          <thead class="bg-gray-50">
+                          <tr>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                  Acompañamiento
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Grupo
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Unidad
+                              </th>
+                              <th scope="col" class="relative px-6 py-3">
+                              <span class="sr-only">Eliminar</span>
+                              </th>
+                          </tr>
+                          </thead>
+                          <tbody class="bg-white divide-y divide-gray-200">
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              <div>
+                                  <label for="ingrediente" class="sr-only">acompañamiento</label>
+                                  <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa acompañamiento">
+                              </div>
+
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              AOA MBAG
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              Pieza
+                              </td>
+                              <td class="pl-4 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              <div>
+                                  <label for="ingrediente" class="sr-only">acompañamiento</label>
+                                  <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa acompañamiento">
+                              </div>
+
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              GRASA S/P
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              Pieza
+                              </td>
+                              <td class="pl-4 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              <div>
+                                  <label for="ingrediente" class="sr-only">acompañamiento</label>
+                                  <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa acompañamiento">
+                              </div>
+
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              AOA MBAG
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              Pieza
+                              </td>
+                              <td class="pl-4 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          
+              
+                          <!-- Más ingredientes... -->
+                          </tbody>
+                      </table>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+
+          </div> 
+      </div>
+  </div>
+
+  <div class="hidden sm:block" aria-hidden="true">
+      <div class="py-5">
+      <div class="border-t border-gray-200"></div>
+      </div>
+  </div>
+
+  <div class="mt-10 sm:mt-0">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div class="md:col-span-1">
+              <div class="px-4 sm:px-0">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Modo de preparación</h3>
+              <p class="mt-1 text-sm text-gray-600">
+                  Pasos y modo de preparación.
+              </p>
+              </div>
+          </div>
+          
+          <div class="mt-5 md:mt-0 md:col-span-2"> 
+              
+              <div class="flex justify-end">
+                  <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-indigo-600  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                  Agregar paso
+                  </button>
+              </div>
+              
+              <div class="flex flex-col mt-3">
+                  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                      <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                          <thead class="bg-gray-50">
+                          <tr>
+                              <th scope="col" class="w-1/8 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Paso
+                              </th>
+                              <th scope="col" class="w-3/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Descripción
+                              </th>
+                              <th scope="col" class="w-1/8 relative px-6 py-3">
+                              <span class="sr-only">Eliminar</span>
+                              </th>
+                          </tr>
+                          </thead>
+                          <tbody class="bg-white divide-y divide-gray-200">
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              01.
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              <div>
+                                  <label for="ingrediente" class="sr-only">Paso</label>
+                                  <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa paso">
+                              </div>
+                              <td class="pl-2 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium ">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              02.
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              <div>
+                                  <label for="ingrediente" class="sr-only">Paso</label>
+                                  <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa paso">
+                              </div>
+                              <td class="pl-2 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium ">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              03.
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              <div>
+                                  <label for="ingrediente" class="sr-only">Paso</label>
+                                  <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa paso">
+                              </div>
+                              <td class="pl-2 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium ">
+                              <a href="#" class="text-red-600 hover:text-red-900">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                              </a>
+                              </td>
+                          </tr>
+
+                          
+
+                          
+              
+                          <!-- Más ingredientes... -->
+                          </tbody>
+                      </table>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          </div> 
+      </div>
+  </div>
+<% end %>

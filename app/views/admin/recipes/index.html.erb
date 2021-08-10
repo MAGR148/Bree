@@ -1,0 +1,93 @@
+
+<main class="flex-1 flex overflow-hidden">
+    <div class="flex-1 flex xl:overflow-hidden">
+    
+        <!-- Primary column -->
+    <section aria-labelledby="primary-heading" class="overflow-auto min-w-0 flex-1 h-full flex flex-col  lg:order-last">
+        <h1 id="primary-heading" class="sr-only">Account</h1>
+        
+        <!-- Breadcrumb 
+        <nav class="flex" aria-label="Breadcrumb">   
+            <ol class="flex items-center space-x-4 mx-8 mt-10">
+            <li>
+                <div>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    
+                    <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                    </svg>
+                    <span class="sr-only">Home</span>
+                </a>
+                </div>
+            </li>
+        
+            <li>
+                <div class="flex items-center">
+                
+                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+                <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Pacientes</a>
+                </div>
+            </li>
+            </ol>
+        </nav>-->
+        
+
+        <!-- Header -->
+        <div class="grid grid-cols-2 pt-0 pb-4 sticky top-0 bg-gray-100 h-16">
+            <div>
+                <h1 id="primary-heading" class="mx-8 mt-4 text-gray-600 text-xl font-bold">Recetas</h1>
+            </div>
+            <div class="mt-3 mx-8 flex justify-end">
+              <%= link_to(new_admin_recipe_path ,class: 'inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500') do %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Agregar receta
+              <% end %>
+            </div>
+        </div>
+        
+      
+        
+      <div class="grid grid-cols-3 mt-8 px-8 gap-6">
+        <%- @recipes.each do | recipe | %>          
+          <div class="col-span-1 shadow-sm rounded-md bg-white w-full h-auto grid grid-cols-3"> <!-- Card receta 1 -->
+            <div class="col-span-1 object object-cover p-4">
+                <img class="h-20 w-full rounded-md" src="/Users/alex/Documents/Alex2020/Curso_TailWind/web_tailwind/icons/omelette.jpg" alt="">
+            </div>
+
+            <div class="col-span-2 py-4">
+            <h1 class="text-gray-500 font-medium text-md pb-2 pl-2 pr-4"><%= recipe.name %></h1>
+            <hr class="pt-2 ml-2 mr-4">
+            <div class="pt-2 flex justify-end items-center text-gray-400">
+            <%= link_to admin_recipe_path(id: recipe.id) do %>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            <% end %>
+              <a href="">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4 hover:text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+              </a>
+              <a href="">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4 hover:text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+              </a>
+              <a href="">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4 mr-5 hover:text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+              </a>
+              </div>
+            </div>
+        </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</main>

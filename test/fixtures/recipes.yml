@@ -3,13 +3,13 @@
 # Table name: recipes
 #
 #  id               :bigint           not null, primary key
-#  cooking_time     :string
-#  food_time        :string           is an Array
+#  cooking_time     :integer
+#  food_time        :string           default([]), is an Array
 #  image            :string
 #  name             :string
-#  preparation_mode :string           is an Array
-#  preparation_time :string
-#  type             :string
+#  preparation_mode :string           default([]), is an Array
+#  preparation_time :integer
+#  recipe_type      :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  custom_id        :string

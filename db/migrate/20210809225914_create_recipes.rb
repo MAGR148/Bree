@@ -4,11 +4,11 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :image
       t.string :custom_id
-      t.string :type
-      t.string :preparation_time
-      t.string :cooking_time
-      t.string :food_time, array: true
-      t.string :preparation_mode, array: true
+      t.string :recipe_type
+      t.integer :preparation_time
+      t.integer :cooking_time
+      t.string :food_time, array: true, default: []
+      t.string :preparation_mode, array: true, default: []
 
       t.timestamps
     end

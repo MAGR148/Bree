@@ -119,11 +119,11 @@ ActiveRecord::Schema.define(version: 2021_08_09_225914) do
     t.string "name"
     t.string "image"
     t.string "custom_id"
-    t.string "type"
-    t.string "preparation_time"
-    t.string "cooking_time"
-    t.string "food_time", array: true
-    t.string "preparation_mode", array: true
+    t.string "recipe_type"
+    t.integer "preparation_time"
+    t.integer "cooking_time"
+    t.string "food_time", default: [], array: true
+    t.string "preparation_mode", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["food_time"], name: "index_recipes_on_food_time", using: :gin

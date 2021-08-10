@@ -1,0 +1,12 @@
+es:
+  activerecord:
+    models:
+      recipe: Receta
+    attributes:
+      recipe:
+        name: Nombre de la receta
+        image: Imagen de la receta (URL)
+        custom_id: ID de la receta
+        preparation_time: Tiempo de preparación
+        cooking_time: Tiempo de cocción
+        type: Tipo de receta
