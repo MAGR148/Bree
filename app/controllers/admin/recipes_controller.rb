@@ -1,6 +1,6 @@
 module Admin
   class RecipesController < BaseController
-    before_action :set_recipe, only: %i[ show edit update ]
+    before_action :set_recipe, only: %i[ show edit update destroy ]
 
     layout 'recipes'
 
@@ -32,6 +32,11 @@ module Admin
       else
         render :edit, status: :unprocessable_entity
       end
+    end
+
+    def destroy
+      @recipe.destroy
+      redirect_to admin_recipes_path, notice: 'Receta eliminada correctamente'
     end
 
     private
