@@ -1,5 +1,7 @@
 module Admin
   class RecipesController < BaseController
+    before_action :set_recipe, only: %i[ show edit update ]
+
     layout 'recipes'
 
     def index
@@ -7,9 +9,7 @@ module Admin
       render layout: 'admin'
     end
 
-    def show
-      @recipe = Recipe.find(params[:id])
-    end
+    def show; end
 
     def new
       @recipe = Recipe.new
@@ -24,7 +24,21 @@ module Admin
       end
     end
 
+    def edit; end
+
+    def update
+      if @recipe.update(recipe_params)
+        redirect_to admin_recipe_url(id: @recipe.id), notice: 'Receta actualizada satisfactoriamente'
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
+
     private
+
+    def set_recipe
+      @recipe = Recipe.find(params[:id])
+    end
 
     def recipe_params
       params.require(:recipe).permit(:name, :image, :custom_id, :preparation_time, :cooking_time, :recipe_type, food_time: [])
