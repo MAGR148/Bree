@@ -26,3 +26,6 @@ es:
         ethanol: Etanol (g)
         fiber: Fibra   
         folic_acid: Acido Folico
+        satured_fatty_acids: AG Saturados (g)
+        monounsaturated_fatty_acids: AG Monoinsaturados (g)
+        polyunsaturated_fatty_acids: AG Poliinsatuirados (g)
