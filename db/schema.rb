@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_225914) do
+ActiveRecord::Schema.define(version: 2021_08_18_052137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_225914) do
     t.string "preparation_mode", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ingredients"
     t.index ["food_time"], name: "index_recipes_on_food_time", using: :gin
     t.index ["preparation_mode"], name: "index_recipes_on_preparation_mode", using: :gin
   end

@@ -41,20 +41,32 @@ export default class extends Controller {
     }
 
     renderStudies = (value, saved = false) => {
-      console.log(value)
-      const div = document.createElement('div');
-      div.setAttribute('id', value);
-      div.classList.add('ml-1', 'mt-3', 'is-flex', 'is-align-items-center');
-      div.innerHTML = `
-            <button type="button" class="delete-button" 
-                data-action="${saved || 'click->autocomplete-crud#deleteSelectedElement'}" value="${value}">
-                ${saved ? this.checkValue : this.deleteValue}
-            </button>
-            <span class="ml-2 has-text-weight-bold has-text-primary">${value}</span>`;
+      const tr = document.createElement('tr');
+      tr.setAttribute('id', value);
+      tr.classList.add('ml-1', 'mt-3', 'is-flex', 'is-align-items-center');
+      tr.innerHTML = `
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+          ${value}
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+          AOA MBAG
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+          Pieza
+        </td>
+        <td class="pl-4 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium">
+          <a
+            class="text-red-600 hover:text-red-900"
+            data-action="${saved || 'click->autocomplete-crud#deleteSelectedElement'}" value="${value}">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+          </a>
+        </td>`;
 
-      this.selectedValuesTarget.appendChild(div);
+      this.selectedValuesTarget.appendChild(tr);
     }
-
+    
     saveArray = (value) => {
       const studies = this.crudInputTarget.value || '';
 

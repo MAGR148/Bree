@@ -6,6 +6,7 @@
 #  cooking_time     :integer
 #  food_time        :string           default([]), is an Array
 #  image            :string
+#  ingredients      :string
 #  name             :string
 #  preparation_mode :string           default([]), is an Array
 #  preparation_time :integer
