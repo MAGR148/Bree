@@ -32,4 +32,9 @@
 #  updated_at                  :datetime         not null
 #
 class Aliment < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :full_search,
+    against: :name
+    
 end

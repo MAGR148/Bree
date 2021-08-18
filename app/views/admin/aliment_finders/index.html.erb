@@ -1,0 +1,10 @@
+<% @aliments.each do |aliment|%>
+  <li 
+    class="text-gray-900 cursor-default select-none relative py-2 pl-8 pr-4" id="listbox-option-0" role="option"
+    data-autocomplete-value="<%= aliment.id%>"
+  >
+    <span class="font-normal block truncate">
+      <%= aliment.name.titleize %>
+    </span>
+  </li>
+<% end %>
