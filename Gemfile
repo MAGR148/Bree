@@ -6,6 +6,7 @@ ruby '3.0.1'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'data_migrate'
 gem 'devise'
+gem 'honeybadger'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
 gem 'pg_search'
@@ -21,10 +22,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
+  gem 'dotenv-rails'
+  gem 'listen', '~> 3.3'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'annotate'
-  gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
