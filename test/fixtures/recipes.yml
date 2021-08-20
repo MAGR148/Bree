@@ -11,6 +11,7 @@
 #  preparation_mode :string           default([]), is an Array
 #  preparation_time :integer
 #  recipe_type      :string
+#  steps            :jsonb
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  custom_id        :string
