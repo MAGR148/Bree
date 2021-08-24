@@ -6,13 +6,12 @@ export default class extends Controller {
 
   static targets = ['label'];
   
-  async indicate(e){
+  indicate(e){
     this.setLabel(e.detail)
-    await this.updatePlan(e.detail);
+    this.updatePlan(e.detail);
   }
 
   indicateCalories(e){
-    alert('epale')
     this.setLabel(e.detail)
   }
 
@@ -20,7 +19,7 @@ export default class extends Controller {
     this.labelTarget.innerHTML = this.calculateCalories(value)
   }
 
-  async updatePlan(calories){
+  updatePlan(calories){
     await fetch(this.urlValue, {
       method: 'PUT',
       headers: {
