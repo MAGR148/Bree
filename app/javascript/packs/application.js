@@ -10,8 +10,6 @@ import "@hotwired/turbo-rails"
 
 // import * as ActiveStorage from "@rails/activestorage"
 // import "channels"
-// import "../stylesheets/application"
 import '../stylesheets/application.scss'
 import "controllers"
 Rails.start()
-// // ActiveStorage.start()
