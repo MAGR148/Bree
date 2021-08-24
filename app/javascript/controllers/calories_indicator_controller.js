@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
   updatePlan(calories){
-    await fetch(this.urlValue, {
+    fetch(this.urlValue, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
