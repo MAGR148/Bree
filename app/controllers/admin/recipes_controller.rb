@@ -46,7 +46,7 @@ module Admin
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, :image, :custom_id, :preparation_time, :cooking_time, :recipe_type, :ingredients, food_time: [])
+      params.require(:recipe).permit(:name, :image, :custom_id, :preparation_time, :cooking_time, :recipe_type, :ingredients, :steps, food_time: [])
     end
   end
 end

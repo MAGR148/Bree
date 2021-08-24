@@ -194,30 +194,16 @@
                             </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                01.
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                Agrega el huevo a un plato y prepara felizmente
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                02.
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                Agrega el huevo a un plato y prepara felizmente
-                                </td>
-                            </tr>
-
-                            
-
-                            
-
-                            
-                
-                            <!-- Más ingredientes... -->
+                            <%- @recipe.steps.each_with_index do |step, index| %>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <%= index + 1 %>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <%= step %>
+                                    </td>
+                                </tr>
+                            <% end %>
                             </tbody>
                         </table>
                         </div>

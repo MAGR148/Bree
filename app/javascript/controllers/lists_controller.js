@@ -1,7 +1,13 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  static targets = ['inputs', 'deleteButtons', 'elementsContainer'];
+  static targets = [
+    'deleteButtons', 
+    'elementsContainer',
+    'inputs', 
+    'steps',
+    'form'
+  ];
 
   static values = { elements: Array }
 
@@ -9,18 +15,40 @@ export default class extends Controller {
     this.displayElements()
   }
 
-  addInputField(){
+  send(e){
+    e.preventDefault();
+    let steps = this.getSteps();
+    this.stepsTarget.value = `{${[...steps]}}`;
+
+    this.formTarget.submit();
+  }
+
+  getSteps(){
+    let inputs = new Array();
+
+    this.inputsTargets.forEach((element) => {
+      inputs.push(element.value)
+    });
+
+    return [...inputs]
+  }
+
+  addInputField(ev, newValue = false){
     const customID = Date.now();
     const tr = document.createElement('tr')
     tr.setAttribute('id', customID);
     tr.innerHTML = `
-      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        01.
-      </td>
       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
         <div>
             <label for="ingrediente" class="sr-only">Paso</label>
-            <input type="text" name="ingrediente" id="ingrediente" class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa paso">
+            <input 
+              data-lists-target="inputs"
+              type="text" 
+              name="ingrediente" 
+              id="ingrediente" 
+              value="${newValue ? ev : '' }"
+              class="border pl-3 h-9 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa paso"
+            >
         </div>
       </td>
       <td class="pl-2 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium ">
@@ -49,7 +77,9 @@ export default class extends Controller {
 
   displayElements(){
     if(this.elementsValue.length > 0) {
-
+      this.elementsValue.forEach(element => 
+        setTimeout(() => {  this.addInputField(element, true) }, 1000)
+      )
     }
   }
 }

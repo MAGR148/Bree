@@ -127,9 +127,10 @@ ActiveRecord::Schema.define(version: 2021_08_20_032205) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ingredients"
-    t.jsonb "steps"
+    t.string "steps", default: [], array: true
     t.index ["food_time"], name: "index_recipes_on_food_time", using: :gin
     t.index ["preparation_mode"], name: "index_recipes_on_preparation_mode", using: :gin
+    t.index ["steps"], name: "index_recipes_on_steps", using: :gin
   end
 
   create_table "users", force: :cascade do |t|
