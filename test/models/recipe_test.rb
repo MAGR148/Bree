@@ -3,6 +3,7 @@
 # Table name: recipes
 #
 #  id               :bigint           not null, primary key
+#  condiments       :string           default([]), is an Array
 #  cooking_time     :integer
 #  food_time        :string           default([]), is an Array
 #  image            :string
@@ -18,6 +19,7 @@
 #
 # Indexes
 #
+#  index_recipes_on_condiments        (condiments) USING gin
 #  index_recipes_on_food_time         (food_time) USING gin
 #  index_recipes_on_preparation_mode  (preparation_mode) USING gin
 #  index_recipes_on_steps             (steps) USING gin
