@@ -3,11 +3,11 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
   static targets = [
     'deleteButtons', 
-    'elementsContainer'
+    'condimentsContainer'
   ];
 
   static values = { elements: Array }
-
+  
   connect(){
     this.displayElements()
   }
@@ -21,7 +21,7 @@ export default class extends Controller {
         <div>
             <label for="ingrediente" class="sr-only">Paso</label>
             <input 
-              data-recipe-form-target="stepInputs"
+              data-recipe-form-target="condimentInputs"
               type="text" 
               name="ingrediente" 
               id="ingrediente" 
@@ -32,7 +32,7 @@ export default class extends Controller {
       </td>
       <td class="pl-2 pr-0 py-4 whitespace-nowrap text-right text-sm font-medium ">
         <a 
-          data-action="click->lists#removeInputField"
+          data-action="click->condiments#removeInputField"
           class="text-red-600 hover:text-red-900"
           
         >
@@ -42,7 +42,7 @@ export default class extends Controller {
         </a>
       </td>
     `
-    this.elementsContainerTarget.appendChild(tr)
+    this.condimentsContainerTarget.appendChild(tr)
   }
 
   removeInputField(e){

@@ -91,21 +91,15 @@
                                 </th>
                             </tr>
                             </thead>
+
                             <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                Agrega una pieza de pan integral de caja
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                Media taza de especias y pimienta
-                                </td>
-                            </tr>
-
-                            
-
-                            <!-- Más complementos... -->
+                            <%- @recipe.condiments.each do |step| %>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <%= step %>
+                                    </td>
+                                </tr>
+                            <% end %>
                             </tbody>
                         </table>
                         </div>
