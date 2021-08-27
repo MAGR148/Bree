@@ -9,4 +9,4 @@ es:
         custom_id: ID de la receta
         preparation_time: Tiempo de preparación
         cooking_time: Tiempo de cocción
-        type: Tipo de receta
+        recipe_type: Tipo de receta
