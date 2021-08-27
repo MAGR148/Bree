@@ -2,20 +2,21 @@
 #
 # Table name: recipes
 #
-#  id               :bigint           not null, primary key
-#  condiments       :string           default([]), is an Array
-#  cooking_time     :integer
-#  food_time        :string           default([]), is an Array
-#  image            :string
-#  ingredients      :string
-#  name             :string
-#  preparation_mode :string           default([]), is an Array
-#  preparation_time :integer
-#  recipe_type      :string
-#  steps            :string           default([]), is an Array
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  custom_id        :string
+#  id                 :bigint           not null, primary key
+#  condiments         :string           default([]), is an Array
+#  cooking_time       :integer
+#  food_time          :string           default([]), is an Array
+#  food_time_priority :string
+#  image              :string
+#  ingredients        :string
+#  name               :string
+#  preparation_mode   :string           default([]), is an Array
+#  preparation_time   :integer
+#  recipe_type        :string
+#  steps              :string           default([]), is an Array
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  custom_id          :string
 #
 # Indexes
 #
