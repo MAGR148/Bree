@@ -19,7 +19,9 @@
 #  monounsaturated_fatty_acids :decimal(, )      default(0.0)
 #  name                        :string           default(""), not null
 #  net_weight                  :integer          default(0)
+#  phosphorus                  :string
 #  polyunsaturated_fatty_acids :decimal(, )      default(0.0)
+#  potassium                   :string
 #  protein                     :decimal(, )      default(0.0)
 #  satured_fatty_acids         :decimal(, )      default(0.0)
 #  selenium                    :decimal(, )      default(0.0)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_000932) do
+ActiveRecord::Schema.define(version: 2021_08_28_025302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_000932) do
     t.decimal "satured_fatty_acids", default: "0.0"
     t.decimal "monounsaturated_fatty_acids", default: "0.0"
     t.decimal "polyunsaturated_fatty_acids", default: "0.0"
+    t.string "potassium"
+    t.string "phosphorus"
   end
 
   create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
