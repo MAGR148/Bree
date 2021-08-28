@@ -3,6 +3,7 @@
 # Table name: recipes
 #
 #  id                 :bigint           not null, primary key
+#  accompaniment      :string
 #  condiments         :string           default([]), is an Array
 #  cooking_time       :integer
 #  food_time          :string           default([]), is an Array

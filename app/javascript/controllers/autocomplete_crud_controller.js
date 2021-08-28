@@ -3,11 +3,6 @@ import { Controller } from 'stimulus';
 export default class extends Controller {
     static targets = ['input', 'results', 'crudInput', 'selectedValues'];
 
-    static values = {
-      delete: String,
-      check: String,
-    }
-
     connect() {
       const selectedValues = JSON.parse(`[${this.crudInputTarget.value}]`);
       

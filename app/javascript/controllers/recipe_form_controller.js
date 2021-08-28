@@ -7,7 +7,7 @@ export default class extends Controller {
     'stepInputs', 
     'steps',
     'condiments',
-    'condimentInputs'
+    'condimentInputs',
   ]
 
   send(e){
@@ -16,7 +16,7 @@ export default class extends Controller {
 
     this.stepsTarget.value = `{${[...this.buildArray(this.stepInputsTargets)]}}`;
     this.condimentsTarget.value = `{${[...this.buildArray(this.condimentInputsTargets)]}}`
-
+    
     this.formTarget.submit();
   }
 
