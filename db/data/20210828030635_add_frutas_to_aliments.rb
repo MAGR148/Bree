@@ -2,9 +2,9 @@
 
 require 'csv'
 
-class AddVerdurasToAliments < ActiveRecord::Migration[6.1]
+class AddFrutasToAliments < ActiveRecord::Migration[6.1]
   def up
-    file = File.read(Rails.root.join('db', 'data', 'seeds', 'VERDURAS.csv'))
+    file = File.read(Rails.root.join('db', 'data', 'seeds', 'FRUTAS.csv'))
     csv = CSV.parse(file, headers: false)
     csv.each do |row|
       Aliment.create!(
@@ -24,8 +24,9 @@ class AddVerdurasToAliments < ActiveRecord::Migration[6.1]
         folic_acid: row[13],
         iron: row[14],
         potassium: row[15],
-        glycemic_index: row[16],
-        glycemic_load: row[17]
+        sugars_per_equivalent: row[16],
+        glycemic_index: row[17],
+        glycemic_load: row[18]
       )
     end
   end
