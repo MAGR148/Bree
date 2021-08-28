@@ -11,8 +11,9 @@ export default class extends Controller {
   ]
 
   send(e){
+
     e.preventDefault();
-    
+
     this.stepsTarget.value = `{${[...this.buildArray(this.stepInputsTargets)]}}`;
     this.condimentsTarget.value = `{${[...this.buildArray(this.condimentInputsTargets)]}}`
 

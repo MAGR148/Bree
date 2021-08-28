@@ -18,9 +18,11 @@ export default class extends Controller {
 
     onKeyDown = (event) => {
       if (event.key === 'Enter') {
+        event.preventDefault();
         const selected = this.resultsTarget.querySelector(
           '[aria-selected="true"]',
         );
+        
         this.addValue(selected);
       }
     }
@@ -33,13 +35,15 @@ export default class extends Controller {
     addValue = (selected) => {
       setTimeout(() => { this.inputTarget.value = ''; }, 100);
 
-      const value = this.extractTextValue(selected);
-      const group = selected.getAttribute('data-autocomplete-group-value')
-      const unit = selected.getAttribute('data-autocomplete-unit-value')
-
-      if (!this.crudInputTarget.value.includes(value)) {
-        this.renderStudies(value, group, unit);
-        this.saveArray(value, group, unit);
+      if (selected){
+        const value = this.extractTextValue(selected);
+        const group = selected.getAttribute('data-autocomplete-group-value')
+        const unit = selected.getAttribute('data-autocomplete-unit-value')
+  
+        if (!this.crudInputTarget.value.includes(value)) {
+          this.renderStudies(value, group, unit);
+          this.saveArray(value, group, unit);
+        }
       }
     }
 
