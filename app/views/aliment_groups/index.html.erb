@@ -25,6 +25,9 @@
     <th>AG Saturados (g)</th>
     <th>AG Monoinsaturados (g)</th>
     <th>AG Poliinsatuirados (g)</th>
+    <th>Acido Ascórbico (mg)</th>
+    <th>Potasio (mg)</th>
+    <th>Fósforo (mg)</th>
     <th>Opciones</th>
   </thead>
   <tbody>
@@ -55,6 +58,9 @@
         <td> <%= aliment.satured_fatty_acids %></td>
         <td> <%= aliment.monounsaturated_fatty_acids %></td>
         <td> <%= aliment.polyunsaturated_fatty_acids %></td>
+        <td> <%= aliment.ascorbic_acid%></td>
+        <td> <%= aliment.potassium%></td>
+        <td> <%= aliment.phosphorus%></td>
         <td> <%= link_to('Editar', edit_aliment_path(id: aliment.id)) %> </td>
       </tr>    
     <% end %>
