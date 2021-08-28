@@ -3,6 +3,7 @@
 # Table name: aliments
 #
 #  id                          :bigint           not null, primary key
+#  ascorbic_acid               :string           default("")
 #  calcium                     :decimal(, )      default(0.0)
 #  carbohydrates               :decimal(, )      default(0.0)
 #  cholesterol                 :decimal(, )      default(0.0)
