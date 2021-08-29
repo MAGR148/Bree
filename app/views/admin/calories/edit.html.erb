@@ -1,6 +1,9 @@
 <!-- Sección de selección o ingreso de calorías -->
 <turbo-frame id="calories">
-  <div class="grid grid-cols-1 md:grid-cols-3 mt-12 px-8  md:gap-16">
+  <div 
+    data-controller="calories-tabs"
+    class="grid grid-cols-1 md:grid-cols-3 mt-12 px-8  md:gap-16"
+    >
       <div class="md:col-span-1 pb-2">
           <!-- This example requires Tailwind CSS v2.0+ -->
           <div>
@@ -16,24 +19,26 @@
                       <label for="tabs" class="sr-only">Select a tab</label>
                       <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
 
-                      <option>Mifflin</option>
-
-                      <option selected>Harris</option>
-
-                      <option>Datos Px</option>
+                        <option>Mifflin</option>
+                        <option>Harris</option>
+                        <option>Datos Px</option>
                       </select>
                   </div>
                   <div class="hidden sm:block">
-                      <nav class="flex space-x-4" aria-label="Tabs">
+                      <nav 
+                        data-controller="calories-tabs"
+                        class="flex space-x-4" 
+                        aria-label="Tabs"
+                    >
                       <!-- Current: "bg-indigo-100 text-indigo-700", Default: "text-gray-500 hover:text-gray-700" -->
-
                       <a 
                         class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                         aria-current="page"
                         data-controller="operation-tabs" 
                         data-operation-tabs-url-value="<%= admin_patient_operations_harris_path(patient_id: @patient.id)%>"
                         data-operation-tabs-id-value="harris-operations"
-                        data-action="click->operation-tabs#changeTab"
+                        data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
+                        data-calories-tabs-target="option"
                         >
 
                           Harris
@@ -44,7 +49,8 @@
                         data-controller="operation-tabs" 
                         data-operation-tabs-url-value="<%= admin_patient_operations_mifflins_path(patient_id: @patient.id)%>"
                         data-operation-tabs-id-value="mifflin-operations"
-                        data-action="click->operation-tabs#changeTab"
+                        data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
+                        data-calories-tabs-target="option"
                     >
                           Mifflin
                       </a>
@@ -54,7 +60,8 @@
                         data-controller="operation-tabs" 
                         data-operation-tabs-url-value="<%= admin_patient_path(id: @patient.id)%>"
                         data-operation-tabs-id-value="patient"
-                        data-action="click->operation-tabs#changeTab"
+                        data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
+                        data-calories-tabs-target="option"                        
                     >
 
                           Datos Px
