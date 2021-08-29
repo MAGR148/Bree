@@ -5,6 +5,7 @@
     data-harris-weight-value='<%= @patient.weight %>'
     data-harris-height-value='<%= @patient.height %>'
     data-harris-age-value='<%= @patient.age %>'
+    data-harris-physical-activity-value='<%= @patient.physical_activity_factor %>'
   >
     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
       <dt class="text-sm font-medium text-gray-500">
@@ -40,8 +41,10 @@
       <dt class="text-sm font-bold text-gray-900">
           Calorías totales
       </dt>
-      <dd class="mt-1 text-sm font-bold text-gray-900 sm:mt-0 sm:col-span-1">
-          1,622.92
+      <dd 
+        data-harris-target="result"
+        class="mt-1 text-sm font-bold text-gray-900 sm:mt-0 sm:col-span-1">
+          --
       </dd>
     </div>      
   </dl>
