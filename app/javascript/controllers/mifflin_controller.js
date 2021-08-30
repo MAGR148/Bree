@@ -28,14 +28,14 @@ export default class extends Controller {
   }
 
   get isMale(){
-    return this.genderValue === 'M' ? true : false;
+    return this.genderValue === 'M' || this.genderValue === 'masculino' ? true : false;
   }
 
   get man_calculation(){
-    return ((9.99 * parseFloat(this.weightValue)) + (6.25 * parseFloat(this.weightValue)) - (4.92 * this.ageValue) + 5).toFixed(2)
+    return (9.99 * this.weightValue) + (6.25 * this.heightValue) - (4.92 * this.ageValue) + 5
   }
 
   get woman_calculation(){
-    return ((9.99 * parseFloat(this.weightValue)) + (6.25 * parseFloat(this.weightValue)) - (4.92 * this.ageValue) - 161).toFixed(2)
+    return (9.99 * this.weightValue) + (6.25 * this.heightValue) - (4.92 * this.ageValue) - 161
   }
 }
