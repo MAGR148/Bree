@@ -25,15 +25,18 @@ export default class extends Controller {
   result = _ => this.isMale ? this.man_calculation : this.woman_calculation
   resultPercentage = _ => (this.result() / 100 * 10).toFixed(2)
   harrisResult = _ => {
-    const result = this.result() * parseFloat(this.physicalActivityValue) + this.resultPercentage()
+    const result = (this.result() * parseFloat(this.physicalActivityValue)) + this.resultPercentage()
     return parseFloat(result).toFixed(2)
   }
 
   get isMale(){
-    return this.genderValue === 'M' ? true : false;
+    return this.genderValue === 'M' || this.genderValue === 'masculino' ? true : false;
   }
 
   get man_calculation(){
+    console.log(`Peso ${this.weightValue}`)
+    console.log(`Altura ${this.heightValue}`)
+    console.log(`Edad ${this.ageValue}`)
     return (66.473 + (13.752 * parseFloat(this.weightValue)) + (5.003 * parseFloat(this.heightValue)) - (6.775 * parseInt(this.ageValue))).toFixed(2)
   }
 
