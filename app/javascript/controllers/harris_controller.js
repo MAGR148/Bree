@@ -25,8 +25,12 @@ export default class extends Controller {
   result = _ => this.isMale ? this.man_calculation : this.woman_calculation
   resultPercentage = _ => (this.result() / 100 * 10).toFixed(2)
   harrisResult = _ => {
-    const result = (this.result() * parseFloat(this.physicalActivityValue)) + this.resultPercentage()
-    return parseFloat(result).toFixed(2)
+    const GER = this.result()
+    const ETA = (GER / 100 * 10).toFixed(2)
+    const HARRIS = (GER * parseFloat(this.physicalActivityValue)) + parseFloat(ETA)
+
+    
+    return parseFloat(HARRIS).toFixed(2)
   }
 
   get isMale(){
@@ -34,13 +38,12 @@ export default class extends Controller {
   }
 
   get man_calculation(){
-    console.log(`Peso ${this.weightValue}`)
-    console.log(`Altura ${this.heightValue}`)
-    console.log(`Edad ${this.ageValue}`)
-    return (66.473 + (13.752 * parseFloat(this.weightValue)) + (5.003 * parseFloat(this.heightValue)) - (6.775 * parseInt(this.ageValue))).toFixed(2)
+    const calculous = 66.473 + (13.752 * this.weightValue) + (5.003 * this.heightValue) - (6.775 * this.ageValue);
+    return calculous.toFixed(2)
   }
 
   get woman_calculation(){
-    return (655.096 + (9.563 * parseFloat(this.weightValue)) + (1.850 * parseFloat(this.heightValue)) - (4.676 * parseInt(this.ageValue))).toFixed(2)
+    const calculous = 665.096 + (9.563*this.weightValue) + (1.850*this.heightValue) - (4.676*this.ageValue);
+    return calculous.toFixed(2);
   }
 }
