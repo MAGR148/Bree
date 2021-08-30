@@ -23,15 +23,31 @@ export default class extends Controller {
   connect() {
     this.paintValues();
     this.percentageTarget.addEventListener("change", (e) => this.change_percentage(parseFloat(e.target.value)))
+    this.gramsTarget.addEventListener("change", (e) => this.change_grams(parseFloat(e.target.value)))
+  }
+
+  change_grams(grams) {
+    const kCalories = grams * this.divider
+    const percentage = kCalories * 100 / this.calories
+    
+    this.change_percentage(percentage)
   }
 
   change_percentage(percentage) {
-    // this.percentageTargetValue = percentage;
+    if (percentage <= 100) {
+      this.updatePercentageValues(percentage)    
+    } else {
+      this.updatePercentageValues(100)
+      alert('Debes ingresar un numero menor/igual a 100')
+    }
+  }
+
+  updatePercentageValues(percentage){
     this.percentageValue = percentage;
     this.paintValues();
     this.updateMacros(percentage)
   }
-
+  
   async updateMacros(value){
     let macronutrientValue = {}
     macronutrientValue[`${this.typeValue}`] = {
@@ -64,9 +80,10 @@ export default class extends Controller {
     this.extraResultTarget.innerHTML = (this.calculateGrams() / this.weight).toFixed(2)
   }
 
-  paintPercentage = _ => this.percentageTarget.value = this.percentage.toFixed(2);
-  paintGrams = _ => this.gramsTarget.value = this.calculateGrams().toFixed(2);
-  paintKcal = _ => this.kcalTarget.innerHTML = this.calculateCalories().toFixed(2);
+  paintPercentage = _ => this.percentageTarget.value = this.percentage;
+  paintGrams = _ => this.gramsTarget.value = this.calculateGrams();
+  paintKcal = _ => this.kcalTarget.innerHTML = this.calculateCalories();
+
 
   calculateGrams = _ => parseFloat(this.calculateCalories() / this.divider)
   calculateCalories = _ => parseFloat((this.calories / 100) * this.percentage)
