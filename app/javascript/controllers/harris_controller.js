@@ -34,7 +34,7 @@ export default class extends Controller {
   }
 
   get isMale(){
-    return this.genderValue === 'M' || this.genderValue === 'masculino' ? true : false;
+    return this.genderValue === 'Masculino' ? true : false;
   }
 
   get man_calculation(){
