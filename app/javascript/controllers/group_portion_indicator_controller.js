@@ -1,61 +1,63 @@
 import { Controller } from 'stimulus'
 
-// let groupPortions = new Set();
-let groupPortions = new Array();
-
 export default class extends Controller {
 
-  // connect(){
-  //   this.groupPortions = new Set();
-  // }
+  static targets = [ 
+    'group', 
+    'energy', 
+    'carbohydrates', 
+    'carbohydratesPercentage', 
+    'protein', 
+    'proteinPercentage', 
+    'lipids',
+    'lipidsPercentage'
+  ]
 
   receiveGroupPortions(e) {
-    this.save(e.detail)
+    let updatedGroups = []
+
+    this.groupTargets.forEach((el, i) => {
+      const carbohydrates = (el.querySelector('#carbohydrates').innerText).replace(' grs', '');
+      const protein = (el.querySelector('#protein').innerText).replace(' grs', '');
+      const lipids = (el.querySelector('#lipids').innerText).replace(' grs', '');
+      const energy = (el.querySelector('#energy').innerText).replace(' kcal', ''); 
+
+      updatedGroups.push({carbohydrates, protein, lipids, energy})
+     })
+
+     this.paintIncrementedGroups(updatedGroups)
   }
 
-  // validateIfContain
-  save(portions){
+  paintIncrementedGroups(groups){
+    const values = this.matrixAdd(groups)
 
-    if (groupPortions.length === 0){
-      console.log('zero')
-      groupPortions.push(portions)
-    } else {
-      groupPortions.forEach((item, i) => {
-        if (item.key === portions.key){
-          console.log('igual al key')
-          groupPortions[i] = portions;
-        } else {
-          console.log('else')
-          groupPortions.push(portions)
-        } 
-      })
-    }
+    this.energyTarget.innerText = `${values.energy} kcal`
+    this.carbohydratesTarget.innerText = `${values.carbohydrates} grs`
+    this.proteinTarget.innerText = `${values.protein} grs`
+    this.lipidsTarget.innerText = `${values.lipids} grs`
 
-    console.log(groupPortions.length)
-    console.log(groupPortions)
-    // this.groupPortions.forEach(function(column) {
-    //   console.log(column)
-    // })
-    // this.groupPortions.forEach((item, i) => {
-    //   console.log(item)
-    //   console.log(i)
-    //   if (item.key === portions.key){
-    //     this.groupPortions[i] = portions;
-    //   } else {
-    //     this.groupPortions.push(portions)
-    //   } 
-
-    //   console.log(this.groupPortions)
-    // });
-    // groupPortions.push(newPortion);
-    // groupPortions.add(newPortion);
-
-    // this.multiply();
-
+    this.carbohydratesPercentageTarget.innerText = `${this.calculatePercentage(values.carbohydrates, 4, values.energy)} %`
+    this.proteinPercentageTarget.innerText = `${this.calculatePercentage(values.protein, 4, values.energy)} %`
+    this.lipidsPercentageTarget.innerText = `${this.calculatePercentage(values.lipids, 9, values.energy)} %`
     
   }
 
-  multiply(){
-    // console.log(groupPortions)
+  calculatePercentage(grams, divider, calories){
+    const kCalories = grams * divider
+
+    return (kCalories * 100 / calories).toFixed(2)
+  }
+
+  matrixAdd(groups){
+    let values = { carbohydrates: 0, protein: 0, lipids: 0, energy: 0 }
+
+    groups.forEach((el, i) => {
+      values.carbohydrates += parseInt(el.carbohydrates)
+      values.protein += parseInt(el.protein)
+      values.lipids += parseInt(el.lipids)
+      values.energy += parseInt(el.energy)     
+    })
+
+    return values
   }
 }

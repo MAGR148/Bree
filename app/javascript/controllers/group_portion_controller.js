@@ -19,7 +19,7 @@ export default class extends Controller {
 
   connect() {
     this.setGroupValues();
-    this.quantityTarget.addEventListener("change", (e) => this.multiply_groups(parseInt(e.target.value)))
+    this.quantityTarget.addEventListener("change", (e) => this.multiply_groups(parseFloat(e.target.value)))
   }
 
   setGroupValues(values = {carbohydrates: 0, protein: 0, lipids: 0, energy: 0}) {
@@ -32,19 +32,17 @@ export default class extends Controller {
   multiply_groups(multiple) {
     const groupValues = {
       key: this.keyValue,
-      carbohydrates: parseInt(this.carbohydratesValue) * multiple,
-      protein: parseInt(this.proteinValue) * multiple,
-      lipids: parseInt(this.lipidsValue) * multiple,
-      energy: parseInt(this.energyValue) * multiple,
+      carbohydrates: parseFloat(this.carbohydratesValue) * multiple,
+      protein: parseFloat(this.proteinValue) * multiple,
+      lipids: parseFloat(this.lipidsValue) * multiple,
+      energy: parseFloat(this.energyValue) * multiple,
     }
 
     this.setGroupValues(groupValues)
-    this.launchGroupValuesEvent(groupValues)
+    this.launchGroupValuesEvent()
   }
 
-  launchGroupValuesEvent(groupValues){
-    window.dispatchEvent(new CustomEvent('groupPortions', {
-      detail: groupValues
-    }));
+  launchGroupValuesEvent(){
+    window.dispatchEvent(new CustomEvent('groupPortions'));
   }
 }

@@ -48,6 +48,7 @@
                                 data-group-portion-lipids-value="<%= value[:lipids] %>"
                                 data-group-portion-energy-value="<%= value[:energy] %>"
                                 data-group-portion-key-value="<%= attribute %>"
+                                data-group-portion-indicator-target='group'
                             >
                                 <td class="px-4 py-1 whitespace-nowrap text-md font-medium text-gray-900">
                                 <%= t(attribute) %>
@@ -61,26 +62,31 @@
                                         class=" py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-12 pl-2 h-8 sm:text-md border border-gray-300 rounded-md" 
                                         placeholder="0"
                                         min="0"
+                                        step=".5"
                                         value="<%= value[:quantity] %>"
                                     >
                                 </td>
                                 <td 
+                                    id="carbohydrates"
                                     data-group-portion-target='carbohydrates'
                                     class="px-6 py-4 whitespace-nowrap text-md text-gray-500"
                                 >
                                     
                                 </td>
                                 <td 
+                                    id="protein"
                                     class="px-6 py-4 whitespace-nowrap text-md text-gray-500"
                                     data-group-portion-target='protein'
                                 >
                                 </td>
                                 <td 
+                                    id="lipids"
                                     class="px-6 py-4 whitespace-nowrap text-md text-gray-500"
                                     data-group-portion-target='lipids'
                                 >
                                 </td>
                                 <td 
+                                    id="energy"
                                     class="px-6 py-4 whitespace-nowrap text-md text-gray-500"
                                     data-group-portion-target='energy'
                                 >
@@ -176,8 +182,11 @@
             <div class="flex justify-between mt-6 sticky top-60">
                 <h1 class="text-lg font-semibold text-gray-600 truncate">Distribución actual</h1>
                 <div>
-                    <span class="mt-1 ml-4 truncate inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">
-                        1600
+                    <span 
+                        data-group-portion-indicator-target='energy'
+                        class="mt-1 ml-4 truncate inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800"
+                    >
+                        --
                     <span>&nbsp kcal</span>    
                     </span>
                 </div>
@@ -210,20 +219,29 @@
                             <!-- Even row -->
                             <tr class="bg-white">
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        194
+                                    <span 
+                                        data-group-portion-indicator-target='carbohydrates'
+                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800"
+                                    >
+                                        --
                                         <span>&nbsp gr</span>
                                     </span>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap ">
-                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        98
+                                    <span 
+                                        data-group-portion-indicator-target='protein'
+                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800"
+                                    >
+                                        --
                                         <span>&nbsp gr</span>
                                     </span>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap ">
-                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">
-                                        48
+                                    <span 
+                                        data-group-portion-indicator-target='lipids'
+                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800"
+                                    >
+                                        --
                                         <span>&nbsp gr</span>
                                     </span>
                                 </td>
@@ -231,16 +249,25 @@
             
                             <!-- Odd row -->
                             <tr class="bg-white">
-                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-500">
-                                48.5 
+                                <td 
+                                    data-group-portion-indicator-target='carbohydratesPercentage'
+                                    class="px-4 py-4 whitespace-nowrap text-md text-gray-500"
+                                >
+                                -- 
                                 <span>%</span>
                                 </td>
-                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-500">
-                                24.5
+                                <td 
+                                    data-group-portion-indicator-target='proteinPercentage'
+                                    class="px-4 py-4 whitespace-nowrap text-md text-gray-500"
+                                >
+                                --
                                 <span>%</span>
                                 </td>
-                                <td class="px-4 py-4 whitespace-nowrap text-md text-gray-500">
-                                27 
+                                <td 
+                                    data-group-portion-indicator-target='lipidsPercentage'
+                                    class="px-4 py-4 whitespace-nowrap text-md text-gray-500"
+                                >
+                                -- 
                                 <span>%</span>
                                 </td>
                             </tr>
