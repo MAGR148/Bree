@@ -1,5 +1,150 @@
 <!-- Sección de selección o ingreso de calorías -->
 <turbo-frame id="calories">
+    <div class="mt-12 flex justify-between items-center px-16 ">
+        <h1 class="text-3xl font-bold text-gray-700">01. Ingresa calorías del plan</h1>
+    </div>
+
+    <hr class="mx-16 mt-4">
+                        
+		<div class="grid grid-cols-1 md:grid-cols-12 mt-12 mx-14 md:gap-14">                
+			<div class="col-span-5">
+				<div class="mt-0 mr-2">
+					<h1 class="text-xl font-medium text-gray-600">Calorías del plan</h1> 
+					<div 
+            data-controller="calories-register"
+            data-calories-register-calories-value="<%= @patient.plan.calories %>"
+            data-action="input->calories-register#writeCalories"
+            class="mt-4"
+          >
+            <div>
+              <div class="mt-1 relative rounded-md shadow-sm">
+								<input 
+									data-calories-register-target="input" 
+									type="text" 
+									name="kcal" 
+									id="kcal" 
+									class="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-14 pl-4 pr-12 sm:text-lg border-gray-300 rounded-md"
+									placeholder="Ej. 1647" 
+									aria-describedby="price-currency"
+								>
+								<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+									<span class="text-gray-400 sm:text-lg" id="price-currency">
+										Kcal
+									</span>
+								</div>
+							</div>
+						</div>
+          </div>
+
+          <hr class="mt-8">
+          <div
+              data-controller='calories-indicator'
+              data-calories-indicator-weight-value="<%= @patient.weight %>"
+              data-calories-indicator-url-value="<%= admin_patient_plan_path(patient_id: @patient.id, id: @patient.plan.id) %>"
+              data-action="selectedCalories@window->calories-indicator#indicate"
+              data-action="currentCalories@window->calories-indicator#indicateCalories"
+              class="mt-4 px-4 flex justify-end mb-24"
+          >
+						<p class="text-lg text-indigo-500 font-extrabold ">
+							<span data-calories-indicator-target="label" ></span>  
+							<span class="text-sm text-indigo-400 font-semibold " > kcal / kg peso</span> 
+						</p>
+          </div>
+				</div>
+			</div> 
+
+                        <div class="col-span-1 flex justify-start">
+                            <div class="border border-r border-gray-200 ml-4 mt-12"></div>
+                        </div>
+                        
+                        
+
+                        <div class="md:col-span-6">
+                            
+                            <div>
+                                <h1 class="text-xl font-medium text-gray-600">Cálculos de apoyo</h1>  
+                            </div>    
+    
+                            <div class="bg-white shadow overflow-hidden sm:rounded-lg mt-5 ">
+                                <div class="px-4 py-5 sm:px-6">
+                                <!--<h3 class="text-lg leading-6 font-medium text-gray-700">
+                                    Harris
+                                </h3>-->
+                                <div>
+                                    <div class="sm:hidden">
+                                        <label for="tabs" class="sr-only">Select a tab</label>
+                                        <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+
+                                        <option>Mifflin</option>
+
+                                        <option selected>Harris</option>
+
+                                        <option>Datos Px</option>
+                                        </select>
+                                    </div>
+                                    <div class="hidden sm:block">
+                                        <nav class="flex space-x-4" aria-label="Tabs">
+                                        <!-- Current: "bg-indigo-100 text-indigo-700", Default: "text-gray-500 hover:text-gray-700" -->
+
+                                        <a href="#" class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md" aria-current="page">
+                                            Harris
+                                        </a>
+                                        
+                                        <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm rounded-md">
+                                            Mifflin
+                                        </a>
+
+                                        <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm rounded-md">
+                                            Datos Px
+                                        </a>
+                                        </nav>
+                                    </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="border-t border-gray-200">
+                                <dl>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        GER
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+                                        1,248.40 
+                                    </dd>
+                                    </div>
+                                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        ETA
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+                                        124.84
+                                    </dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        Actividad física
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+                                        1.2
+                                    </dd>
+                                    </div>
+                                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-bold text-gray-900">
+                                        Calorías totales
+                                    </dt>
+                                    <dd class="mt-1 text-sm font-bold text-gray-900 sm:mt-0 sm:col-span-1">
+                                        1,622.92
+                                    </dd>
+                                    </div>
+                                        
+                                </dl>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
   <div 
     data-controller="calories-tabs"
     class="grid grid-cols-1 md:grid-cols-3 mt-12 px-8  md:gap-16"
@@ -85,50 +230,6 @@
           </div>
       </div>
       
-      <div 
-        class=" col-span-2"
-      >
-
-          <div class="mt-8"> 
-              <h1 class="text-2xl font-medium text-gray-600">O ingresa calorías del plan</h1>
-          </div>
-
-          <div 
-            data-controller="calories-register"
-            data-calories-register-calories-value="<%= @patient.plan.calories %>"
-            data-action="input->calories-register#writeCalories"
-            class="mt-4"
-          >
-              <div>
-                  
-                  <div class="mt-1 relative rounded-md shadow-sm">
-                  
-                  <input 
-                      data-calories-register-target="input" type="text" name="kcal" id="kcal" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-14 pl-4 pr-12 sm:text-lg border-gray-300 rounded-md" placeholder="Ej. 1647" aria-describedby="price-currency">
-                  <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-                      <span class="text-gray-400 sm:text-lg" id="price-currency">
-                      Kcal
-                      </span>
-                  </div>
-                  </div>
-              </div>
-
-          </div>
-
-          <hr class="mt-8">
-          <div
-              data-controller='calories-indicator'
-              data-calories-indicator-weight-value="<%= @patient.weight %>"
-              data-calories-indicator-url-value="<%= admin_patient_plan_path(patient_id: @patient.id, id: @patient.plan.id) %>"
-              data-action="selectedCalories@window->calories-indicator#indicate"
-              data-action="currentCalories@window->calories-indicator#indicateCalories"
-              class="mt-4 px-4 flex justify-end mb-24"
-          >
-              <p class="text-lg text-indigo-500 font-extrabold ">
-                  <span data-calories-indicator-target="label" ></span>  
-                  <span class="text-sm text-indigo-400 font-semibold " > kcal / kg peso</span> 
-              </p>
-          </div>
-      </div> <!--termina sección de grid calorias-->
+  
   </div>
 </turbo-frame>
