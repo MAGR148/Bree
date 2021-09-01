@@ -1,5 +1,6 @@
 module Admin
   class PlansController < BaseController
+    layout 'plans'
     before_action :set_patient_plan
 
     def new
