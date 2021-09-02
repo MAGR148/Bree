@@ -15,7 +15,6 @@ export default class extends Controller {
   }
 
   launchEvent(calories){
-    console.log(calories)
     window.dispatchEvent(new CustomEvent('selectedCalories', {
       detail: calories
     }));

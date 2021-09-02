@@ -3,39 +3,37 @@
 	<div class="mt-12 flex justify-between items-center px-16 ">
 		<h1 class="text-3xl font-bold text-gray-700">01. Ingresa calorías del plan</h1>
 	</div>
-
 	<hr class="mx-16 mt-4">
-                        
-	<div class="grid grid-cols-1 md:grid-cols-12 mt-12 mx-14 md:gap-14">                
+	<div class="grid grid-cols-1 md:grid-cols-12 mt-12 mx-14 md:gap-14">
 		<div class="col-span-5">
 			<div class="mt-0 mr-2">
-				<h1 class="text-xl font-medium text-gray-600">Calorías del plan</h1> 
-				<div 
-					data-controller="calories-register"
-					data-calories-register-calories-value="<%= @patient.plan.calories %>"
-					data-action="input->calories-register#writeCalories"
-					class="mt-4"
-				>
-					<div>
-						<div class="mt-1 relative rounded-md shadow-sm">
-							<input 
-								data-calories-register-target="input" 
-								type="text" 
-								name="kcal" 
-								id="kcal" 
-								class="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-14 pl-4 pr-12 sm:text-lg border-gray-300 rounded-md"
-								placeholder="Ej. 1647" 
-								aria-describedby="price-currency"
-							>
-							<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-								<span class="text-gray-400 sm:text-lg" id="price-currency">
-									Kcal
-								</span>
-							</div>
+				<div>
+					<h1 class="text-xl font-medium text-gray-600">Calorías del plan</h1> 
+					<div 
+						data-controller="calories-register"
+						data-calories-register-calories-value="<%= @patient.plan.calories %>"
+						data-action="input->calories-register#writeCalories"
+						class="mt-5 relative rounded-md shadow-sm"
+					>
+						<input 
+							data-calories-register-target="input" 
+							type="text" 
+							name="kcal" 
+							id="kcal" 
+							class="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-14 pl-4 pr-12 sm:text-lg border-gray-300 rounded-md"
+							placeholder="Ej. 1647" 
+							aria-describedby="price-currency"
+						>
+						<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+							<span class="text-gray-400 sm:text-lg" id="price-currency">
+								Kcal
+							</span>
 						</div>
 					</div>
 				</div>
+
 				<hr class="mt-8">
+
 				<div
 					data-controller='calories-indicator'
 					data-calories-indicator-weight-value="<%= @patient.weight %>"
@@ -44,86 +42,88 @@
 					data-action="currentCalories@window->calories-indicator#indicateCalories"
 					class="mt-4 px-4 flex justify-end mb-24"
 				>
-					<p class="text-lg text-indigo-500 font-extrabold ">
+					<p class="text-lg text-indigo-500 font-extrabold">
 						<span data-calories-indicator-target="label" ></span>  
-						<span class="text-sm text-indigo-400 font-semibold " > kcal / kg peso</span> 
+						<span class="text-sm text-indigo-400 font-semibold" > kcal / kg peso</span> 
 					</p>
 				</div>
-			</div>
+		</div>
 		</div> 
 
 		<div class="col-span-1 flex justify-start">
-			<div class="border border-r border-gray-200 ml-4 mt-12"></div>
+				<div class="border border-r border-gray-200 ml-4 mt-12"></div>
 		</div>
 		
+		
+
 		<div class="md:col-span-6">
-			<h1 class="text-xl font-medium text-gray-600">Cálculos de apoyo</h1>  
-			<div 
-				data-controller="calories-tabs"
-			>     
-				<div class="bg-white shadow overflow-hidden sm:rounded-lg mt-8">
-					<div class="px-4 py-5 sm:px-6">
-						<div>
-							<div class="sm:hidden">
+			<div>
+				<h1 class="text-xl font-medium text-gray-600">Cálculos de apoyo</h1>  
+			</div>    
+
+			<div class="bg-white shadow overflow-hidden sm:rounded-lg mt-5 ">
+				<div class="px-4 py-5 sm:px-6">
+					<div>
+						<div class="sm:hidden">
 								<label for="tabs" class="sr-only">Select a tab</label>
 								<select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
 									<option>Mifflin</option>
-									<option>Harris</option>
+									<option selected>Harris</option>
 									<option>Datos Px</option>
 								</select>
-							</div>
-							<div class="hidden sm:block">
-								<nav 
-									data-controller="calories-tabs"
-									class="flex space-x-4" 
-									aria-label="Tabs"
+						</div>
+						<div class="hidden sm:block">
+							<nav 
+								data-controller="calories-tabs"
+								class="flex space-x-4" 
+								aria-label="Tabs"
+							>
+								<a 
+									class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
+									aria-current="page"
+									data-controller="operation-tabs" 
+									data-operation-tabs-url-value="<%= admin_patient_operations_harris_path(patient_id: @patient.id)%>"
+									data-operation-tabs-id-value="harris-operations"
+									data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
+									data-calories-tabs-target="option"
 								>
-									<a 
-										class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
-										aria-current="page"
-										data-controller="operation-tabs" 
-										data-operation-tabs-url-value="<%= admin_patient_operations_harris_path(patient_id: @patient.id)%>"
-										data-operation-tabs-id-value="harris-operations"
-										data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
-										data-calories-tabs-target="option"
-										>
-										Harris
-									</a>
-									<a 
-										class="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm rounded-md"
-										data-controller="operation-tabs" 
-										data-operation-tabs-url-value="<%= admin_patient_operations_mifflins_path(patient_id: @patient.id)%>"
-										data-operation-tabs-id-value="mifflin-operations"
-										data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
-										data-calories-tabs-target="option"
-									>
-										Mifflin
-									</a>
-									<a
-										class="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm rounded-md"
-										data-controller="operation-tabs" 
-										data-operation-tabs-url-value="<%= admin_patient_path(id: @patient.id)%>"
-										data-operation-tabs-id-value="patient"
-										data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
-										data-calories-tabs-target="option"                        
-									>
-										Datos Px
-									</a>
-								</nav>
-							</div>
+									Harris
+								</a>
+								<a 
+									class="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm rounded-md"
+									data-controller="operation-tabs" 
+									data-operation-tabs-url-value="<%= admin_patient_operations_mifflins_path(patient_id: @patient.id)%>"
+									data-operation-tabs-id-value="mifflin-operations"
+									data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
+									data-calories-tabs-target="option"
+								>
+									Mifflin
+								</a>
+								<a 
+									class="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm rounded-md"
+									data-controller="operation-tabs" 
+									data-operation-tabs-url-value="<%= admin_patient_path(id: @patient.id)%>"
+									data-operation-tabs-id-value="patient"
+									data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
+									data-calories-tabs-target="option"                        
+								>
+									Datos Px
+								</a>
+							</nav>
 						</div>
 					</div>
-					<div class="border-t border-gray-200">
-						<turbo-frame 
-								data-controller="operation-tabs-shower"
-								data-operation-tabs-shower-target="turboFrame"
-								data-action="refreshOperationTurboFrame@window->operation-tabs-shower#updateTurboFrame"
-								id="harris-operations"
-								src="<%= admin_patient_operations_harris_path(patient_id: @patient.id) %>"
-						>
-							Content will be replaced when /messages has been loaded.
-						</turbo-frame>
-					</div>
+				</div>
+
+				<div class="border-t border-gray-200">
+					<turbo-frame 
+						data-controller="operation-tabs-shower"
+						data-operation-tabs-shower-target="turboFrame"
+						data-action="refreshOperationTurboFrame@window->operation-tabs-shower#updateTurboFrame"
+						id="harris-operations"
+						src="<%= admin_patient_operations_harris_path(patient_id: @patient.id) %>"
+					>
+						Content will be replaced when /messages has been loaded.
+					</turbo-frame>
 				</div>
 			</div>
 		</div>
