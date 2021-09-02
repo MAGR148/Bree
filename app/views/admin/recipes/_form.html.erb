@@ -53,8 +53,17 @@
                 <%= form.text_field(:custom_id, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md')%>
               </div>
               <div class="col-span-2">
-                <%= form.label(:recipe_type, class: 'block text-sm font-medium text-gray-700')%>
-                <%= form.select :recipe_type, options_for_select([['Gourmet'], ['Regular'],['Rápida'],['Sencilla']], recipe.recipe_type), {:include_blank => "Elegir"}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'} %> 
+              <%= form.label(:recipe_type, class: 'block text-sm  font-medium text-gray-700')%>
+              <%- ['Gourmet', 'Regular', 'Rápida', 'Sencilla'].each do | recipe_type |%>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <%= check_box_tag("recipe[recipe_type][]", recipe_type, recipe.recipe_type.include?(recipe_type), id: "recipe_type_#{recipe_type}", class: 'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded')%>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="#{recipe_type}" class="font-medium text-gray-700"><%= recipe_type %></label>
+                  </div>
+                </div>  
+              <% end %>
               </div>
 
               <div class="col-span-6 sm:col-span-6 lg:col-span-2">

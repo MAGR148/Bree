@@ -175,7 +175,11 @@
                 <div class="text-gray-400 text-xs uppercase font-semibold tracking-wide pt-5">
                     tipo de receta
                 </div>  
-                <p class="text-sm text-gray-600 mt-2"><%= @recipe.recipe_type %></p>
+                <%- @recipe.recipe_type.each do |type| %>
+                    <p class="text-sm text-gray-600 mt-2">
+                        <%= type %>
+                    </p>
+                <% end %>
 
                 <hr class="mt-6">
                 <div class="text-gray-400 text-xs uppercase font-semibold tracking-wide pt-5">
