@@ -5,13 +5,19 @@ export default class extends Controller {
 
   static values = { calories: Number }
 
-  initialize(){
+  connect() {
     this.inputTarget.value = this.caloriesValue
+    setTimeout(() => {  this.launchEvent(`${this.caloriesValue}`) }, 200)
   }
 
   writeCalories(){
+    this.launchEvent(this.inputTarget.value)
+  }
+
+  launchEvent(calories){
+    console.log(calories)
     window.dispatchEvent(new CustomEvent('selectedCalories', {
-      detail: this.inputTarget.value
+      detail: calories
     }));
   }
 }
