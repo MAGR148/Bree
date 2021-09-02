@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_030213) do
+ActiveRecord::Schema.define(version: 2021_09_02_033655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,7 +122,6 @@ ActiveRecord::Schema.define(version: 2021_08_28_030213) do
     t.string "name"
     t.string "image"
     t.string "custom_id"
-    t.string "recipe_type"
     t.integer "preparation_time"
     t.integer "cooking_time"
     t.string "food_time", default: [], array: true

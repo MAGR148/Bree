@@ -13,7 +13,6 @@
 #  name               :string
 #  preparation_mode   :string           default([]), is an Array
 #  preparation_time   :integer
-#  recipe_type        :string
 #  steps              :string           default([]), is an Array
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
