@@ -81,7 +81,7 @@ export default class extends Controller {
   }
 
   paintPercentage = _ => this.percentageTarget.value = this.percentage;
-  paintGrams = _ => this.gramsTarget.value = this.calculateGrams();
+  paintGrams = _ => this.gramsTarget.value = this.calculateGrams().toFixed(2);
   paintKcal = _ => this.kcalTarget.innerHTML = this.calculateCalories();
 
 
