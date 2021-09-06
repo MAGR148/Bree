@@ -32,7 +32,7 @@ export default class extends Controller {
     const kCalories = grams * this.divider
     const percentage = kCalories * 100 / this.calories
     
-    this.change_percentage(percentage)
+    this.change_percentage(parseFloat(percentage).toFixed(2))
   }
 
   change_percentage(percentage) {
@@ -96,7 +96,7 @@ export default class extends Controller {
 
 
   calculateGrams = _ => parseFloat(this.calculateCalories() / this.divider)
-  calculateCalories = _ => parseFloat((this.calories / 100) * this.percentage)
+  calculateCalories = _ => parseFloat((this.calories / 100) * this.percentage).toFixed(2)
   
   authenticityToken = () => document.querySelector("meta[name='csrf-token']").getAttribute('content');
 
