@@ -16,7 +16,10 @@
 			data-macronutriments-url-value="<%= admin_patient_macro_path(patient_id: @patient.id, id: @macronutriment.id) %>"
 			data-macronutriments-divider-value="4"
 			data-macronutriments-weight-value="<%= @patient.weight %>"                   
-		>							
+		>			
+			<div data-macronutriments-target="modalPercentage">
+				<%= render 'common/modals/macronutriment_percentage' %>
+			</div>				
 			<label  class="group flex items-center justify-center px-4 py-4 hover:bg-gray-50 sm:px-6">
 				<span class="flex items-center truncate space-x-3">
 					<span class="w-11 h-11 flex-shrink-0 rounded-lg bg-purple-600 text-white text-lg font-semibold pt-2 pl-4" aria-hidden="true">C</span>
@@ -101,7 +104,9 @@
 									data-macronutriments-divider-value="4"
 									data-macronutriments-weight-value="<%= @patient.weight %>"              
 								>
-										
+										<div data-macronutriments-target="modalPercentage">
+												<%= render 'common/modals/macronutriment_percentage' %>
+										</div>
 										<label  class="group flex items-center justify-center px-4 py-4 hover:bg-gray-50 sm:px-6">
 												<span class="flex items-center truncate space-x-3">
 														<span class="w-11 h-11 flex-shrink-0 rounded-lg bg-pink-600 text-white text-lg font-semibold pt-2 pl-4" aria-hidden="true">P</span>
@@ -193,7 +198,9 @@
 									data-macronutriments-divider-value="9"
 									data-macronutriments-weight-value="<%= @patient.weight %>"                
 								>
-										
+										<div data-macronutriments-target="modalPercentage">
+												<%= render 'common/modals/macronutriment_percentage' %>
+										</div>
 										<label  class="group flex items-center justify-center px-4 py-4 hover:bg-gray-50 sm:px-6">
 												<span class="flex items-center truncate space-x-3">
 														<span class="w-11 h-11 flex-shrink-0 rounded-lg bg-yellow-500 text-white text-lg font-semibold pt-2 pl-4" aria-hidden="true">L</span>

@@ -17,10 +17,12 @@ export default class extends Controller {
     'kcal', 
     'extraGrams',
     'extraWeight',
-    'extraResult'
+    'extraResult',
+    'modalPercentage'
   ]
 
   connect() {
+    this.hideCarbohydrateModal();
     this.paintValues();
     this.percentageTarget.addEventListener("change", (e) => this.change_percentage(parseFloat(e.target.value)))
     this.gramsTarget.addEventListener("change", (e) => this.change_grams(parseFloat(e.target.value)))
@@ -38,10 +40,18 @@ export default class extends Controller {
       this.updatePercentageValues(percentage)    
     } else {
       this.updatePercentageValues(100)
-      alert('Debes ingresar un numero menor/igual a 100')
+      this.displayCarbohydrateModal();
     }
   }
 
+  displayCarbohydrateModal(){
+    this.modalPercentageTarget.style.display = 'block';
+  }
+  
+  hideCarbohydrateModal(){
+    this.modalPercentageTarget.style.display = 'none';
+  }
+  
   updatePercentageValues(percentage){
     this.percentageValue = percentage;
     this.paintValues();
