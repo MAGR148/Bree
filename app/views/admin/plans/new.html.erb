@@ -1,4 +1,7 @@
-<section aria-labelledby="primary-heading" class="min-w-0 flex-1 h-full flex flex-col  lg:order-last overflow-y-auto">
+<section data-controller="modal" aria-labelledby="primary-heading" class="min-w-0 flex-1 h-full flex flex-col  lg:order-last overflow-y-auto">
+    <div data-modal-target="modal">
+        <%= render 'common/modals/assign_plan' %>
+    </div>
     <h1 id="primary-heading" class="sr-only">Account</h1>
     
     <div class="flex flex-col h-screen">
@@ -28,7 +31,7 @@
                     </button>
                     <div class="border border-r border-gray-300 ml-4 mt-1 mb-2"></div>
                     <button 
-                        onclick="if (confirm('Seguro que deseas salir?')) { location.href = '<%= admin_patients_path %>'}"
+                        data-action="modal#show"
                         type="button" class="ml-4 mt-0.5 px-2 py-0 hover:bg-gray-100 rounded-full font-medium text-gray-500 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         <svg fill="none" viewBox="0 0 24 24" class="w-6 h-6" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
