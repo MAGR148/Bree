@@ -32,7 +32,7 @@ export default class extends Controller {
     const kCalories = grams * this.divider
     const percentage = kCalories * 100 / this.calories
     
-    this.change_percentage(parseFloat(percentage).toFixed(2))
+    this.change_percentage(percentage)
   }
 
   change_percentage(percentage) {
@@ -90,7 +90,7 @@ export default class extends Controller {
     this.extraResultTarget.innerHTML = (this.calculateGrams() / this.weight).toFixed(2)
   }
 
-  paintPercentage = _ => this.percentageTarget.value = this.percentage;
+  paintPercentage = _ => this.percentageTarget.value = this.percentage.toFixed(2);
   paintGrams = _ => this.gramsTarget.value = this.calculateGrams().toFixed(2);
   paintKcal = _ => this.kcalTarget.innerHTML = this.calculateCalories();
 

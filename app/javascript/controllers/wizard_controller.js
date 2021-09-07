@@ -64,8 +64,6 @@ export default class extends Controller {
   }
 
   validateButtonsVisibility(){
-    console.log('validating')
-    console.log(`STEP: ${step}`)
     if(step === 1){
       this.previousTarget.style.display = 'none'
     } else {
