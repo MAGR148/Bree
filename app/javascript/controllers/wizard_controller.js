@@ -17,12 +17,21 @@ export default class extends Controller {
     const span = e.currentTarget.querySelector('#step-number');
     
     step = parseInt(span.innerHTML)
+    
     this.refreshTurboFrame(stepId, stepUrl);
     this.paintActiveStep(e.currentTarget)
     this.validateButtonsVisibility()
   }
 
   next(e){
+    if(step === 2){
+      this.launchMacroValidator()
+    } else {
+      this.launchNext()
+    }
+  }
+
+  launchNext(){
     step += 1
     this.findStep()
   }
@@ -78,5 +87,11 @@ export default class extends Controller {
         id
       },
     }));   
+  }
+
+  launchMacroValidator(){
+    window.dispatchEvent(new CustomEvent('macronutrimentsValidator', {
+        detail: step
+    })); 
   }
 }
