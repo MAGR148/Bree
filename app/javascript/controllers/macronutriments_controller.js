@@ -61,7 +61,7 @@ export default class extends Controller {
   async updateMacros(value){
     let macronutrientValue = {}
     macronutrientValue[`${this.typeValue}`] = {
-      percentage: value,
+      percentage: value.toFixed(2),
       grams: this.calculateGrams().toFixed(2)
     };
 
