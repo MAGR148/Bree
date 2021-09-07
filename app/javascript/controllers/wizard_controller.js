@@ -14,24 +14,27 @@ export default class extends Controller {
   goTo(e){
     const stepId = e.currentTarget.dataset.stepId;
     const stepUrl = e.currentTarget.dataset.stepUrl;
+    const span = e.currentTarget.querySelector('#step-number');
     
+    step = parseInt(span.innerHTML)
     this.refreshTurboFrame(stepId, stepUrl);
     this.paintActiveStep(e.currentTarget)
+    this.validateButtonsVisibility()
   }
 
   next(e){
-    this.setStep(step+= 1)
+    step += 1
     this.findStep()
   }
 
   previous(e){
-    this.setStep(step-= 1)
+    step-= 1
     this.findStep()
   }
 
   findStep(){
     if(step > 3){
-      this.setStep(3)
+      step = 3
     }
     if(step > 0 && step <= 3){
       const target = document.getElementById(`step-link-${step}`)
@@ -55,12 +58,14 @@ export default class extends Controller {
         el.classList.replace('hover:bg-indigo-50', 'hover:bg-indigo-600')
         span.classList.replace('text-indigo-500', 'text-white')
         
-        this.setStep(parseInt(span.innerHTML))
+        step = parseInt(span.innerHTML)
       }
     })
   }
 
   validateButtonsVisibility(){
+    console.log('validating')
+    console.log(`STEP: ${step}`)
     if(step === 1){
       this.previousTarget.style.display = 'none'
     } else {
@@ -75,9 +80,5 @@ export default class extends Controller {
         id
       },
     }));   
-  }
-
-  setStep(step){
-    step = step
   }
 }
