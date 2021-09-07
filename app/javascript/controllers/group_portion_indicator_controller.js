@@ -52,10 +52,10 @@ export default class extends Controller {
     let values = { carbohydrates: 0, protein: 0, lipids: 0, energy: 0 }
 
     groups.forEach((el, i) => {
-      values.carbohydrates += parseInt(el.carbohydrates)
-      values.protein += parseInt(el.protein)
-      values.lipids += parseInt(el.lipids)
-      values.energy += parseInt(el.energy)     
+      values.carbohydrates += parseFloat(el.carbohydrates)
+      values.protein += parseFloat(el.protein)
+      values.lipids += parseFloat(el.lipids)
+      values.energy += parseFloat(el.energy)     
     })
 
     return values
