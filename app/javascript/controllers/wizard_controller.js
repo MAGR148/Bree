@@ -12,15 +12,16 @@ export default class extends Controller {
   }
 
   goTo(e){
-    const stepId = e.currentTarget.dataset.stepId;
-    const stepUrl = e.currentTarget.dataset.stepUrl;
-    const span = e.currentTarget.querySelector('#step-number');
+    e.preventDefault();
+    // const stepId = e.currentTarget.dataset.stepId;
+    // const stepUrl = e.currentTarget.dataset.stepUrl;
+    // const span = e.currentTarget.querySelector('#step-number');
     
-    step = parseInt(span.innerHTML)
+    // step = parseInt(span.innerHTML)
     
-    this.refreshTurboFrame(stepId, stepUrl);
-    this.paintActiveStep(e.currentTarget)
-    this.validateButtonsVisibility()
+    // this.refreshTurboFrame(stepId, stepUrl);
+    // this.paintActiveStep(e.currentTarget)
+    // this.validateButtonsVisibility()
   }
 
   next(e){
