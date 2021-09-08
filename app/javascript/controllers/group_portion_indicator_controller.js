@@ -51,8 +51,6 @@ export default class extends Controller {
   }
 
   paintSemaphore(values){
-    // bg-red-100 text-red-800
-    // bg-green-100 text-green-800
     this.energyTarget.classList.replace('bg-green-100', 'bg-red-100')
     this.energyTarget.classList.replace('text-green-800', 'text-red-800')
     this.carbohydratesTarget.classList.replace('bg-green-100', 'bg-red-100')
