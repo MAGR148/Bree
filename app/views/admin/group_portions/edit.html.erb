@@ -1,6 +1,13 @@
 <turbo-frame id="portions">
-  <div class="grid grid-cols-3 gap-6 mt-8 px-8 mb-24" data-controller="group-portion-indicator"
-    data-action="groupPortions@window->group-portion-indicator#receiveGroupPortions">
+  <div 
+    class="grid grid-cols-3 gap-6 mt-8 px-8 mb-24" 
+    data-controller="group-portion-indicator"
+    data-group-portion-indicator-carbohydrates-value="<%= @group_portion.plan.macronutrient.carbohydrates[:grams] %>"
+    data-group-portion-indicator-protein-value="<%= @group_portion.plan.macronutrient.protein[:grams] %>"
+    data-group-portion-indicator-lipids-value="<%= @group_portion.plan.macronutrient.lipids[:grams] %>"
+    data-group-portion-indicator-energy-value="<%= @group_portion.plan[:calories] %>"
+    data-action="groupPortions@window->group-portion-indicator#receiveGroupPortions"
+  >
     <div class="col-span-2">
       <!-- Inicia sección porciones-->
 
@@ -208,14 +215,14 @@
                     <tr class="bg-white">
                       <td class="px-4 py-4 whitespace-nowrap">
                         <span data-group-portion-indicator-target='carbohydrates'
-                          class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                          class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">
                           --
                           <span>&nbsp gr</span>
                         </span>
                       </td>
                       <td class="px-4 py-4 whitespace-nowrap ">
                         <span data-group-portion-indicator-target='protein'
-                          class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                          class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">
                           --
                           <span>&nbsp gr</span>
                         </span>

@@ -2,6 +2,13 @@ import { Controller } from 'stimulus'
 
 export default class extends Controller {
 
+  static values = {
+    carbohydrates: Number,
+    proteins: Number,
+    lipids: Number,
+    energy: Number
+  }
+
   static targets = [ 
     'group', 
     'energy', 
@@ -29,7 +36,8 @@ export default class extends Controller {
   }
 
   paintIncrementedGroups(groups){
-    const values = this.matrixAdd(groups)
+    const values = this.matrixAdd(groups);
+    this.paintSemaphore(values);
 
     this.energyTarget.innerText = `${values.energy} kcal`
     this.carbohydratesTarget.innerText = `${values.carbohydrates} grs`
@@ -40,6 +48,65 @@ export default class extends Controller {
     this.proteinPercentageTarget.innerText = `${this.calculatePercentage(values.protein, 4, values.energy)} %`
     this.lipidsPercentageTarget.innerText = `${this.calculatePercentage(values.lipids, 9, values.energy)} %`
     
+  }
+
+  paintSemaphore(values){
+    // bg-red-100 text-red-800
+    // bg-green-100 text-green-800
+    this.energyTarget.classList.replace('bg-green-100', 'bg-red-100')
+    this.energyTarget.classList.replace('text-green-800', 'text-red-800')
+    this.carbohydratesTarget.classList.replace('bg-green-100', 'bg-red-100')
+    this.carbohydratesTarget.classList.replace('text-green-800', 'text-red-800')
+    this.proteinTarget.classList.replace('bg-green-100', 'bg-red-100')
+    this.proteinTarget.classList.replace('text-green-800', 'text-red-800')
+    this.lipidsTarget.classList.replace('bg-green-100', 'bg-red-100')
+    this.lipidsTarget.classList.replace('text-green-800', 'text-red-800')
+    
+    const energyRange = this.inRange(this.energyValue, values.energy, 20)
+    const carboRange = this.inRange(this.carbohydratesValue, values.carbohydrates, 3)
+    const proteinsRange = this.inRange(this.proteinsValue, values.protein, 3)
+    const lipidsRange = this.inRange(this.lipidsValue, values.lipids, 2)
+    
+    this.paintGroup('energy', energyRange)
+    this.paintGroup('carbohydrates', carboRange)
+    this.paintGroup('proteins', proteinsRange)
+    this.paintGroup('lipids', lipidsRange)
+  }
+
+  paintGroup(groupName, rangeResult){
+    switch(groupName){
+      case 'energy':
+        if(rangeResult === true){
+          this.energyTarget.classList.replace('bg-red-100', 'bg-green-100')
+          this.energyTarget.classList.replace('text-red-800', 'text-green-800')
+        }
+      case 'carbohydrates':
+        if(rangeResult === true){
+          this.carbohydratesTarget.classList.replace('bg-red-100', 'bg-green-100')
+          this.carbohydratesTarget.classList.replace('text-red-800', 'text-green-800')
+        }
+      case 'proteins':
+        if(rangeResult === true){
+          this.proteinTarget.classList.replace('bg-red-100', 'bg-green-100')
+          this.proteinTarget.classList.replace('text-red-800', 'text-green-800')
+        }
+      default:
+        if(rangeResult === true){
+          this.lipidsTarget.classList.replace('bg-red-100', 'bg-green-100')
+          this.lipidsTarget.classList.replace('text-red-800', 'text-green-800')
+        }
+    }
+  }
+
+  inRange(original, value, range){
+    const incremented = original + range;
+    const decremented = original - range;
+
+    if(value >= decremented && value <= incremented){
+      return true
+    }
+
+    return false
   }
 
   calculatePercentage(grams, divider, calories){
