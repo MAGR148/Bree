@@ -19,7 +19,6 @@ export default class extends Controller {
   ]
 
   connect() {
-    console.log(this.urlValue)
     this.setGroupValues();
     this.quantityTarget.addEventListener("change", (e) => this.multiply_groups(parseFloat(e.target.value)))
   }
@@ -46,10 +45,13 @@ export default class extends Controller {
     delete groupValues['key']
     groupValues['quantity'] = multiple
 
+    this.updateGroupPortion(groupValues)
+  }
+
+  updateGroupPortion(groupValues){
     const groupPortion = { }
     groupPortion[`${this.keyValue}`] = groupValues
 
-    
     fetch(this.urlValue, {
       method: 'PUT',
       headers: {
