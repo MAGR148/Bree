@@ -7,6 +7,10 @@ export default class extends Controller {
     protein: Number,
     lipids: Number,
     energy: Number,
+    carbohydratesSaved: Number,
+    proteinSaved: Number,
+    lipidsSaved: Number,
+    energySaved: Number,
     key: String
   }
 
@@ -19,7 +23,12 @@ export default class extends Controller {
   ]
 
   connect() {
-    this.setGroupValues();
+    this.setGroupValues({ 
+      carbohydrates: this.carbohydratesSavedValue ? this.carbohydratesSavedValue : 0, 
+      protein: this.proteinSavedValue ? this.proteinSavedValue : 0, 
+      lipids: this.lipidsSavedValue ? this.lipidsSavedValue : 0, 
+      energy: this.energySavedValue ? this.energySavedValue : 0
+    });
     this.quantityTarget.addEventListener("change", (e) => this.multiply_groups(parseFloat(e.target.value)))
   }
 
@@ -30,7 +39,7 @@ export default class extends Controller {
     this.energyTarget.innerHTML = `${values.energy} kcal`
   }
 
-  multiply_groups(multiple) {
+  multiply_groups(multiple, locale = false) {
     const groupValues = {
       key: this.keyValue,
       carbohydrates: parseFloat(this.carbohydratesValue) * multiple,
@@ -43,9 +52,19 @@ export default class extends Controller {
     this.launchGroupValuesEvent()
 
     delete groupValues['key']
+    groupValues['carbohydratesValue'] = groupValues.carbohydrates
+    groupValues['proteinValue'] = groupValues.protein
+    groupValues['lipidsValue'] = groupValues.lipids
+    groupValues['energyValue'] = groupValues.energy
+    groupValues['carbohydrates'] = this.carbohydratesValue
+    groupValues['protein'] = this.proteinValue
+    groupValues['lipids'] = this.lipidsValue
+    groupValues['energy'] = this.energyValue
     groupValues['quantity'] = multiple
 
-    this.updateGroupPortion(groupValues)
+    if(!locale){
+      this.updateGroupPortion(groupValues)
+    }
   }
 
   updateGroupPortion(groupValues){
