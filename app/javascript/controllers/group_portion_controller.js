@@ -2,6 +2,7 @@ import { Controller } from 'stimulus';
 
 export default class extends Controller {
   static values = {
+    url: String,
     carbohydrates: Number,
     protein: Number,
     lipids: Number,
@@ -18,6 +19,7 @@ export default class extends Controller {
   ]
 
   connect() {
+    console.log(this.urlValue)
     this.setGroupValues();
     this.quantityTarget.addEventListener("change", (e) => this.multiply_groups(parseFloat(e.target.value)))
   }
@@ -40,9 +42,29 @@ export default class extends Controller {
 
     this.setGroupValues(groupValues)
     this.launchGroupValuesEvent()
+
+    delete groupValues['key']
+    groupValues['quantity'] = multiple
+
+    const groupPortion = { }
+    groupPortion[`${this.keyValue}`] = groupValues
+
+    
+    fetch(this.urlValue, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': this.authenticityToken(),
+      },
+      body: JSON.stringify({
+        group_portion: groupPortion
+      })
+    });
   }
 
   launchGroupValuesEvent(){
     window.dispatchEvent(new CustomEvent('groupPortions'));
   }
+
+  authenticityToken = () => document.querySelector("meta[name='csrf-token']").getAttribute('content');
 }

@@ -52,7 +52,9 @@
                   <!-- Odd row -->
                   <% @group_portion.attributes.except('id', 'plan_id' , 'created_at' , 'updated_at' ).each do
                     |attribute, value| %>
-                    <tr class="bg-white" data-controller="group-portion"
+                    <tr class="bg-white" 
+                      data-controller="group-portion"
+                      data-group-portion-url-value="<%= admin_patient_group_portion_path(patient_id: @patient.id, id: @group_portion.id) %>"
                       data-group-portion-carbohydrates-value="<%= value[:carbohydrates] %>"
                       data-group-portion-protein-value="<%= value[:protein] %>"
                       data-group-portion-lipids-value="<%= value[:lipids] %>"
