@@ -33,10 +33,12 @@ export default class extends Controller {
   }
 
   setGroupValues(values = {carbohydrates: 0, protein: 0, lipids: 0, energy: 0}) {
-    this.carbohydratesTarget.innerHTML = `${values.carbohydrates} grs`
-    this.proteinTarget.innerHTML = `${values.protein} grs`
-    this.lipidsTarget.innerHTML = `${values.lipids} grs`
-    this.energyTarget.innerHTML = `${values.energy} kcal`
+    this.carbohydratesTarget.innerHTML = `${values.carbohydrates} grs`;
+    this.proteinTarget.innerHTML = `${values.protein} grs`;
+    this.lipidsTarget.innerHTML = `${values.lipids} grs`;
+    this.energyTarget.innerHTML = `${values.energy} kcal`;
+
+    this.launchGroupValuesEvent()
   }
 
   multiply_groups(multiple, locale = false) {
@@ -49,7 +51,6 @@ export default class extends Controller {
     }
 
     this.setGroupValues(groupValues)
-    this.launchGroupValuesEvent()
 
     delete groupValues['key']
     groupValues['carbohydratesValue'] = groupValues.carbohydrates
