@@ -13,7 +13,6 @@ export default class extends Controller {
   send(e){
 
     e.preventDefault();
-
     this.stepsTarget.value = `{${[...this.buildArray(this.stepInputsTargets)]}}`;
     this.condimentsTarget.value = `{${[...this.buildArray(this.condimentInputsTargets)]}}`
     
@@ -24,9 +23,15 @@ export default class extends Controller {
     let elements = new Array();
 
     collection.forEach((el) => {
-      elements.push(el.value);
+      elements.push(`"${el.value}"`);
     })
 
     return [...elements]
+  }
+
+  arrayToList(array){
+    return array
+      .join(", ")
+      .replace(/, ((?:.(?!, ))+)$/, ' and $1');
   }
 }
