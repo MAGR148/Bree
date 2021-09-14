@@ -28,23 +28,23 @@ export default class extends Controller {
     }
 
     addValue = (selected) => {
-      setTimeout(() => { this.inputTarget.value = ''; }, 100);
-
-      if (selected){
-        const value = this.extractTextValue(selected);
-        const group = selected.getAttribute('data-autocomplete-group-value')
-        const unit = selected.getAttribute('data-autocomplete-unit-value')
-  
-        if (!this.crudInputTarget.value.includes(value)) {
-          this.renderStudies(value, group, unit);
-          this.saveArray(value, group, unit);
+      setTimeout(() => { 
+        this.inputTarget.value = ''; 
+        if (selected){
+          const value = this.extractTextValue(selected);
+          const group = selected.getAttribute('data-autocomplete-group-value')
+          const unit = selected.getAttribute('data-autocomplete-unit-value')
+    
+          if (!this.crudInputTarget.value.includes(value)) {
+            this.renderStudies(value, group, unit);
+            this.saveArray(value, group, unit);
+          }
         }
-      }
+      }, 100);
     }
 
     renderStudies = (value, group = '', unit = '') => {
-      setTimeout(() => { 
-        const customID = Date.now();
+        const customID = this.uuidv4();
         const tr = document.createElement('tr');
         tr.setAttribute('id', customID);
         tr.classList.add('ml-1', 'mt-3', 'is-flex', 'is-align-items-center');
@@ -62,16 +62,22 @@ export default class extends Controller {
             <a
               class="text-red-600 hover:text-red-900"
               data-action="click->autocomplete-crud#deleteSelectedElement" 
+              data-autocomplete-crud-target="deleteButton" 
               value="${value}"
             >
                 <svg data-unique-index="${customID}" data-unique-value="${value}" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  <path data-unique-index="${customID}" data-unique-value="${value}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
             </a>
           </td>`;
-  
+
         this.selectedValuesTarget.appendChild(tr);
-      }, 500)
+    }
+    
+    uuidv4() {
+      return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+      );
     }
     
     saveArray = (value, group, unit) => {
@@ -84,6 +90,8 @@ export default class extends Controller {
     }
 
     deleteSelectedElement = (e) => {
+      e.preventDefault()
+      
       const customIndex = e.target.dataset.uniqueIndex
       const el = document.getElementById(customIndex)
       
