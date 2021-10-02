@@ -42,6 +42,11 @@ export default class extends Controller {
   }
 
   multiply_groups(multiple, locale = false) {
+    
+    if(isNaN(multiple)){
+      multiple = 0
+    }
+
     const groupValues = {
       key: this.keyValue,
       carbohydrates: parseFloat(this.carbohydratesValue) * multiple,

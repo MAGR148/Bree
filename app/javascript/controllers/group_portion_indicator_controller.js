@@ -121,9 +121,13 @@ export default class extends Controller {
   }
 
   calculatePercentage(grams, divider, calories){
+    
     const kCalories = grams * divider
+    const result = (kCalories * 100 / calories).toFixed(2)
 
-    return (kCalories * 100 / calories).toFixed(2)
+    if (isNaN(result)){ return 0 }
+    
+    return result
   }
 
   matrixAdd(groups){
