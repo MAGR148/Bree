@@ -24,10 +24,10 @@ export default class extends Controller {
 
   connect() {
     this.setGroupValues({ 
-      carbohydrates: this.carbohydratesSavedValue ? this.carbohydratesSavedValue : 0, 
-      protein: this.proteinSavedValue ? this.proteinSavedValue : 0, 
-      lipids: this.lipidsSavedValue ? this.lipidsSavedValue : 0, 
-      energy: this.energySavedValue ? this.energySavedValue : 0
+      carbohydrates: this.carbohydratesSavedValue, 
+      protein: this.proteinSavedValue, 
+      lipids: this.lipidsSavedValue, 
+      energy: this.energySavedValue
     });
     this.quantityTarget.addEventListener("change", (e) => this.multiply_groups(parseFloat(e.target.value)))
   }

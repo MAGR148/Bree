@@ -4,7 +4,7 @@ export default class extends Controller {
 
   static values = {
     carbohydrates: Number,
-    proteins: Number,
+    protein: Number,
     lipids: Number,
     energy: Number
   }
@@ -32,37 +32,41 @@ export default class extends Controller {
       updatedGroups.push({carbohydrates, protein, lipids, energy})
      })
 
-     this.paintIncrementedGroups(updatedGroups)
+    this.paintIncrementedGroups(updatedGroups)
   }
 
   paintIncrementedGroups(groups){
     const values = this.matrixAdd(groups);
-    this.paintSemaphore(values);
-
+    
     this.energyTarget.innerText = `${values.energy} kcal`
     this.carbohydratesTarget.innerText = `${values.carbohydrates} grs`
     this.proteinTarget.innerText = `${values.protein} grs`
     this.lipidsTarget.innerText = `${values.lipids} grs`
-
+    
     this.carbohydratesPercentageTarget.innerText = `${this.calculatePercentage(values.carbohydrates, 4, values.energy)} %`
     this.proteinPercentageTarget.innerText = `${this.calculatePercentage(values.protein, 4, values.energy)} %`
     this.lipidsPercentageTarget.innerText = `${this.calculatePercentage(values.lipids, 9, values.energy)} %`
     
+    this.paintSemaphore(values);
   }
 
   paintSemaphore(values){
+    // oldClass - newClass
     this.energyTarget.classList.replace('bg-green-100', 'bg-red-100')
     this.energyTarget.classList.replace('text-green-800', 'text-red-800')
+
     this.carbohydratesTarget.classList.replace('bg-green-100', 'bg-red-100')
     this.carbohydratesTarget.classList.replace('text-green-800', 'text-red-800')
+
     this.proteinTarget.classList.replace('bg-green-100', 'bg-red-100')
     this.proteinTarget.classList.replace('text-green-800', 'text-red-800')
+
     this.lipidsTarget.classList.replace('bg-green-100', 'bg-red-100')
     this.lipidsTarget.classList.replace('text-green-800', 'text-red-800')
-    
+
     const energyRange = this.inRange(this.energyValue, values.energy, 20)
     const carboRange = this.inRange(this.carbohydratesValue, values.carbohydrates, 3)
-    const proteinsRange = this.inRange(this.proteinsValue, values.protein, 3)
+    const proteinsRange = this.inRange(this.proteinValue, values.protein, 3)
     const lipidsRange = this.inRange(this.lipidsValue, values.lipids, 2)
     
     this.paintGroup('energy', energyRange)
@@ -78,25 +82,30 @@ export default class extends Controller {
           this.energyTarget.classList.replace('bg-red-100', 'bg-green-100')
           this.energyTarget.classList.replace('text-red-800', 'text-green-800')
         }
+        break;
       case 'carbohydrates':
         if(rangeResult === true){
           this.carbohydratesTarget.classList.replace('bg-red-100', 'bg-green-100')
           this.carbohydratesTarget.classList.replace('text-red-800', 'text-green-800')
         }
+        break;
       case 'proteins':
         if(rangeResult === true){
           this.proteinTarget.classList.replace('bg-red-100', 'bg-green-100')
           this.proteinTarget.classList.replace('text-red-800', 'text-green-800')
         }
-      default:
+        break;
+      case 'lipids':
         if(rangeResult === true){
           this.lipidsTarget.classList.replace('bg-red-100', 'bg-green-100')
           this.lipidsTarget.classList.replace('text-red-800', 'text-green-800')
         }
+        break;
     }
   }
 
   inRange(original, value, range){
+
     if(isNaN(value)){
       value = 0
     }
@@ -104,7 +113,7 @@ export default class extends Controller {
     const incremented = original + range;
     const decremented = original - range;
 
-    if(value > 0 && value >= decremented && value <= incremented){
+    if(original > 0 && value > 0 && value >= decremented && value <= incremented){
       return true
     }
 
