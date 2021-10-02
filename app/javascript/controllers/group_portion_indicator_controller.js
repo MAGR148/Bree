@@ -97,10 +97,14 @@ export default class extends Controller {
   }
 
   inRange(original, value, range){
+    if(isNaN(value)){
+      value = 0
+    }
+
     const incremented = original + range;
     const decremented = original - range;
 
-    if(value >= decremented && value <= incremented){
+    if(value > 0 && value >= decremented && value <= incremented){
       return true
     }
 
