@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :calories
       resources :macros
       resources :group_portions
+      resources :group_portion_times
     end
   end
 end
