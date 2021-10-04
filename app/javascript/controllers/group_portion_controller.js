@@ -55,6 +55,8 @@ export default class extends Controller {
       energy: parseFloat(this.energyValue) * multiple,
     }
 
+    const groupTimeValues = { }
+
     this.setGroupValues(groupValues)
 
     delete groupValues['key']
@@ -67,15 +69,18 @@ export default class extends Controller {
     groupValues['lipids'] = this.lipidsValue
     groupValues['energy'] = this.energyValue
     groupValues['quantity'] = multiple
+    groupTimeValues['quantity'] = multiple
 
     if(!locale){
-      this.updateGroupPortion(groupValues)
+      this.updateGroupPortion(groupValues, groupTimeValues)
     }
   }
 
-  updateGroupPortion(groupValues){
+  updateGroupPortion(groupValues, groupTimeValues){
     const groupPortion = { }
+    const groupPortionTime = { }
     groupPortion[`${this.keyValue}`] = groupValues
+    groupPortionTime[`${this.keyValue}`] = groupTimeValues
 
     fetch(this.urlValue, {
       method: 'PUT',
@@ -84,7 +89,8 @@ export default class extends Controller {
         'X-CSRF-Token': this.authenticityToken(),
       },
       body: JSON.stringify({
-        group_portion: groupPortion
+        group_portion: groupPortion,
+        group_portion_time: groupPortionTime
       })
     });
   }

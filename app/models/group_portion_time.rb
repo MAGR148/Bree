@@ -35,4 +35,23 @@
 #
 class GroupPortionTime < ApplicationRecord
   belongs_to :plan
+
+  serialize :ale, JsonbSerializer
+  serialize :aoa_aag, JsonbSerializer
+  serialize :aoa_bag, JsonbSerializer
+  serialize :aoa_mag, JsonbSerializer
+  serialize :aoa_mbag, JsonbSerializer
+  serialize :cereals_c_g, JsonbSerializer
+  serialize :cereals_s_g, JsonbSerializer
+  serialize :fats_c_p, JsonbSerializer
+  serialize :fats_s_p, JsonbSerializer
+  serialize :fruit, JsonbSerializer
+  serialize :legumes, JsonbSerializer
+  serialize :milk_c_a, JsonbSerializer
+  serialize :semi_milk, JsonbSerializer
+  serialize :skim_milk, JsonbSerializer
+  serialize :sugars_c_g, JsonbSerializer
+  serialize :sugars_s_g, JsonbSerializer
+  serialize :vegetables, JsonbSerializer
+  serialize :whole_milk, JsonbSerializer
 end

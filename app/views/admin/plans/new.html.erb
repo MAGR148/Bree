@@ -138,7 +138,7 @@
 								data-action="wizard#goTo"
 								data-wizard-target="step"
 								data-step-id="portions-time"
-								data-step-url="<%= edit_admin_patient_group_portion_time_url(id: @patient.id)%>"
+								data-step-url="<%= edit_admin_patient_group_portion_time_url(patient_id: @patient.id, id: @patient.plan.group_portion_time.id)%>"
 								id="step-link-4"
                 class="relative w-7 h-7 flex items-center justify-center bg-white border-2 border-indigo-600 rounded-full hover:bg-indigo-50"
                 aria-current="step"
