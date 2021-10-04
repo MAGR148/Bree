@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_02_034138) do
+ActiveRecord::Schema.define(version: 2021_10_04_052349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,31 @@ ActiveRecord::Schema.define(version: 2021_09_02_034138) do
   end
 
   create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
+  create_table "group_portion_times", force: :cascade do |t|
+    t.bigint "plan_id", null: false
+    t.jsonb "vegetables", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "fruit", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "cereals_s_g", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "cereals_c_g", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "legumes", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "aoa_mbag", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "aoa_bag", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "aoa_mag", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "aoa_aag", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "skim_milk", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "semi_milk", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "whole_milk", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "milk_c_a", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "fats_s_p", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "fats_c_p", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "sugars_s_g", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "sugars_c_g", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.jsonb "ale", default: {"meal"=>0, "dinner"=>0, "portions"=>0, "breakfast"=>0, "first_collation"=>0, "second_collation"=>0}, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plan_id"], name: "index_group_portion_times_on_plan_id"
   end
 
   create_table "group_portions", force: :cascade do |t|
@@ -154,6 +179,7 @@ ActiveRecord::Schema.define(version: 2021_09_02_034138) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "group_portion_times", "plans"
   add_foreign_key "group_portions", "plans"
   add_foreign_key "macronutrients", "plans"
   add_foreign_key "patients", "users"
