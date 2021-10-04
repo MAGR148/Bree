@@ -7,6 +7,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'data_migrate'
 gem 'devise'
 gem 'honeybadger'
+gem 'interactor'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
 gem 'pg_search'
