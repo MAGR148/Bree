@@ -14,6 +14,7 @@ export default class extends Controller {
     'meal',
     'secondCollation',
     'dinner',
+    'quantity'
   ]
 
   connect(){
@@ -22,6 +23,26 @@ export default class extends Controller {
     this.mealTarget.addEventListener("change", (e) => this.changePortion())
     this.secondCollationTarget.addEventListener("change", (e) => this.changePortion())
     this.dinnerTarget.addEventListener("change", (e) => this.changePortion())
+    this.validateQuantities()
+  }
+
+  validateQuantities(){
+    let breakfast = this.generateFloatingNumber(this.breakfastTarget.value)
+    let firstCollation = this.generateFloatingNumber(this.firstCollationTarget.value)
+    let meal = this.generateFloatingNumber(this.mealTarget.value)
+    let secondCollation = this.generateFloatingNumber(this.secondCollationTarget.value)
+    let dinner = this.generateFloatingNumber(this.dinnerTarget.value)
+
+    const quantities = breakfast + firstCollation + meal + secondCollation + dinner
+    this.quantityTarget.innerHTML = `${quantities} de ${this.quantityValue}`
+
+    if(this.quantityValue === quantities){
+      this.quantityTarget.classList.replace('bg-red-100', 'bg-green-100')
+      this.quantityTarget.classList.replace('text-red-800', 'text-green-800')
+    } else {
+      this.quantityTarget.classList.replace('bg-green-100', 'bg-red-100')
+      this.quantityTarget.classList.replace('text-green-800', 'text-red-800')
+    }
   }
 
   changePortion(){
@@ -35,6 +56,7 @@ export default class extends Controller {
       dinner: this.generateFloatingNumber(this.dinnerTarget.value)
     }
 
+    this.validateQuantities()
     this.updateGroupPortionTime(groupPortionTime)
   }
 
