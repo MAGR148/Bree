@@ -46,7 +46,12 @@
                                             <% @group_portion_times.attributes.except('id', 'plan_id' , 'created_at' , 'updated_at' ).each do
                                             |attribute, value| %>
                                                 <% if value[:quantity] > 0 %>
-                                                    <tr>
+                                                    <tr
+                                                        data-controller="group-portion-time"
+                                                        data-group-portion-time-url-value="<%= admin_patient_group_portion_time_path(patient_id: @patient.id, id: @group_portion_times.id) %>"
+                                                        data-group-portion-time-key-value="<%= attribute %>"
+                                                        data-group-portion-time-quantity-value="<%= value[:quantity] %>"
+                                                    >
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                                         <%= t(attribute) %>
                                                         </td>
@@ -64,6 +69,8 @@
                                                                 placeholder="0"
                                                                 min="0"
                                                                 step=".5"
+                                                                data-group-portion-time-target='breakfast'
+                                                                value="<%= value[:breakfast] %>"
                                                             >
                                                         </td>
                                                         <td class="px-6 py-3 whitespace-nowrap text-md text-gray-900">
@@ -75,6 +82,8 @@
                                                                 placeholder="0"
                                                                 min="0"
                                                                 step=".5"
+                                                                data-group-portion-time-target='firstCollation'
+                                                                value="<%= value[:firstCollation] %>"
                                                             >
                                                         </td>
                                                         <td class="px-6 py-3 whitespace-nowrap text-md text-gray-900">
@@ -86,6 +95,8 @@
                                                                 placeholder="0"
                                                                 min="0"
                                                                 step=".5"
+                                                                data-group-portion-time-target='meal'
+                                                                value="<%= value[:meal] %>"
                                                             >
                                                         </td>
                                                         <td class="px-6 py-3 whitespace-nowrap text-md text-gray-900">
@@ -97,6 +108,8 @@
                                                                 placeholder="0"
                                                                 min="0"
                                                                 step=".5"
+                                                                data-group-portion-time-target='secondCollation'
+                                                                value="<%= value[:secondCollation] %>"
                                                             >
                                                         </td>
                                                         <td class="px-6 py-3 whitespace-nowrap text-md text-gray-900">
@@ -108,6 +121,8 @@
                                                                 placeholder="0"
                                                                 min="0"
                                                                 step=".5"
+                                                                data-group-portion-time-target='dinner'
+                                                                value="<%= value[:dinner] %>"
                                                             >
                                                         </td>
                                                     </tr>
