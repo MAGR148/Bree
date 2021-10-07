@@ -43,10 +43,10 @@ export default class extends Controller {
   }
 
   findStep(){
-    if(step > 4){
-      step = 4
+    if(step > 5){
+      step = 5
     }
-    if(step > 0 && step <= 4){
+    if(step > 0 && step <= 5){
       const target = document.getElementById(`step-link-${step}`)
       const stepId = target.dataset.stepId;
       const stepUrl = target.dataset.stepUrl;

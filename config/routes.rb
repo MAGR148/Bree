@@ -13,17 +13,18 @@ Rails.application.routes.draw do
     resources :recipes
     resources :duplicate_recipes, only: :edit
     resources :patients do
-      resources :plans
-
+      
       namespace :operations do
         resources :harris
         resources :mifflins
       end
       
+      resources :plans
       resources :calories
       resources :macros
       resources :group_portions
       resources :group_portion_times
+      resources :patient_recipes
     end
   end
 end
