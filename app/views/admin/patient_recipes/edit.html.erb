@@ -53,41 +53,20 @@
     <main class="flex-1 overflow-y-auto">
       <div class="pt-2 max-w-7xl mx-auto px-4 sm:px-16">
         <div class="bg-gray-100 divide-x-2 divide-gray-300 px-2 py-0.5 mt-0.5 flex overflow-x-auto"> <!-- Group allocation -->
-          
-          <div class="flex-shrink-0">
-            <label class="text-gray-500 font-semibold text-xs">
-              Cereales S/G
-              <span class="bg-white text-gray-500 hidden ml-2 py-0.5 px-1.5 border border-gray-300 rounded-full text-xs font-semibold md:inline-block">2</span>
-            </label>
-          </div>
-
-          <div class="ml-3 flex-shrink-0">
-            <label class="text-gray-500 font-semibold text-xs ml-3">
-              AOA MBAG
-              <span class="bg-white text-gray-500 hidden ml-2 py-0.5 px-1.5 border border-gray-300 rounded-full text-xs font-semibold md:inline-block">1.5</span>
-              <!-- <span class="ml-3 text-gray-400">|</span> -->
-            </label>
-          </div>
-
-          <div class="ml-3 flex-shrink-0">
-            <label class="text-gray-500 font-semibold text-xs ml-3">
-              Grasas S/P
-              <span class="bg-white text-gray-500 hidden ml-2 py-0.5 px-1.5 border border-gray-300 rounded-full text-xs font-semibold md:inline-block">1</span>
-              <!-- <span class="ml-3 text-gray-400">|</span> -->
-            </label>
-          </div>
-
-          <div class="ml-3 flex-shrink-0">
-            <label class="text-gray-500 font-semibold text-xs ml-3">
-              Leguminosas
-              <span class="bg-white text-gray-500 hidden ml-2 py-0.5 px-1.5 border border-gray-300 rounded-full text-xs font-semibold md:inline-block">1</span>
-              <!-- <span class="ml-3 text-gray-400">|</span> -->
-            </label>
-          </div>
-
+          <% @patient.plan.group_portion_time.attributes.except('id', 'plan_id' , 'created_at' , 'updated_at' ).each do
+            |attribute, value| %>
+            <% if value[:quantity] > 0 %>
+              <div class="ml-3 flex-shrink-0">
+                <label class="text-gray-500 font-semibold text-xs ml-3">
+                  <%= t(attribute) %>
+                  <span class="bg-white text-gray-500 hidden ml-2 py-0.5 px-1.5 border border-gray-300 rounded-full text-xs font-semibold md:inline-block">
+                    <%= value[:quantity] %>
+                  </span>
+                </label>
+              </div>
+            <% end %>
+          <% end %>
         </div>
-        
-
         <!-- Gallery -->
         <section class="mt-6 pb-16 mb-20" aria-labelledby="gallery-heading">
           <h2 id="gallery-heading" class="sr-only">Recently viewed</h2>
