@@ -1,7 +1,7 @@
 module Admin
   class PatientRecipesController < BaseController
     def edit
-      @recipes = Recipe.all
+      @recipes = Recipe.limit(30)
       @patient = Patient.find(params[:patient_id])
     end
   end
