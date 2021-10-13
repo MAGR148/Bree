@@ -7,7 +7,9 @@ export default class extends Controller {
     name: String,
     ingredients: String,
     accompaniment: String,
-    preparation: String
+    preparation: String,
+    preparationTime: Number,
+    cookingTime: Number,
   }
 
   showResume(){
@@ -17,7 +19,9 @@ export default class extends Controller {
         name: this.nameValue,
         ingredients: eval('[' + this.ingredientsValue + ']'),
         accompaniment: eval('[' + this.accompanimentValue + ']'),
-        preparation: eval(this.preparationValue)
+        preparation: eval(this.preparationValue),
+        preparationTime: this.preparationTimeValue,
+        cookingTime: this.cookingTimeValue,
       },
     }));
   }
