@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :group_portions
       resources :group_portion_times
       resources :patient_recipes
+      resources :recipe_times
     end
   end
 end
