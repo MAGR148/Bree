@@ -12,7 +12,7 @@ export default class extends Controller {
       this.storeRecipe();
       this.paintSelected(recipe);
     } else {
-      this.unpaintSelected(recipe);
+      this.unpaintSelected();
       this.storeRecipe();
       this.paintSelected(recipe);
     }
@@ -28,7 +28,9 @@ export default class extends Controller {
     recipe.classList.add('ring-indigo-500');
   }
 
-  unpaintSelected(recipe){
+  unpaintSelected(){
+    const recipe = document.getElementById(localStorage.getItem('recipeId'));
+    
     recipe.classList.remove('ring-2');
     recipe.classList.remove('ring-offset-2');
     recipe.classList.remove('ring-indigo-500');
