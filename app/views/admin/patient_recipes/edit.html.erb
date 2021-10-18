@@ -34,27 +34,58 @@
                   <div class="flex items-center border-b border-gray-200 sm:px-16">
                     <nav class="flex-1 -mb-px flex space-x-6 xl:space-x-8" aria-label="Tabs">
                       <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
-                      <a href="#" aria-current="page" class="border-indigo-500  text-indigo-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                      <a 
+                        aria-current="page" 
+                        class="border-indigo-500  text-indigo-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                        data-controller="recipe-tabs"
+                        data-recipe-tabs-id-value="patient-recipe-times"
+                        data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'breakfast', id: 1) %>"
+                        data-action="click->recipe-tabs#changeTab"
+                      >
                         Desayuno
                         <span class="bg-indigo-100 text-indigo-700 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">4</span>
                       </a>
 
-                      <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                      <a 
+                        class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                        data-controller="recipe-tabs"
+                        data-recipe-tabs-id-value="patient-recipe-times"
+                        data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'firstCollation', id: 1) %>"
+                        data-action="click->recipe-tabs#changeTab"
+                      >
                         Colación 1
                         <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">9</span>
                       </a>
 
-                      <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                      <a 
+                        class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                        data-controller="recipe-tabs"
+                        data-recipe-tabs-id-value="patient-recipe-times"
+                        data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'meal', id: 1) %>"
+                        data-action="click->recipe-tabs#changeTab"
+                      >
                         Comida
                         <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">3</span>
                       </a>
 
-                      <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                      <a 
+                        class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                        data-controller="recipe-tabs"
+                        data-recipe-tabs-id-value="patient-recipe-times"
+                        data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'secondCollation', id: 1) %>"
+                        data-action="click->recipe-tabs#changeTab"
+                      >
                         Colación 2
                         <!-- <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">0</span> -->
                       </a>
 
-                      <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                      <a 
+                        class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                        data-controller="recipe-tabs"
+                        data-recipe-tabs-id-value="patient-recipe-times"
+                        data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'dinner', id: 1) %>"
+                        data-action="click->recipe-tabs#changeTab"
+                      >
                         Cena
                         <!-- <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">0</span> -->
                       </a>
@@ -65,7 +96,13 @@
             </div>
             <!-- <hr class=" mt-4 sm:mx-16"> -->
 
-            <turbo-frame id="patient-recipe-times" src="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, id: 1) %>">
+            <turbo-frame 
+              id="patient-recipe-times" 
+              src="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'breakfast', id: 1) %>"
+              data-controller="operation-tabs-shower"
+						  data-operation-tabs-shower-target="turboFrame"
+						  data-action="refreshRecipeTimeTurboFrame@window->operation-tabs-shower#updateTurboFrame"
+            >
               Content will be replaced when /messages has been loaded.
             </turbo-frame>
           </div>

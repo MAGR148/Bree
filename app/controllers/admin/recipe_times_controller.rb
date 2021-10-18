@@ -5,7 +5,7 @@ module Admin
     def edit
       @recipes = Recipe.limit(30)
       @patient = Patient.find(params[:patient_id])
-      @time = 'breakfast'
+      @time = params[:recipe_time]
       # meal / first_collation / second_collation / dinner
     end
   end
