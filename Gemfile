@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -19,7 +21,7 @@ gem 'turbo-rails'
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', require: false
   gem 'rubocop-minitest', require: false
   gem 'rubocop-performance', require: false
@@ -42,4 +44,4 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-gem "hotwire-rails", "~> 0.1.3"
+gem 'hotwire-rails', '~> 0.1.3'

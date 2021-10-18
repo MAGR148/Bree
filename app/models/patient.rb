@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: patients
@@ -25,9 +27,9 @@
 #
 class Patient < ApplicationRecord
   belongs_to :user
-  has_one :plan
+  has_one :plan, dependent: :destroy
 
-  def is_male?
-    self.gender == 'male'    
+  def male?
+    gender == 'male'
   end
 end
