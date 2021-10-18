@@ -9,11 +9,11 @@ export default class extends Controller {
 
   defineOrGetRecipe(recipe){
     if (localStorage.getItem('recipeId') === null || localStorage.getItem('recipeId') === 'undefined') {
-      this.storeRecipe();
+      this.storeRecipe(recipe.id);
       this.paintSelected(recipe);
     } else {
       this.unpaintSelected();
-      this.storeRecipe();
+      this.storeRecipe(recipe.id);
       this.paintSelected(recipe);
     }
   }
@@ -30,11 +30,10 @@ export default class extends Controller {
 
   unpaintSelected(){
     const recipeId = localStorage.getItem('recipeId');
-    console.log(recipeId);
     const recipe = document.getElementById(recipeId);
-    
+  
     recipe.classList.remove('ring-2');
     recipe.classList.remove('ring-offset-2');
-    recipe.classList.remove('ring-indigo-500');
+    recipe.classList.remove('ring-indigo-500');    
   }
 }
