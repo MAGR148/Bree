@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   defineOrGetRecipe(recipe){
-    if (localStorage.getItem('recipeId') === null) {
+    if (localStorage.getItem('recipeId') === null || localStorage.getItem('recipeId') === 'undefined') {
       this.storeRecipe();
       this.paintSelected(recipe);
     } else {
@@ -29,7 +29,9 @@ export default class extends Controller {
   }
 
   unpaintSelected(){
-    const recipe = document.getElementById(localStorage.getItem('recipeId'));
+    const recipeId = localStorage.getItem('recipeId');
+    console.log(recipeId);
+    const recipe = document.getElementById(recipeId);
     
     recipe.classList.remove('ring-2');
     recipe.classList.remove('ring-offset-2');
