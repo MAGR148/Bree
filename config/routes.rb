@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+  get 'expedients/index'
+  get 'expedients/general'
+  get 'expedients/habits'
+  get 'expedients/history'
+  get 'expedients/notes'
+  get 'expedients/physical_activity'
+  
   resources :invitations
   resources :aliments
   resources :aliment_groups
