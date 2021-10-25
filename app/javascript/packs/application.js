@@ -14,12 +14,12 @@ import '../stylesheets/application.scss'
 import "controllers"
 Rails.start()
 
-//Import AlpineJS as module
+//Import AlpineJS as module with the documentation
 import Alpine from 'alpinejs'
  
 window.Alpine = Alpine
  
 Alpine.start()
 
-//Import chartkick
+//Import chartkick with the documentation
 import "chartkick/chart.js"
