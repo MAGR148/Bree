@@ -16,7 +16,7 @@ import "controllers"
 //Import chartkick
 import "chartkick/chart.js"
 
-//Import AlpineJS as module
+//Import AlpineJS as module with the documentation
 import Alpine from 'alpinejs'
 
 Rails.start()
@@ -25,4 +25,9 @@ window.Alpine = Alpine
  
 Alpine.start()
 
+<<<<<<< HEAD
 
+=======
+//Import chartkick with the documentation
+import "chartkick/chart.js"
+>>>>>>> Add Chartkick and AlpineJS as a module
