@@ -12,6 +12,7 @@ import "@hotwired/turbo-rails"
 // import "channels"
 import '../stylesheets/application.scss'
 import "controllers"
+<<<<<<< HEAD
 
 //Import chartkick
 import "chartkick/chart.js"
@@ -24,10 +25,24 @@ Rails.start()
 window.Alpine = Alpine
  
 Alpine.start()
+=======
+
+//Import AlpineJS as module with the documentation
+import Alpine from 'alpinejs'
+>>>>>>> Grouping imports and sorting gems alphabetically
 
 <<<<<<< HEAD
 
 =======
 //Import chartkick with the documentation
 import "chartkick/chart.js"
+<<<<<<< HEAD
 >>>>>>> Add Chartkick and AlpineJS as a module
+=======
+
+Rails.start()
+
+window.Alpine = Alpine
+ 
+Alpine.start()
+>>>>>>> Grouping imports and sorting gems alphabetically

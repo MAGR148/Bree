@@ -10,7 +10,11 @@ gem "chartkick"
 gem 'data_migrate'
 gem 'devise'
 gem 'honeybadger'
+<<<<<<< HEAD
 gem 'hotwire-rails', '~> 0.1.3'
+=======
+gem "hotwire-rails", "~> 0.1.3"
+>>>>>>> Grouping imports and sorting gems alphabetically
 gem 'interactor'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
@@ -45,4 +49,8 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> Grouping imports and sorting gems alphabetically
