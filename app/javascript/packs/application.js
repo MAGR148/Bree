@@ -12,14 +12,17 @@ import "@hotwired/turbo-rails"
 // import "channels"
 import '../stylesheets/application.scss'
 import "controllers"
+
+//Import chartkick
+import "chartkick/chart.js"
+
+//Import AlpineJS as module
+import Alpine from 'alpinejs'
+
 Rails.start()
 
-//Import AlpineJS as module with the documentation
-import Alpine from 'alpinejs'
- 
 window.Alpine = Alpine
  
 Alpine.start()
 
-//Import chartkick with the documentation
-import "chartkick/chart.js"
+
