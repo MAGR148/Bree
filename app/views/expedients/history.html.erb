@@ -66,7 +66,7 @@
                                     class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                                     <option>Generales</option>
 
-                                    <option selected>Historial</option>
+                                    <option>Historial</option>
 
                                     <option>Hábitos</option>
 
@@ -76,12 +76,12 @@
                                 </select>
                             </div>
                             <div class="hidden sm:block">
-                                <nav data-controller="calories-tabs" class="flex space-x-4" aria-label="Tabs">
+                                <nav data-controller="expedients-tabs" class="flex space-x-4" aria-label="Tabs">
                                     <!-- Current: "bg-indigo-100 text-indigo-700", Default: "text-gray-500 hover:text-gray-700" -->
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                                         aria-current="page" data-controller="operation-tabs"
                                         data-operation-tabs-url-value="http://localhost:3000/expedients/general"
-                                        data-operation-tabs-id-value="harris-operations"
+                                        data-operation-tabs-id-value="general"
                                         data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
                                         data-calories-tabs-target="option">
                                         Generales
@@ -90,7 +90,7 @@
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                                         aria-current="page" data-controller="operation-tabs"
                                         data-operation-tabs-url-value="http://localhost:3000/expedients/history"
-                                        data-operation-tabs-id-value="harris-operations"
+                                        data-operation-tabs-id-value="history"
                                         data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
                                         data-calories-tabs-target="option">
                                         Historial
@@ -99,7 +99,7 @@
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                                         aria-current="page" data-controller="operation-tabs"
                                         data-operation-tabs-url-value="http://localhost:3000/expedients/habits"
-                                        data-operation-tabs-id-value="harris-operations"
+                                        data-operation-tabs-id-value="habits"
                                         data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
                                         data-calories-tabs-target="option">
                                         Hábitos
@@ -107,15 +107,19 @@
 
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                                         aria-current="page" data-controller="operation-tabs"
-                                        data-operation-tabs-url-value="http://localhost:3000/expedients/notes"
-                                        data-operation-tabs-id-value="harris-operations"
+                                        data-operation-tabs-url-value="http://localhost:3000/expedients/physical_activity"
+                                        data-operation-tabs-id-value="physical_activity"
                                         data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
                                         data-calories-tabs-target="option">
                                         Actividad física
                                     </a>
 
-                                    <a href="#"
-                                        class="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm rounded-md">
+                                    <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
+                                        aria-current="page" data-controller="operation-tabs"
+                                        data-operation-tabs-url-value="http://localhost:3000/expedients/notes"
+                                        data-operation-tabs-id-value="notes"
+                                        data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
+                                        data-calories-tabs-target="option">
                                         Notas
                                     </a>
                                 </nav>
@@ -125,7 +129,7 @@
                     </div>
                     <turbo-frame data-controller="operation-tabs-shower" data-operation-tabs-shower-target="turboFrame"
                         data-action="refreshOperationTurboFrame@window->operation-tabs-shower#updateTurboFrame"
-                        id="harris-operations">
+                        id="history">
                         <div class="mt-2 relative flex-1 overflow-y-auto">
                             <!-- Replace with your content -->
 
