@@ -21,4 +21,5 @@
 #
 class MedicalHistory < ApplicationRecord
   belongs_to :patient
+  has_one :anthropometric_information
 end
