@@ -34,6 +34,7 @@
 class Patient < ApplicationRecord
   belongs_to :user
   has_one :plan, dependent: :destroy
+  has_many :medical_histories
 
   def male?
     gender == 'male'
