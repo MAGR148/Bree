@@ -46,7 +46,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-<<<<<<< HEAD
-=======
-
->>>>>>> 67cc3c60755d03102424ede72d183402f50db48b

@@ -2,10 +2,6 @@ import { Controller } from 'stimulus';
 
 export default class extends Controller {
   static targets = ['option'];
-  
-  initialize(){
-      console.log("Estoy en el controller");
-  }
 
   selectTab(e) {
     this.optionTargets.forEach((el, i) => {
