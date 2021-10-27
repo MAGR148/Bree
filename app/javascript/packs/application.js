@@ -13,6 +13,7 @@ import "@hotwired/turbo-rails"
 import '../stylesheets/application.scss'
 import "controllers"
 
+
 //Import AlpineJS as module with the documentation
 import Alpine from 'alpinejs'
 
@@ -24,3 +25,4 @@ Rails.start()
 window.Alpine = Alpine
  
 Alpine.start()
+
