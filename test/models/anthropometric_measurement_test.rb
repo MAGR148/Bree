@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: anthropometric_informations
+# Table name: anthropometric_measurements
 #
 #  id           :bigint           not null, primary key
 #  bmi          :float
@@ -10,15 +10,10 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
+require "test_helper"
 
-one:
-  size: 1.5
-  weight: 1.5
-  bmi: 1.5
-  usual_weight: 1.5
-
-two:
-  size: 1.5
-  weight: 1.5
-  bmi: 1.5
-  usual_weight: 1.5
+class AnthropometricMeasurementTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end
