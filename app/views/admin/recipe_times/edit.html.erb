@@ -36,8 +36,9 @@
         <!-- Current: "ring-2 ring-offset-2 ring-indigo-500", Default: "focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500" -->
         <!-- -->
         <div 
+          id="recipe-<%= recipe.id %>-target"
           data-recipe-selectable-target="recipe"
-          class="focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 group block w-full h-32 object object-cover rounded-lg bg-gray-100 overflow-hidden"
+          class="group block w-full h-32 object object-cover rounded-lg bg-gray-100 overflow-hidden"
         >
           <!-- Current: "", Default: "group-hover:opacity-75" -->
           <%= image_tag(recipe.image, class: 'object-cover cursor-pointer group-hover:opacity-75') %>
