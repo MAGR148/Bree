@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_26_035012) do
+ActiveRecord::Schema.define(version: 2021_10_27_045805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_035012) do
     t.string "ascorbic_acid", default: ""
   end
 
-  create_table "anthropometric_informations", force: :cascade do |t|
+  create_table "anthropometric_measurements", force: :cascade do |t|
     t.float "size"
     t.float "weight"
     t.float "bmi"

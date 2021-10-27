@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: anthropometric_informations
+# Table name: anthropometric_measurements
 #
 #  id           :bigint           not null, primary key
 #  bmi          :float
@@ -10,6 +10,15 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
-class AnthropometricInformation < ApplicationRecord
-  belongs_to :medical_history
-end
+
+one:
+  size: 1.5
+  weight: 1.5
+  bmi: 1.5
+  usual_weight: 1.5
+
+two:
+  size: 1.5
+  weight: 1.5
+  bmi: 1.5
+  usual_weight: 1.5
