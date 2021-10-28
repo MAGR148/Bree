@@ -1,10 +1,16 @@
 /* app/javascript/stylesheets/application.scss */
 @import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 
+@import "./base/typography";
+
+@import "tailwindcss/components";
 
 @import "components/autocomplete";
+@import "./components/label";
+@import "./components/input";
+//@import "./components/select"; 
+
+@import "tailwindcss/utilities";
 
 a:hover {
   cursor:pointer;
