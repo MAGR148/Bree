@@ -13,7 +13,7 @@
           To: "opacity-0"
       -->
         <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"
-            @click="open = false; setTimeout(() => open = true, 1000);"></div>
+            @click="open = false; setTimeout(() => open = true, 1000);">Cuerpo del Index</div>
         <div x-show="open" class="fixed inset-y-0 right-0 pl-10 max-w-full flex"
             x-transition:enter="transform transition ease-in-out duration-500"
             x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
@@ -74,168 +74,167 @@
                                     <option>Actividad física</option>
 
                                     <option>Notas</option>
-                               
                                 </select>
                             </div>
                             <div class="hidden sm:block">
-                                <nav data-controller="calories-tabs" class="flex space-x-4" aria-label="Tabs">
+                                <nav data-controller="paint-active-tabs" class="flex space-x-4" aria-label="Tabs">
                                     <!-- Current: "bg-indigo-100 text-indigo-700", Default: "text-gray-500 hover:text-gray-700" -->
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                                         aria-current="page" data-controller="operation-tabs"
-                                        data-operation-tabs-url-value="http://localhost:3000/expedients/general"
+                                        data-operation-tabs-url-value="<%=expedients_general_path%>"
                                         data-operation-tabs-id-value="general"
-                                        data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
-                                        data-calories-tabs-target="option">
+                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-paint-active-tabs-target="option">
                                         Generales
                                     </a>
 
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                                         aria-current="page" data-controller="operation-tabs"
-                                        data-operation-tabs-url-value="http://localhost:3000/expedients/history"
+                                        data-operation-tabs-url-value="<%=expedients_history_path%>"
                                         data-operation-tabs-id-value="history"
-                                        data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
-                                        data-calories-tabs-target="option">
+                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-paint-active-tabs-target="option">
                                         Historial
                                     </a>
 
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                                         aria-current="page" data-controller="operation-tabs"
-                                        data-operation-tabs-url-value="http://localhost:3000/expedients/habits"
+                                        data-operation-tabs-url-value="<%=expedients_habits_path%>"
                                         data-operation-tabs-id-value="habits"
-                                        data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
-                                        data-calories-tabs-target="option">
+                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-paint-active-tabs-target="option">
                                         Hábitos
                                     </a>
 
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                                         aria-current="page" data-controller="operation-tabs"
-                                        data-operation-tabs-url-value="http://localhost:3000/expedients/physical_activity"
+                                        data-operation-tabs-url-value="<%=expedients_physical_activity_path%>"
                                         data-operation-tabs-id-value="physical_activity"
-                                        data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
-                                        data-calories-tabs-target="option">
+                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-paint-active-tabs-target="option">
                                         Actividad física
                                     </a>
 
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
                                         aria-current="page" data-controller="operation-tabs"
-                                        data-operation-tabs-url-value="http://localhost:3000/expedients/notes"
+                                        data-operation-tabs-url-value="<%=expedients_notes_path%>"
                                         data-operation-tabs-id-value="notes"
-                                        data-action="click->operation-tabs#changeTab click->calories-tabs#selectTab"
-                                        data-calories-tabs-target="option">
+                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-paint-active-tabs-target="option">
                                         Notas
                                     </a>
                                 </nav>
+                            </div>
+                            <div class="border-t border-gray-200">
+                                <turbo-frame data-controller="operation-tabs-shower"
+                                    data-operation-tabs-shower-target="turboFrame"
+                                    data-action="refreshOperationTurboFrame@window->operation-tabs-shower#updateTurboFrame"
+                                    id="expedients">
+                                    
+                                </turbo-frame>
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="border-t border-gray-200">
-                        <turbo-frame data-controller="operation-tabs-shower"
-                            data-operation-tabs-shower-target="turboFrame"
-                            data-action="refreshOperationTurboFrame@window->operation-tabs-shower#updateTurboFrame"
-                            id="index">
-                            Reemplazar por el codigo
-                        </turbo-frame>
-</div>
 
 
 
-<script>
-    function select(config) {
-        return {
-            data: config.data,
+                    <script>
+                        function select(config) {
+                            return {
+                                data: config.data,
 
-            emptyOptionsMessage: config.emptyOptionsMessage ?? 'No results match your search.',
+                                emptyOptionsMessage: config.emptyOptionsMessage ?? 'No results match your search.',
 
-            focusedOptionIndex: null,
+                                focusedOptionIndex: null,
 
-            name: config.name,
+                                name: config.name,
 
-            open: false,
+                                open: false,
 
-            options: {},
+                                options: {},
 
-            placeholder: config.placeholder ?? 'Select an option',
+                                placeholder: config.placeholder ?? 'Select an option',
 
-            search: '',
+                                search: '',
 
-            value: config.value,
+                                value: config.value,
 
-            closeListbox: function () {
-                this.open = false
+                                closeListbox: function () {
+                                    this.open = false
 
-                this.focusedOptionIndex = null
+                                    this.focusedOptionIndex = null
 
-                this.search = ''
-            },
+                                    this.search = ''
+                                },
 
-            focusNextOption: function () {
-                if (this.focusedOptionIndex === null) return this.focusedOptionIndex = Object.keys(this.options).length - 1
+                                focusNextOption: function () {
+                                    if (this.focusedOptionIndex === null) return this.focusedOptionIndex = Object.keys(this.options).length - 1
 
-                if (this.focusedOptionIndex + 1 >= Object.keys(this.options).length) return
+                                    if (this.focusedOptionIndex + 1 >= Object.keys(this.options).length) return
 
-                this.focusedOptionIndex++
+                                    this.focusedOptionIndex++
 
-                this.$refs.listbox.children[this.focusedOptionIndex].scrollIntoView({
-                    block: "center",
-                })
-            },
+                                    this.$refs.listbox.children[this.focusedOptionIndex].scrollIntoView({
+                                        block: "center",
+                                    })
+                                },
 
-            focusPreviousOption: function () {
-                if (this.focusedOptionIndex === null) return this.focusedOptionIndex = 0
+                                focusPreviousOption: function () {
+                                    if (this.focusedOptionIndex === null) return this.focusedOptionIndex = 0
 
-                if (this.focusedOptionIndex <= 0) return
+                                    if (this.focusedOptionIndex <= 0) return
 
-                this.focusedOptionIndex--
+                                    this.focusedOptionIndex--
 
-                this.$refs.listbox.children[this.focusedOptionIndex].scrollIntoView({
-                    block: "center",
-                })
-            },
+                                    this.$refs.listbox.children[this.focusedOptionIndex].scrollIntoView({
+                                        block: "center",
+                                    })
+                                },
 
-            init: function () {
-                this.options = this.data
+                                init: function () {
+                                    this.options = this.data
 
-                if (!(this.value in this.options)) this.value = null
+                                    if (!(this.value in this.options)) this.value = null
 
-                this.$watch('search', ((value) => {
-                    if (!this.open || !value) return this.options = this.data
+                                    this.$watch('search', ((value) => {
+                                        if (!this.open || !value) return this.options = this.data
 
-                    this.options = Object.keys(this.data)
-                        .filter((key) => this.data[key].toLowerCase().includes(value.toLowerCase()))
-                        .reduce((options, key) => {
-                            options[key] = this.data[key]
-                            return options
-                        }, {})
-                }))
-            },
+                                        this.options = Object.keys(this.data)
+                                            .filter((key) => this.data[key].toLowerCase().includes(value.toLowerCase()))
+                                            .reduce((options, key) => {
+                                                options[key] = this.data[key]
+                                                return options
+                                            }, {})
+                                    }))
+                                },
 
-            selectOption: function () {
-                if (!this.open) return this.toggleListboxVisibility()
+                                selectOption: function () {
+                                    if (!this.open) return this.toggleListboxVisibility()
 
-                this.value = Object.keys(this.options)[this.focusedOptionIndex]
+                                    this.value = Object.keys(this.options)[this.focusedOptionIndex]
 
-                this.closeListbox()
-            },
+                                    this.closeListbox()
+                                },
 
-            toggleListboxVisibility: function () {
-                if (this.open) return this.closeListbox()
+                                toggleListboxVisibility: function () {
+                                    if (this.open) return this.closeListbox()
 
-                this.focusedOptionIndex = Object.keys(this.options).indexOf(this.value)
+                                    this.focusedOptionIndex = Object.keys(this.options).indexOf(this.value)
 
-                if (this.focusedOptionIndex < 0) this.focusedOptionIndex = 0
+                                    if (this.focusedOptionIndex < 0) this.focusedOptionIndex = 0
 
-                this.open = true
+                                    this.open = true
 
-                this.$nextTick(() => {
-                    this.$refs.search.focus()
+                                    this.$nextTick(() => {
+                                        this.$refs.search.focus()
 
-                    this.$refs.listbox.children[this.focusedOptionIndex].scrollIntoView({
-                        block: "center"
-                    })
-                })
-            },
-        }
-    }
-</script>
+                                        this.$refs.listbox.children[this.focusedOptionIndex].scrollIntoView({
+                                            block: "center"
+                                        })
+                                    })
+                                },
+                            }
+                        }
+                    </script>
