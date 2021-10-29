@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_045805) do
+ActiveRecord::Schema.define(version: 2021_10_28_051749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2021_10_27_045805) do
     t.float "weight"
     t.float "bmi"
     t.float "usual_weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "body_circumferences", force: :cascade do |t|
+    t.float "waist"
+    t.float "hip"
+    t.float "relaxed_arm"
+    t.float "flexed_arm"
+    t.float "calf"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

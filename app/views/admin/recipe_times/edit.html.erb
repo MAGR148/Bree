@@ -7,7 +7,7 @@
           <label class="text-gray-500 font-semibold text-xs ml-3">
             <%= t(attribute) %>
             <span class="bg-white text-gray-500 hidden ml-2 py-0.5 px-1.5 border border-gray-300 rounded-full text-xs font-semibold md:inline-block">
-              <%= value[:quantity] %>
+              <%= value[@time.to_sym] %>
             </span>
           </label>
         </div>
