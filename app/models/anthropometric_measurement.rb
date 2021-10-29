@@ -12,4 +12,5 @@
 #
 class AnthropometricMeasurement < ApplicationRecord
     belongs_to :medical_history
+    has_one :body_circumference
 end
