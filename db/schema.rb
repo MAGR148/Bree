@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_29_052004) do
+ActiveRecord::Schema.define(version: 2021_10_29_164714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,15 @@ ActiveRecord::Schema.define(version: 2021_10_29_052004) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["patient_id"], name: "index_medical_histories_on_patient_id"
+  end
+
+  create_table "obstetrical_gynecological_informations", force: :cascade do |t|
+    t.date "last_menstruation"
+    t.string "contraceptives"
+    t.boolean "pregnancy"
+    t.boolean "lactation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "patients", force: :cascade do |t|

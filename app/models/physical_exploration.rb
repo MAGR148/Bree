@@ -15,4 +15,5 @@
 class PhysicalExploration < ApplicationRecord
     belongs_to :medical_history
     has_one :drug_addiction
+    has_one :obstetrical_gynecological_information
 end
