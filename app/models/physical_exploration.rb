@@ -14,4 +14,5 @@
 #
 class PhysicalExploration < ApplicationRecord
     belongs_to :medical_history
+    has_one :drug_addiction
 end
