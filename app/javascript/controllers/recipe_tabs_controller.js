@@ -8,7 +8,7 @@ export default class extends Controller {
 
   changeTab(e) {
     e.preventDefault();
-    
+
     window.dispatchEvent(new CustomEvent('refreshRecipeTimeTurboFrame', {
       detail: {
         url: this.urlValue,

@@ -32,7 +32,16 @@
                 </div>
                 <div class="hidden sm:block">
                   <div class="flex items-center border-b border-gray-200 sm:px-16">
-                    <nav class="flex-1 -mb-px flex space-x-6 xl:space-x-8" aria-label="Tabs">
+                    <nav 
+                      class="flex-1 -mb-px flex space-x-6 xl:space-x-8" 
+                      aria-label="Tabs"
+                      data-controller="recipe-active-tab"
+                      data-recipe-active-tab-selected-class="border-indigo-500 text-indigo-600"
+                      data-recipe-active-tab-not-selected-class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                      data-recipe-active-tab-span-selected-class="bg-indigo-100 text-indigo-700"
+                      data-recipe-active-tab-span-not-selected-class="bg-gray-100 text-gray-600"
+                    >
+
                       <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
                       <a 
                         aria-current="page" 
@@ -40,7 +49,8 @@
                         data-controller="recipe-tabs"
                         data-recipe-tabs-id-value="patient-recipe-times"
                         data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'breakfast', id: 1) %>"
-                        data-action="click->recipe-tabs#changeTab"
+                        data-action="click->recipe-tabs#changeTab click->recipe-active-tab#select"
+                        data-recipe-active-tab-target="tab"
                       >
                         Desayuno
                         <span class="bg-indigo-100 text-indigo-700 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">4</span>
@@ -51,7 +61,8 @@
                         data-controller="recipe-tabs"
                         data-recipe-tabs-id-value="patient-recipe-times"
                         data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'firstCollation', id: 1) %>"
-                        data-action="click->recipe-tabs#changeTab"
+                        data-action="click->recipe-tabs#changeTab click->recipe-active-tab#select"
+                        data-recipe-active-tab-target="tab"
                       >
                         Colación 1
                         <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">9</span>
@@ -62,7 +73,8 @@
                         data-controller="recipe-tabs"
                         data-recipe-tabs-id-value="patient-recipe-times"
                         data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'meal', id: 1) %>"
-                        data-action="click->recipe-tabs#changeTab"
+                        data-action="click->recipe-tabs#changeTab click->recipe-active-tab#select"
+                        data-recipe-active-tab-target="tab"
                       >
                         Comida
                         <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">3</span>
@@ -73,10 +85,11 @@
                         data-controller="recipe-tabs"
                         data-recipe-tabs-id-value="patient-recipe-times"
                         data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'secondCollation', id: 1) %>"
-                        data-action="click->recipe-tabs#changeTab"
+                        data-action="click->recipe-tabs#changeTab click->recipe-active-tab#select"
+                        data-recipe-active-tab-target="tab"
                       >
                         Colación 2
-                        <!-- <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">0</span> -->
+                        <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">0</span>
                       </a>
 
                       <a 
@@ -84,10 +97,11 @@
                         data-controller="recipe-tabs"
                         data-recipe-tabs-id-value="patient-recipe-times"
                         data-recipe-tabs-url-value="<%= edit_admin_patient_recipe_time_path(patient_id: @patient.id, recipe_time: 'dinner', id: 1) %>"
-                        data-action="click->recipe-tabs#changeTab"
+                        data-action="click->recipe-tabs#changeTab click->recipe-active-tab#select"
+                        data-recipe-active-tab-target="tab"
                       >
                         Cena
-                        <!-- <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">0</span> -->
+                        <span class="bg-gray-100 text-gray-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-semibold md:inline-block">0</span>
                       </a>
                     </nav>
                   </div>
