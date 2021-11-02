@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_051749) do
+ActiveRecord::Schema.define(version: 2021_10_29_164714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,23 @@ ActiveRecord::Schema.define(version: 2021_10_28_051749) do
     t.float "relaxed_arm"
     t.float "flexed_arm"
     t.float "calf"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "body_compositions", force: :cascade do |t|
+    t.float "fat_percentage"
+    t.float "kilograms_fat"
+    t.float "muscle_mass"
+    t.float "body_water"
+    t.string "bioimpedance"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "drug_addictions", force: :cascade do |t|
+    t.string "alcohol_consumption"
+    t.string "tobacco_consumption"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -147,6 +164,15 @@ ActiveRecord::Schema.define(version: 2021_10_28_051749) do
     t.index ["patient_id"], name: "index_medical_histories_on_patient_id"
   end
 
+  create_table "obstetrical_gynecological_informations", force: :cascade do |t|
+    t.date "last_menstruation"
+    t.string "contraceptives"
+    t.boolean "pregnancy"
+    t.boolean "lactation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -166,6 +192,17 @@ ActiveRecord::Schema.define(version: 2021_10_28_051749) do
     t.string "occupation"
     t.string "objectives", default: [], array: true
     t.index ["user_id"], name: "index_patients_on_user_id"
+  end
+
+  create_table "physical_explorations", force: :cascade do |t|
+    t.text "hair_description"
+    t.text "skin_description"
+    t.text "eyes_description"
+    t.text "nails_description"
+    t.text "mouth_description"
+    t.float "blood_pressure"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "plans", force: :cascade do |t|
