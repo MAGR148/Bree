@@ -10,7 +10,7 @@ gem "chartkick"
 gem 'data_migrate'
 gem 'devise'
 gem 'honeybadger'
-gem 'hotwire-rails', '~> 0.1.3'
+gem "hotwire-rails", "~> 0.1.3"
 gem 'interactor'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
@@ -46,4 +46,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
