@@ -224,9 +224,6 @@
                                             </div>
                                         </div>
 
-
-
-
                                         </fieldset>
                                         <div class="col-span-6 sm:col-span-4 mt-8">
                                             <label for="motive" class="text-sm">Otro trastorno gastrointestinal</label>
@@ -298,7 +295,11 @@
                                     </div>
 
 
-                                </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
                             </form>
                         </div>
                     </div>
@@ -353,6 +354,13 @@
                                             <!--Fin Select-->
                                             </div>
 
+                                                    <div x-show="! Object.keys(options).length"
+                                                        x-text="emptyOptionsMessage"
+                                                        class="px-3 py-2 text-gray-900 cursor-default select-none">
+                                                    </div>
+                                                </ul>
+                                            </div>
+                                        </div>
 
                                         </div>
                             </form>

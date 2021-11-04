@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'slideover_expedients/anthropometric'
   get 'slideover_expedients/physical_activity'
   get 'slideover_expedients/notes'
- get 'expedients/anthropometric'
+  get 'expedients/anthropometric'
   get 'expedients/general'
   get 'expedients/habits'
   get 'expedients/history'
