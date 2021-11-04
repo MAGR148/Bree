@@ -716,6 +716,12 @@
 
             </div>
 
+                                                                <input x-ref="search" x-show="open" x-model="search"
+                                                                    @keydown.enter.stop.prevent="selectOption()"
+                                                                    @keydown.arrow-up.prevent="focusPreviousOption()"
+                                                                    @keydown.arrow-down.prevent="focusNextOption()"
+                                                                    type="search"
+                                                                    class="w-full h-full form-control focus:outline-none" />
 
             <!-- Relación con los alimentos-->
             <div class="bg-gray-100 w-full px-6 py-5">
