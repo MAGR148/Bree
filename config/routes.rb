@@ -54,6 +54,8 @@ Rails.application.routes.draw do
     resources :historials
     resources :notes
     resources :physical_activities
+
+    resources :expedients, only: :show
   end
 
 end
