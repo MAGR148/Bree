@@ -45,4 +45,15 @@ Rails.application.routes.draw do
       resources :recipe_times, path: 'recipe_times/:recipe_time'
     end
   end
+
+  #Routes for tabs
+  namespace :patients do
+    resources :anthropometrics
+    resources :generals
+    resources :habits
+    resources :historials
+    resources :notes
+    resources :physical_activities
+  end
+
 end
