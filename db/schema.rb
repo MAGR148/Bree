@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_051749) do
+ActiveRecord::Schema.define(version: 2021_11_01_192857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,23 @@ ActiveRecord::Schema.define(version: 2021_10_28_051749) do
     t.float "relaxed_arm"
     t.float "flexed_arm"
     t.float "calf"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "body_compositions", force: :cascade do |t|
+    t.float "fat_percentage"
+    t.float "kilograms_fat"
+    t.float "muscle_mass"
+    t.float "body_water"
+    t.string "bioimpedance"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "drug_addictions", force: :cascade do |t|
+    t.string "alcohol_consumption"
+    t.string "tobacco_consumption"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -126,6 +143,16 @@ ActiveRecord::Schema.define(version: 2021_10_28_051749) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "laboratories", force: :cascade do |t|
+    t.string "analysis_type"
+    t.date "analysis_date"
+    t.string "file_name"
+    t.bigint "medical_history_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["medical_history_id"], name: "index_laboratories_on_medical_history_id"
+  end
+
   create_table "macronutrients", force: :cascade do |t|
     t.bigint "plan_id", null: false
     t.jsonb "carbohydrates", default: {"grams"=>287.5, "percentage"=>50}, null: false
@@ -147,6 +174,15 @@ ActiveRecord::Schema.define(version: 2021_10_28_051749) do
     t.index ["patient_id"], name: "index_medical_histories_on_patient_id"
   end
 
+  create_table "obstetrical_gynecological_informations", force: :cascade do |t|
+    t.date "last_menstruation"
+    t.string "contraceptives"
+    t.boolean "pregnancy"
+    t.boolean "lactation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -166,6 +202,17 @@ ActiveRecord::Schema.define(version: 2021_10_28_051749) do
     t.string "occupation"
     t.string "objectives", default: [], array: true
     t.index ["user_id"], name: "index_patients_on_user_id"
+  end
+
+  create_table "physical_explorations", force: :cascade do |t|
+    t.text "hair_description"
+    t.text "skin_description"
+    t.text "eyes_description"
+    t.text "nails_description"
+    t.text "mouth_description"
+    t.float "blood_pressure"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "plans", force: :cascade do |t|
@@ -214,6 +261,7 @@ ActiveRecord::Schema.define(version: 2021_10_28_051749) do
 
   add_foreign_key "group_portion_times", "plans"
   add_foreign_key "group_portions", "plans"
+  add_foreign_key "laboratories", "medical_histories"
   add_foreign_key "macronutrients", "plans"
   add_foreign_key "medical_histories", "patients"
   add_foreign_key "patients", "users"
