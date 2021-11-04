@@ -22,4 +22,6 @@
 class MedicalHistory < ApplicationRecord
   belongs_to :patient
   has_one :anthropometric_measurement
+  has_one :physical_exploration
+  has_many :laboratories
 end

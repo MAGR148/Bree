@@ -18,4 +18,7 @@ class ExpedientsController < ApplicationController
   def physical_activity
   end
 
+  def anthropometric
+  end
+
 end

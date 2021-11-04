@@ -69,6 +69,8 @@
 
                                     <option>Historial</option>
 
+                                    <option>Antropométrico</option>
+
                                     <option>Hábitos</option>
 
                                     <option>Actividad física</option>
@@ -95,6 +97,15 @@
                                         data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
                                         data-paint-active-tabs-target="option">
                                         Historial
+                                    </a>
+
+                                    <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
+                                        aria-current="page" data-controller="operation-tabs"
+                                        data-operation-tabs-url-value="<%=expedients_anthropometric_path%>"
+                                        data-operation-tabs-id-value="anthropometric"
+                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-paint-active-tabs-target="option">
+                                        Antropométrico
                                     </a>
 
                                     <a class="bg-indigo-50 text-indigo-700 px-3 py-2 font-medium text-sm rounded-md"
