@@ -1,8 +1,8 @@
 require "test_helper"
 
 class ExpedientsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get expedients_index_url
+  def should_get_show
+    get expedients_show_url
     assert_response :success
   end
 end
