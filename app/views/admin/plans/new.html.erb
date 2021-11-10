@@ -279,7 +279,7 @@
                                         data-controller="operation-tabs"
                                         data-operation-tabs-url-value="<%=new_patients_general_path%>"
                                         data-operation-tabs-id-value="general"
-                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-action="click->operation-tabs#tabChange click->paint-active-tabs#selectTab"
                                         data-paint-active-tabs-target="option">
                                         Generales
                                     </a>
@@ -288,7 +288,7 @@
                                         data-controller="operation-tabs"
                                         data-operation-tabs-url-value="<%=new_patients_historial_path%>"
                                         data-operation-tabs-id-value="history"
-                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-action="click->operation-tabs#tabChange click->paint-active-tabs#selectTab"
                                         data-paint-active-tabs-target="option">
                                         Historial
                                     </a>
@@ -297,7 +297,7 @@
                                         data-controller="operation-tabs"
                                         data-operation-tabs-url-value="<%=new_patients_anthropometric_path%>"
                                         data-operation-tabs-id-value="anthropometric"
-                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-action="click->operation-tabs#tabChange click->paint-active-tabs#selectTab"
                                         data-paint-active-tabs-target="option">
                                         Antropométrico
                                     </a>
@@ -306,7 +306,7 @@
                                         data-controller="operation-tabs"
                                         data-operation-tabs-url-value="<%=new_patients_habit_path%>"
                                         data-operation-tabs-id-value="habits"
-                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-action="click->operation-tabs#tabChange click->paint-active-tabs#selectTab"
                                         data-paint-active-tabs-target="option">
                                         Hábitos
                                     </a>
@@ -315,7 +315,7 @@
                                         data-controller="operation-tabs"
                                         data-operation-tabs-url-value="<%=new_patients_physical_activity_path%>"
                                         data-operation-tabs-id-value="physical_activity"
-                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-action="click->operation-tabs#tabChange click->paint-active-tabs#selectTab"
                                         data-paint-active-tabs-target="option">
                                         Actividad física
                                     </a>
@@ -324,7 +324,7 @@
                                         data-controller="operation-tabs"
                                         data-operation-tabs-url-value="<%=new_patients_note_path%>"
                                         data-operation-tabs-id-value="notes"
-                                        data-action="click->operation-tabs#changeTab click->paint-active-tabs#selectTab"
+                                        data-action="click->operation-tabs#tabChange click->paint-active-tabs#selectTab"
                                         data-paint-active-tabs-target="option">
                                         Notas
                                     </a>
@@ -333,7 +333,7 @@
                             <div>
                                 <turbo-frame data-controller="operation-tabs-shower"
                                     data-operation-tabs-shower-target="turboFrame"
-                                    data-action="refreshOperationTurboFrame@window->operation-tabs-shower#updateTurboFrame"
+                                    data-action="operationTurboFrameRefresh@window->operation-tabs-shower#updateTurboFrame"
                                     id="general"
                                     src="<%=new_patients_general_path%>">
                                     
