@@ -12,7 +12,7 @@ gem 'devise'
 gem 'honeybadger'
 gem "hotwire-rails", "~> 0.1.3"
 gem 'interactor'
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.11'
 gem 'pg', '~> 1.1'
 gem 'pg_search'
 gem 'puma', '~> 5.5'
